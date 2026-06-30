@@ -1247,7 +1247,8 @@
 
       // Initialize star ratings
       allCards.forEach(card => {
-        const recipeId = card.getAttribute('href').replace('.html', '');
+        const recipeName = card.querySelector('h2').textContent || '';
+        const recipeId = recipeName.toLowerCase().replace(/\s+/g, '-');
         const rating = parseInt(localStorage.getItem('rk_rating_' + recipeId)) || 0;
         const starsEl = card.querySelector('.card-stars');
         if (starsEl) {
