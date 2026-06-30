@@ -1127,6 +1127,12 @@
 
     <p class="no-results" id="no-results" style="display:none;">No recipes found for that cuisine.</p>
 
+    <div class="pagination">
+      <button id="prev-btn" onclick="prevPage()" style="display:none;">← Previous</button>
+      <span id="page-info" style="display:none; margin: 0 20px; font-weight: bold;"></span>
+      <button id="next-btn" onclick="nextPage()" style="display:none;">Next →</button>
+    </div>
+
   </main>
 
   <footer>
@@ -1134,31 +1140,122 @@
   </footer>
 
   <script>
+    // Pagination settings
+    const RECIPES_PER_PAGE = 15;
+    let currentPage = 1;
+    let allCards = [];
+    let filteredCards = [];
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all recipe cards
+      allCards = Array.from(document.querySelectorAll('.card'));
+
+      // Initialize star ratings
+      allCards.forEach(card => {
+        const recipeId = card.getAttribute('href').replace('.html', '');
+        const rating = parseInt(localStorage.getItem('rk_rating_' + recipeId)) || 0;
+        const starsEl = card.querySelector('.card-stars');
+        if (starsEl) {
+          for (let i = 1; i <= 5; i++) {
+            const s = document.createElement('span');
+            s.className = 'star-dot' + (i <= rating ? ' filled' : '');
+            s.textContent = '★';
+            starsEl.appendChild(s);
+          }
+        }
+      });
+
+      // Initialize pagination with all recipes
+      filteredCards = [...allCards];
+      currentPage = 1;
+      updatePagination();
+    });
+
     function filterRecipes() {
       const selected = document.getElementById('cuisine-filter').value;
-      const cards = document.querySelectorAll('.card');
-      let visible = 0;
-      cards.forEach(card => {
-        const show = selected === 'all' || card.dataset.cuisine === selected;
-        card.style.display = show ? 'block' : 'none';
-        if (show) visible++;
+
+      // Filter cards based on selected cuisine
+      filteredCards = allCards.filter(card => {
+        return selected === 'all' || card.dataset.cuisine === selected;
       });
-      document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+
+      // Reset to page 1 when filtering
+      currentPage = 1;
+      updatePagination();
     }
 
-    document.querySelectorAll('.card').forEach(card => {
-      const recipeId = card.getAttribute('href').replace('.html', '');
-      const rating = parseInt(localStorage.getItem('rk_rating_' + recipeId)) || 0;
-      const starsEl = card.querySelector('.card-stars');
-      if (starsEl) {
-        for (let i = 1; i <= 5; i++) {
-          const s = document.createElement('span');
-          s.className = 'star-dot' + (i <= rating ? ' filled' : '');
-          s.textContent = '★';
-          starsEl.appendChild(s);
+    function updatePagination() {
+      const totalPages = Math.ceil(filteredCards.length / RECIPES_PER_PAGE);
+      const startIdx = (currentPage - 1) * RECIPES_PER_PAGE;
+      const endIdx = startIdx + RECIPES_PER_PAGE;
+
+      // Hide all cards
+      allCards.forEach(card => {
+        card.style.display = 'none';
+      });
+
+      // Show only cards for current page
+      filteredCards.slice(startIdx, endIdx).forEach(card => {
+        card.style.display = 'block';
+      });
+
+      // Update pagination controls
+      const noResults = document.getElementById('no-results');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const pageInfo = document.getElementById('page-info');
+
+      if (filteredCards.length === 0) {
+        noResults.style.display = 'block';
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        pageInfo.style.display = 'none';
+      } else {
+        noResults.style.display = 'none';
+
+        // Show pagination controls
+        if (totalPages > 1) {
+          prevBtn.style.display = 'inline-block';
+          nextBtn.style.display = 'inline-block';
+          pageInfo.style.display = 'inline-block';
+
+          // Disable prev button on first page
+          prevBtn.disabled = currentPage === 1;
+          prevBtn.style.opacity = currentPage === 1 ? '0.5' : '1';
+          prevBtn.style.cursor = currentPage === 1 ? 'not-allowed' : 'pointer';
+
+          // Disable next button on last page
+          nextBtn.disabled = currentPage === totalPages;
+          nextBtn.style.opacity = currentPage === totalPages ? '0.5' : '1';
+          nextBtn.style.cursor = currentPage === totalPages ? 'not-allowed' : 'pointer';
+
+          // Update page info text
+          pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+        } else {
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+          pageInfo.style.display = 'none';
         }
       }
-    });
+    }
+
+    function nextPage() {
+      const totalPages = Math.ceil(filteredCards.length / RECIPES_PER_PAGE);
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePagination();
+        window.scrollTo(0, 0); // Scroll to top
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+        window.scrollTo(0, 0); // Scroll to top
+      }
+    }
   </script>
 
 </body>
