@@ -31,6 +31,63 @@
       </select>
     </div>
 
+    <div class="roulette-section">
+      <h2>🎰 Dinner Roulette</h2>
+      <p>Can't decide? Pick up to 3 cuisines and let the wheel decide!</p>
+      <div class="roulette-controls">
+        <div class="roulette-group">
+          <label for="roulette-1">Cuisine 1:</label>
+          <select id="roulette-1">
+            <option value="">None</option>
+            <option value="american">American</option>
+            <option value="asian">Asian</option>
+            <option value="cajun">Cajun</option>
+            <option value="italian">Italian</option>
+            <option value="dessert">Dessert</option>
+            <option value="mexican">Mexican</option>
+            <option value="thai">Thai</option>
+          </select>
+        </div>
+        <div class="roulette-group">
+          <label for="roulette-2">Cuisine 2:</label>
+          <select id="roulette-2">
+            <option value="">None</option>
+            <option value="american">American</option>
+            <option value="asian">Asian</option>
+            <option value="cajun">Cajun</option>
+            <option value="italian">Italian</option>
+            <option value="dessert">Dessert</option>
+            <option value="mexican">Mexican</option>
+            <option value="thai">Thai</option>
+          </select>
+        </div>
+        <div class="roulette-group">
+          <label for="roulette-3">Cuisine 3:</label>
+          <select id="roulette-3">
+            <option value="">None</option>
+            <option value="american">American</option>
+            <option value="asian">Asian</option>
+            <option value="cajun">Cajun</option>
+            <option value="italian">Italian</option>
+            <option value="dessert">Dessert</option>
+            <option value="mexican">Mexican</option>
+            <option value="thai">Thai</option>
+          </select>
+        </div>
+        <button id="spin-btn" onclick="spinRoulette()">🎯 Spin the Wheel</button>
+      </div>
+      <div id="roulette-result" style="display:none;">
+        <p>You should try:</p>
+        <a id="roulette-recipe" href="#" class="roulette-card">
+          <img id="roulette-img" src="" alt="Recipe" />
+          <div class="roulette-card-body">
+            <h3 id="roulette-name"></h3>
+            <p id="roulette-desc"></p>
+          </div>
+        </a>
+      </div>
+    </div>
+
     <div class="card-grid" id="recipe-grid">
 
       <a href="chicken-strips.html" class="card" data-cuisine="american">
@@ -1183,6 +1240,51 @@
       // Reset to page 1 when filtering
       currentPage = 1;
       updatePagination();
+    }
+
+    function spinRoulette() {
+      // Get selected cuisines
+      const cuisines = [
+        document.getElementById('roulette-1').value,
+        document.getElementById('roulette-2').value,
+        document.getElementById('roulette-3').value
+      ].filter(c => c !== ''); // Remove empty selections
+
+      // Validate at least one cuisine is selected
+      if (cuisines.length === 0) {
+        alert('Please select at least one cuisine!');
+        return;
+      }
+
+      // Filter cards by selected cuisines
+      const validCards = allCards.filter(card => {
+        return cuisines.includes(card.dataset.cuisine);
+      });
+
+      // Check if any recipes match
+      if (validCards.length === 0) {
+        alert('No recipes found for those cuisines!');
+        return;
+      }
+
+      // Pick a random recipe
+      const randomRecipe = validCards[Math.floor(Math.random() * validCards.length)];
+
+      // Get recipe details
+      const recipeName = randomRecipe.querySelector('h2').textContent;
+      const recipeDesc = randomRecipe.querySelector('p').textContent;
+      const recipeImg = randomRecipe.querySelector('img').src;
+      const recipeLink = randomRecipe.getAttribute('href');
+
+      // Display result
+      document.getElementById('roulette-img').src = recipeImg;
+      document.getElementById('roulette-name').textContent = recipeName;
+      document.getElementById('roulette-desc').textContent = recipeDesc;
+      document.getElementById('roulette-recipe').href = recipeLink;
+      document.getElementById('roulette-result').style.display = 'block';
+
+      // Scroll to result
+      document.getElementById('roulette-result').scrollIntoView({ behavior: 'smooth' });
     }
 
     function updatePagination() {

@@ -49,6 +49,134 @@ main {
   font-weight: 600;
 }
 
+.roulette-section {
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, rgba(139, 111, 71, 0.2) 100%);
+  border: 2px solid #d4a574;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.roulette-section h2 {
+  color: #d4a574;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.roulette-section p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.roulette-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.roulette-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.roulette-group label {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.roulette-group select {
+  padding: 10px 15px;
+  border: 2px solid #d4a574;
+  border-radius: 6px;
+  background: #1e1e1e;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.roulette-group select:hover {
+  border-color: #e8c299;
+}
+
+#spin-btn {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #d4a574 0%, #8b6f47 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+#spin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+}
+
+#spin-btn:active {
+  transform: translateY(0);
+}
+
+#roulette-result {
+  margin-top: 20px;
+}
+
+#roulette-result p {
+  color: #d4a574;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.roulette-card {
+  display: inline-block;
+  width: 280px;
+  background: #2d2d2d;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.roulette-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(212, 165, 116, 0.3);
+}
+
+.roulette-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.roulette-card-body {
+  padding: 15px;
+}
+
+.roulette-card-body h3 {
+  color: #d4a574;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.roulette-card-body p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
 .filter-bar select {
   padding: 10px 15px;
   font-size: 1rem;
