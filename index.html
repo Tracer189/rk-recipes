@@ -1,22 +1,35 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R&K Recipes</title>
+  <title>R&amp;K Recipes</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <section class="hero" style="background-image: url('images/Caprese%20Appetizer.png'); background-size: cover; background-position: center; position: relative;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
-    <div class="hero-content" style="position: relative; z-index: 2;">
-      <h1>R&K Recipes</h1>
+  <section class="hero" style="background-image: url('images/Caprese%20Appetizer.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="hero-content">
+      <h1>R&amp;K Recipes</h1>
       <p>Simple meals. Big flavor.</p>
     </div>
   </section>
 
   <main>
+
+    <div class="filter-bar">
+      <label for="cuisine-filter">Filter by cuisine:</label>
+      <select id="cuisine-filter" onchange="filterRecipes()">
+        <option value="all">All</option>
+        <option value="american">American</option>
+        <option value="asian">Asian</option>
+        <option value="cajun">Cajun</option>
+        <option value="italian">Italian</option>
+        <option value="dessert">Dessert</option>
+        <option value="mexican">Mexican</option>
+        <option value="thai">Thai</option>
+      </select>
+    </div>
 
     <div class="roulette-section">
       <h2>🎰 Dinner Roulette</h2>
@@ -65,7 +78,7 @@
       </div>
       <div id="roulette-result" style="display:none;">
         <p>You should try:</p>
-        <div class="roulette-card">
+        <div class="roulette-card" onclick="event.stopPropagation()">
           <img id="roulette-img" src="" alt="Recipe" />
           <div class="roulette-card-body">
             <h3 id="roulette-name"></h3>
@@ -75,24 +88,10 @@
       </div>
     </div>
 
-    <div class="filter-bar">
-      <label for="cuisine-filter">Filter by cuisine:</label>
-      <select id="cuisine-filter" onchange="filterRecipes()">
-        <option value="all">All</option>
-        <option value="american">American</option>
-        <option value="asian">Asian</option>
-        <option value="cajun">Cajun</option>
-        <option value="italian">Italian</option>
-        <option value="dessert">Dessert</option>
-        <option value="mexican">Mexican</option>
-        <option value="thai">Thai</option>
-      </select>
-    </div>
-
     <div class="card-grid" id="recipe-grid">
 
       <div class="card" data-cuisine="american" onclick="showRecipeDetail(this)">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Strips.png" alt="Chicken Strips" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20Strips.png" alt="Chicken Strips" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chicken Strips</h2>
@@ -102,7 +101,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="thai">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/pad-krapow-gai.png" alt="Pad Krapow Gai" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/pad-krapow-gai.png" alt="Pad Krapow Gai" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Thai</span>
           <h2>Pad Krapow Gai</h2>
@@ -112,7 +111,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Steak%20%26%20Pasta%20in%20Cowboy%20Butter.png" alt="Steak &amp; Pasta in Cowboy Butter" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Steak%20%26%20Pasta%20in%20Cowboy%20Butter.png" alt="Steak &amp; Pasta in Cowboy Butter" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Steak &amp; Pasta in Cowboy Butter</h2>
@@ -122,7 +121,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Caprese%20Pasta.png" alt="Caprese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Caprese%20Pasta.png" alt="Caprese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Caprese Pasta</h2>
@@ -132,7 +131,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spaghetti%20Al%20Limone.png" alt="Spaghetti Al Limone" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Spaghetti%20Al%20Limone.png" alt="Spaghetti Al Limone" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Spaghetti Al Limone</h2>
@@ -142,7 +141,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Red%20Wine%20Reduction%20Sauce.png" alt="Steak in a Red Wine Reduction Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Red%20Wine%20Reduction%20Sauce.png" alt="Steak in a Red Wine Reduction Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Steak in a Red Wine Reduction Sauce</h2>
@@ -152,7 +151,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Brown%20Sugar%20Chicken%20Recipe.png" alt="Brown Sugar Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Brown%20Sugar%20Chicken%20Recipe.png" alt="Brown Sugar Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Brown Sugar Chicken</h2>
@@ -162,7 +161,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One%20Pot%20Creamy%20Cajun%20Chicken%20Pasta.png" alt="One Pot Creamy Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/One%20Pot%20Creamy%20Cajun%20Chicken%20Pasta.png" alt="One Pot Creamy Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
           <h2>One Pot Creamy Cajun Chicken Pasta</h2>
@@ -172,7 +171,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Pan%20Fried%20Noodles.png" alt="Chicken Pan Fried Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20Pan%20Fried%20Noodles.png" alt="Chicken Pan Fried Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Chicken Pan Fried Noodles</h2>
@@ -182,7 +181,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Buffalo%20Chicken%20Alfredo%20Penne.png" alt="Buffalo Chicken Alfredo Penne" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Buffalo%20Chicken%20Alfredo%20Penne.png" alt="Buffalo Chicken Alfredo Penne" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Buffalo Chicken Alfredo Penne</h2>
@@ -192,7 +191,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Burrataca%20Cheese%20Pasta.png" alt="Burrata Cheese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Burrataca%20Cheese%20Pasta.png" alt="Burrata Cheese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Burrata Cheese Pasta</h2>
@@ -202,7 +201,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One%20Pan%20Spicy%20Garlic%20Lime%20Chicken%20Pasta.png" alt="One Pan Spicy Garlic Lime Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/One%20Pan%20Spicy%20Garlic%20Lime%20Chicken%20Pasta.png" alt="One Pan Spicy Garlic Lime Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>One Pan Spicy Garlic Lime Chicken Pasta</h2>
@@ -212,7 +211,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One%20Pot%20Spicy%20Honey%20Garlic%20Chicken%20Pasta.png" alt="One Pot Spicy Honey Garlic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/One%20Pot%20Spicy%20Honey%20Garlic%20Chicken%20Pasta.png" alt="One Pot Spicy Honey Garlic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>One Pot Spicy Honey Garlic Chicken Pasta</h2>
@@ -222,7 +221,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sweet%20and%20Sour%20Chicken.png" alt="Sweet &amp; Sour Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Sweet%20and%20Sour%20Chicken.png" alt="Sweet &amp; Sour Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Sweet &amp; Sour Chicken</h2>
@@ -232,7 +231,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/White%20Pizza.png" alt="White Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/White%20Pizza.png" alt="White Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>White Pizza</h2>
@@ -242,7 +241,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sesame%20Chicken.png" alt="Sesame Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Sesame%20Chicken.png" alt="Sesame Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Sesame Chicken</h2>
@@ -252,7 +251,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Four%20Cheese%20Gnocchi.png" alt="Four Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Four%20Cheese%20Gnocchi.png" alt="Four Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Four Cheese Gnocchi</h2>
@@ -262,7 +261,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Sandwich.png" alt="Chicken Sandwich" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20Sandwich.png" alt="Chicken Sandwich" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chicken Sandwich</h2>
@@ -272,7 +271,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Load%20Cheese%20Fries.png" alt="Loaded Cheese Fries" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Load%20Cheese%20Fries.png" alt="Loaded Cheese Fries" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Loaded Cheese Fries</h2>
@@ -282,7 +281,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cajun%20Chicken%20Pasta.png" alt="Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Cajun%20Chicken%20Pasta.png" alt="Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
           <h2>Cajun Chicken Pasta</h2>
@@ -292,7 +291,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20Pepper%20Chicken%20Pasta.png" alt="Honey Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Honey%20Pepper%20Chicken%20Pasta.png" alt="Honey Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Honey Pepper Chicken Pasta</h2>
@@ -302,7 +301,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Bruschetta%20Pasta.png" alt="Chicken Bruschetta Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20Bruschetta%20Pasta.png" alt="Chicken Bruschetta Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Chicken Bruschetta Pasta</h2>
@@ -312,7 +311,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Balsamic%20Chicken%20Pasta.jpeg" alt="Balsamic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Balsamic%20Chicken%20Pasta.jpeg" alt="Balsamic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Balsamic Chicken Pasta</h2>
@@ -322,7 +321,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Loco%20Moco.png" alt="Loco Moco" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Loco%20Moco.png" alt="Loco Moco" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Loco Moco</h2>
@@ -332,7 +331,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Caprese%20Appetizer.png" alt="Caprese Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Caprese%20Appetizer.png" alt="Caprese Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Caprese Appetizer</h2>
@@ -342,7 +341,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Coconut%20Lime%20Chicken.png" alt="Coconut Lime Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Coconut%20Lime%20Chicken.png" alt="Coconut Lime Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Coconut Lime Chicken</h2>
@@ -352,7 +351,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Triscuit%20Appetizer.png" alt="Triscuit Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Triscuit%20Appetizer.png" alt="Triscuit Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Triscuit Appetizer</h2>
@@ -362,7 +361,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20Garlic%20Chicken%20Bites.png" alt="Honey Garlic Chicken Bites" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Honey%20Garlic%20Chicken%20Bites.png" alt="Honey Garlic Chicken Bites" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Honey Garlic Chicken Bites</h2>
@@ -372,7 +371,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Dragon%20Glazed%20Chicken.png" alt="Dragon Glazed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Dragon%20Glazed%20Chicken.png" alt="Dragon Glazed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Dragon Glazed Chicken</h2>
@@ -382,7 +381,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Buffalo%20Chicken%20Alfredo%20Pasta.png" alt="Buffalo Chicken Alfredo Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Buffalo%20Chicken%20Alfredo%20Pasta.png" alt="Buffalo Chicken Alfredo Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Buffalo Chicken Alfredo Pasta</h2>
@@ -392,7 +391,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One-Pot%20Smoky%20BBQ%20Meatball%20Pasta.png" alt="One-Pot Smoky BBQ Meatball Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/One-Pot%20Smoky%20BBQ%20Meatball%20Pasta.png" alt="One-Pot Smoky BBQ Meatball Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>One-Pot Smoky BBQ Meatball Pasta</h2>
@@ -402,7 +401,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spaghetti%20Carbonara.png" alt="Spaghetti Carbonara" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Spaghetti%20Carbonara.png" alt="Spaghetti Carbonara" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Spaghetti Carbonara</h2>
@@ -412,7 +411,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Lasagna.png" alt="Lasagna" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Lasagna.png" alt="Lasagna" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Lasagna</h2>
@@ -422,7 +421,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Pasta%20with%20Lemon%20Sauce.png" alt="Pasta with Lemon Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Pasta%20with%20Lemon%20Sauce.png" alt="Pasta with Lemon Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Pasta with Lemon Sauce</h2>
@@ -432,7 +431,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Caprese%20Pasta%20v2.png" alt="Caprese Pasta v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Caprese%20Pasta%20v2.png" alt="Caprese Pasta v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Caprese Pasta v2</h2>
@@ -442,7 +441,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Agilo%20Olil.png" alt="Aglio e Olio" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Agilo%20Olil.png" alt="Aglio e Olio" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Aglio e Olio</h2>
@@ -452,7 +451,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Buttery%20Garlic%20Thyme%20Gnocchi.png" alt="Buttery Garlic Thyme Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Buttery%20Garlic%20Thyme%20Gnocchi.png" alt="Buttery Garlic Thyme Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Buttery Garlic Thyme Gnocchi</h2>
@@ -462,7 +461,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Baked%20Gnocchi.png" alt="Baked Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Baked%20Gnocchi.png" alt="Baked Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Baked Gnocchi</h2>
@@ -472,7 +471,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Creamy%20Chicken%20Gnocchi.png" alt="Creamy Chicken Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Creamy%20Chicken%20Gnocchi.png" alt="Creamy Chicken Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Creamy Chicken Gnocchi</h2>
@@ -482,7 +481,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cheesy%20Pork%20%26%20Broccoli%20Risotto.png" alt="Cheesy Pork &amp; Broccoli Risotto" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Cheesy%20Pork%20%26%20Broccoli%20Risotto.png" alt="Cheesy Pork &amp; Broccoli Risotto" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Cheesy Pork &amp; Broccoli Risotto</h2>
@@ -492,7 +491,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Bruschetta.png" alt="Bruschetta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Bruschetta.png" alt="Bruschetta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Bruschetta</h2>
@@ -502,7 +501,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Greek%20Yogurt%20Pizza.png" alt="Greek Yogurt Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Greek%20Yogurt%20Pizza.png" alt="Greek Yogurt Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Greek Yogurt Pizza</h2>
@@ -512,7 +511,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Philly%20Cheesesteak%20Pasta.png" alt="Philly Cheesesteak Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Philly%20Cheesesteak%20Pasta.png" alt="Philly Cheesesteak Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Philly Cheesesteak Pasta</h2>
@@ -522,7 +521,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Eggs%20Benedict.png" alt="Eggs Benedict" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Eggs%20Benedict.png" alt="Eggs Benedict" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Eggs Benedict</h2>
@@ -532,7 +531,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Brown%20Sugar%20Pork%20Chops.png" alt="Brown Sugar Pork Chops" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Brown%20Sugar%20Pork%20Chops.png" alt="Brown Sugar Pork Chops" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Brown Sugar Pork Chops</h2>
@@ -542,7 +541,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spicy%20Sweet%20Popcorn%20Chicken.png" alt="Spicy Sweet Popcorn Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Spicy%20Sweet%20Popcorn%20Chicken.png" alt="Spicy Sweet Popcorn Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Spicy Sweet Popcorn Chicken</h2>
@@ -552,7 +551,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Black%20Pepper%20Chicken.png" alt="Black Pepper Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Black%20Pepper%20Chicken.png" alt="Black Pepper Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Black Pepper Chicken</h2>
@@ -562,7 +561,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean%20Chicken.png" alt="Korean Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Korean%20Chicken.png" alt="Korean Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean Chicken</h2>
@@ -572,7 +571,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sesame%20Seed%20Chicken.png" alt="Sesame Seed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Sesame%20Seed%20Chicken.png" alt="Sesame Seed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Sesame Seed Chicken</h2>
@@ -582,7 +581,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/General%20Tso%20chicken.png" alt="General Tso's Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/General%20Tso%20chicken.png" alt="General Tso's Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>General Tso's Chicken</h2>
@@ -592,7 +591,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Ground%20Korean%20Beef.png" alt="Ground Korean Beef" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Ground%20Korean%20Beef.png" alt="Ground Korean Beef" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Ground Korean Beef</h2>
@@ -602,7 +601,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Mongolian%20Meat%20Balls.png" alt="Mongolian Meatballs" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Mongolian%20Meat%20Balls.png" alt="Mongolian Meatballs" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Mongolian Meatballs</h2>
@@ -612,7 +611,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/FILIPINO%20PORK%20TOCINO.png" alt="Filipino Pork Tocino" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/FILIPINO%20PORK%20TOCINO.png" alt="Filipino Pork Tocino" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Filipino Pork Tocino</h2>
@@ -622,7 +621,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spicy%20Honey%20Garlic%20Pork%20with%20Rice.png" alt="Spicy Honey Garlic Pork with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Spicy%20Honey%20Garlic%20Pork%20with%20Rice.png" alt="Spicy Honey Garlic Pork with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Spicy Honey Garlic Pork with Rice</h2>
@@ -632,7 +631,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="thai">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Pad%20Kra%20Pro.png" alt="Pad Kra Pro" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Pad%20Kra%20Pro.png" alt="Pad Kra Pro" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Thai</span>
           <h2>Pad Kra Pro</h2>
@@ -642,7 +641,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cheesy%20Gnocchi.png" alt="Cheesy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Cheesy%20Gnocchi.png" alt="Cheesy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Cheesy Gnocchi</h2>
@@ -652,7 +651,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Creamy%20Gnocchi.png" alt="Creamy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Creamy%20Gnocchi.png" alt="Creamy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Creamy Gnocchi</h2>
@@ -662,7 +661,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Bacon%20gnocchi.png" alt="Bacon Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Bacon%20gnocchi.png" alt="Bacon Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Bacon Gnocchi</h2>
@@ -672,7 +671,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/4%20Cheese%20Gnocchi.png" alt="4 Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/4%20Cheese%20Gnocchi.png" alt="4 Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>4 Cheese Gnocchi</h2>
@@ -682,7 +681,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Baked%20Pasta.png" alt="Baked Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Baked%20Pasta.png" alt="Baked Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Baked Pasta</h2>
@@ -692,7 +691,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Creamy%20Spicy%20pasta.png" alt="Creamy Spicy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Creamy%20Spicy%20pasta.png" alt="Creamy Spicy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Creamy Spicy Pasta</h2>
@@ -702,7 +701,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spring%20Pasta.png" alt="Spring Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Spring%20Pasta.png" alt="Spring Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Spring Pasta</h2>
@@ -712,7 +711,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Garlic%20Pasta.png" alt="Garlic Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Garlic%20Pasta.png" alt="Garlic Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Garlic Pasta</h2>
@@ -722,7 +721,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Bruschetta%20Buns.png" alt="Bruschetta Buns" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Bruschetta%20Buns.png" alt="Bruschetta Buns" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Bruschetta Buns</h2>
@@ -732,7 +731,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Homemade%20pizza%20%20Dough.png" alt="Homemade Pizza Dough" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Homemade%20pizza%20%20Dough.png" alt="Homemade Pizza Dough" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Homemade Pizza Dough</h2>
@@ -742,7 +741,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20fajitas.png" alt="Chicken Fajitas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20fajitas.png" alt="Chicken Fajitas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Chicken Fajitas</h2>
@@ -752,7 +751,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Enchiladas.png" alt="Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Enchiladas.png" alt="Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Enchiladas</h2>
@@ -762,7 +761,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Enchiladas.png" alt="Chicken Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20Enchiladas.png" alt="Chicken Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Chicken Enchiladas</h2>
@@ -772,7 +771,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Orange%20Chicken.png" alt="Orange Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Orange%20Chicken.png" alt="Orange Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Orange Chicken</h2>
@@ -782,7 +781,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Katsu.png" alt="Chicken Katsu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20Katsu.png" alt="Chicken Katsu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Chicken Katsu</h2>
@@ -792,7 +791,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Mongolian%20Beef%20with%20Noodles.png" alt="Mongolian Beef with Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Mongolian%20Beef%20with%20Noodles.png" alt="Mongolian Beef with Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Mongolian Beef with Noodles</h2>
@@ -802,7 +801,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Mongolian%20Beef%20with%20Rice.png" alt="Mongolian Beef with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Mongolian%20Beef%20with%20Rice.png" alt="Mongolian Beef with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Mongolian Beef with Rice</h2>
@@ -812,7 +811,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chili%20Garlic%20Butter%20Chicken.png" alt="Chili Garlic Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chili%20Garlic%20Butter%20Chicken.png" alt="Chili Garlic Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Chili Garlic Butter Chicken</h2>
@@ -822,7 +821,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20Butter%20Chicken.png" alt="Honey Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Honey%20Butter%20Chicken.png" alt="Honey Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Honey Butter Chicken</h2>
@@ -832,7 +831,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Tuscan%20Butter%20Gnocchi.png" alt="Tuscan Butter Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Tuscan%20Butter%20Gnocchi.png" alt="Tuscan Butter Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Tuscan Butter Gnocchi</h2>
@@ -842,7 +841,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Dinner%20Roll.png" alt="Dinner Roll" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Dinner%20Roll.png" alt="Dinner Roll" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Dinner Roll</h2>
@@ -852,7 +851,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Cordon%20Bleu.png" alt="Chicken Cordon Bleu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chicken%20Cordon%20Bleu.png" alt="Chicken Cordon Bleu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chicken Cordon Bleu</h2>
@@ -862,7 +861,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Lemon%20pepper%20chicken%20pasta.png" alt="Lemon Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Lemon%20pepper%20chicken%20pasta.png" alt="Lemon Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Lemon Pepper Chicken Pasta</h2>
@@ -872,7 +871,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Taco%20Hamburger.png" alt="Taco Hamburger" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Taco%20Hamburger.png" alt="Taco Hamburger" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Taco Hamburger</h2>
@@ -882,7 +881,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Taco%20cheesy%20pasta.png" alt="Taco Cheesy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Taco%20cheesy%20pasta.png" alt="Taco Cheesy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Taco Cheesy Pasta</h2>
@@ -892,7 +891,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Taco%20Pizza.png" alt="Taco Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Taco%20Pizza.png" alt="Taco Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Taco Pizza</h2>
@@ -902,7 +901,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20garlic%20chicken.png" alt="Honey Garlic Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Honey%20garlic%20chicken.png" alt="Honey Garlic Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Honey Garlic Chicken</h2>
@@ -912,7 +911,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean%20fried%20chicken.png" alt="Korean Fried Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Korean%20fried%20chicken.png" alt="Korean Fried Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean Fried Chicken</h2>
@@ -922,7 +921,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spicy%20Coconut%20Grilled%20Chicken.png" alt="Spicy Coconut Grilled Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Spicy%20Coconut%20Grilled%20Chicken.png" alt="Spicy Coconut Grilled Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Spicy Coconut Grilled Chicken</h2>
@@ -932,7 +931,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean%20Beef%20Bulgogi.jpeg" alt="Korean Beef Bulgogi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Korean%20Beef%20Bulgogi.jpeg" alt="Korean Beef Bulgogi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean Beef Bulgogi</h2>
@@ -942,7 +941,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Orange%20Chicken%20v2.png" alt="Orange Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Orange%20Chicken%20v2.png" alt="Orange Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Orange Chicken v2</h2>
@@ -952,7 +951,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chocolate%20lava%20cake.png" alt="Chocolate Lava Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chocolate%20lava%20cake.png" alt="Chocolate Lava Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Chocolate Lava Cake</h2>
@@ -962,7 +961,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Homemade%20Brownies.png" alt="Homemade Brownies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Homemade%20Brownies.png" alt="Homemade Brownies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Homemade Brownies</h2>
@@ -972,7 +971,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Brownie%20with%20Marshmallow.png" alt="Brownie with Marshmallow" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Brownie%20with%20Marshmallow.png" alt="Brownie with Marshmallow" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Brownie with Marshmallow</h2>
@@ -982,7 +981,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Crinkle%20Cookies.png" alt="Crinkle Cookies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Crinkle%20Cookies.png" alt="Crinkle Cookies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Crinkle Cookies</h2>
@@ -992,7 +991,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Peanut%20Butter%20Fudge%20with%20Chocolate%20topping.png" alt="Peanut Butter Fudge with Chocolate Topping" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Peanut%20Butter%20Fudge%20with%20Chocolate%20topping.png" alt="Peanut Butter Fudge with Chocolate Topping" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Peanut Butter Fudge with Chocolate Topping</h2>
@@ -1002,7 +1001,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cinnamon%20Rolls.png" alt="Cinnamon Rolls" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Cinnamon%20Rolls.png" alt="Cinnamon Rolls" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Cinnamon Rolls</h2>
@@ -1012,7 +1011,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Italian%20Cheesecake.png" alt="Italian Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Italian%20Cheesecake.png" alt="Italian Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Italian Cheesecake</h2>
@@ -1022,7 +1021,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cinnamon%20Cheesecake.png" alt="Cinnamon Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Cinnamon%20Cheesecake.png" alt="Cinnamon Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Cinnamon Cheesecake</h2>
@@ -1032,7 +1031,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cinnamon%20Roll%20Cheesecake.png" alt="Cinnamon Roll Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Cinnamon%20Roll%20Cheesecake.png" alt="Cinnamon Roll Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Cinnamon Roll Cheesecake</h2>
@@ -1042,7 +1041,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Marshmallow%20Cheesecake.png" alt="Marshmallow Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Marshmallow%20Cheesecake.png" alt="Marshmallow Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Marshmallow Cheesecake</h2>
@@ -1052,7 +1051,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Boston%20Cream%20Pie.png" alt="Boston Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Boston%20Cream%20Pie.png" alt="Boston Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Boston Cream Pie</h2>
@@ -1062,7 +1061,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Boston%20Cream%20Cheesecake%20Pie.png" alt="Boston Cream Cheesecake Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Boston%20Cream%20Cheesecake%20Pie.png" alt="Boston Cream Cheesecake Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Boston Cream Cheesecake Pie</h2>
@@ -1072,7 +1071,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Hot%20Chocolate%20Cake.png" alt="Hot Chocolate Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Hot%20Chocolate%20Cake.png" alt="Hot Chocolate Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Hot Chocolate Cake</h2>
@@ -1082,7 +1081,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/White%20chocolate%20French%20silk%20pie.png" alt="White Chocolate French Silk Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/White%20chocolate%20French%20silk%20pie.png" alt="White Chocolate French Silk Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>White Chocolate French Silk Pie</h2>
@@ -1092,7 +1091,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chocolate%20French%20silk%20cream%20pie.png" alt="Chocolate French Silk Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chocolate%20French%20silk%20cream%20pie.png" alt="Chocolate French Silk Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Chocolate French Silk Cream Pie</h2>
@@ -1102,7 +1101,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/French%20vanilla%20macaroons.png" alt="French Vanilla Macaroons" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/French%20vanilla%20macaroons.png" alt="French Vanilla Macaroons" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>French Vanilla Macaroons</h2>
@@ -1112,7 +1111,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Japanese%20fluffy%20cake.png" alt="Japanese Fluffy Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Japanese%20fluffy%20cake.png" alt="Japanese Fluffy Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Japanese Fluffy Cake</h2>
@@ -1122,7 +1121,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean-style%20Bacon%20%26%20Egg%20Noodles.jpeg" alt="Korean-Style Bacon &amp; Egg Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Korean-style%20Bacon%20%26%20Egg%20Noodles.jpeg" alt="Korean-Style Bacon &amp; Egg Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean-Style Bacon &amp; Egg Noodles</h2>
@@ -1132,7 +1131,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sausage%20%26%20Bacon%20Pasta.jpeg" alt="Sausage &amp; Bacon Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Sausage%20%26%20Bacon%20Pasta.jpeg" alt="Sausage &amp; Bacon Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
           <h2>Sausage &amp; Bacon Pasta</h2>
@@ -1142,7 +1141,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Key%20Lime%20Pie.jpeg" alt="Key Lime Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Key%20Lime%20Pie.jpeg" alt="Key Lime Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Key Lime Pie</h2>
@@ -1152,7 +1151,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chipotle%20Chicken%20Alfredo.jpeg" alt="Chipotle Chicken Alfredo" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Chipotle%20Chicken%20Alfredo.jpeg" alt="Chipotle Chicken Alfredo" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chipotle Chicken Alfredo</h2>
@@ -1162,7 +1161,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Coconut-Lime%20Chicken.jpeg" alt="Coconut Lime Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Coconut-Lime%20Chicken.jpeg" alt="Coconut Lime Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Coconut Lime Chicken v2</h2>
@@ -1172,7 +1171,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cowboy%20Spaghetti.jpeg" alt="Cowboy Spaghetti" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img src="images/Cowboy%20Spaghetti.jpeg" alt="Cowboy Spaghetti" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Cowboy Spaghetti</h2>
@@ -1223,299 +1222,17 @@
   </footer>
 
   <script>
-    // COMPLETE recipe database from all markdown files in vault
+    // Recipe database with ingredients and instructions
     const recipeData = {
   'Agilo Olil': { ingredients: '', instructions: '' },
-  'Bacon gnocchi': { ingredients: '', instructions: '   
-* Bring a large pot of salted water to a boil.  
-* In a mixing bowl, mix together egg yolks, heavy cream, and parmesan cheese-Set aside.  
-* In a large skillet over medium high heat, cook chopped bacon to your desired crispness. Leep the rendered bacon fat, turn heat to low and add garlic. Makie sure garlic doesn’t burn.  
-* Add gnocchi to the water and cook until they float.  
-* Drain gnocchi,safe a 1/2C of water in case. Place gnocchi into the pan with the garlic. Add the egg mixture to the skillet (heat still on low, or turned off) and mix well.  
-* In a bowl, whisk the chicken stock into the cornstarch, then add to the sauce to thicken( if the sauce is too thick use the saved to thin it out). Season with salt and pepper as needed.  
-* Serve immediately with parsley and parmesan as garnish.  
-* Enjoy' },
-  'Baked Gnocchi': { ingredients: '', instructions: '' },
-  'Baked Pasta': { ingredients: '', instructions: '' },
-  'Balsamic Chicken Pasta': { ingredients: '', instructions: '' },
-  'Black Pepper Chicken': { ingredients: '', instructions: '' },
-  'Brown Sugar Chicken Recipe': { ingredients: 'CHICKEN  
-* 2 large chicken breasts  
-* 2 T flour  
-* 1 t EACH paprika, garlic powder, onion powder  
-* 1/2 t EACH ground cumin, salt, pepper, chipotle chili pepper  
-* 2 T butter  
-* 2 T olive oil  
-BROWN SUGAR SAUCE  
-* 1/2 C brown sugar  
-* 1/4 C soy sauce  
-* 1/4 C chicken broth  
-* 1 T lemon juice  
-* 1 t Dijon mustard  
-* 1/2 t cornstarch  
-* 1/2 t EACH dried parsley, dried thyme, dried oregano  
-* Pinch of red pepper flakes  
-  ', instructions: '1- Slice the chicken breasts in the half to create 4 fillets. Cover with plastic wrap and pound to an even thickness. 2- Whisk the flour and all chicken seasoning together in a shallow dish. Dredge each breast in flour mixture, shake off any excess. 3- Melt the 2 tablespoons butter & oil in a large skillet over medium-high heat. Once hot, add chicken and cook until golden and cooked through. Transfer chicken to a plate, don't wipe out skillet. 4- Mix chicken broth with cornstarch and add to the skillet, followed by all of the sauce ingredients. Bring sauce to a simmer while scraping up any brown bits on the bottom of the pan; simmer until sauce thickens to desired consistency. Taste the sauce and add additional lemon juice for tangier/less sweet if desired.  5- Add chicken back to the skillet and spoon some of the sauce over top. *If the chicken is too sweet for your liking, garnish with freshly squeezed lemon juice*.  
-6- best part Enjoy
-
-[[URLs/Food Recipes URLs|Food Recipes URLs]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]]' },
-  'Brown Sugar Pork Chops': { ingredients: '', instructions: '' },
-  'Bruschetta Buns': { ingredients: '* 1 C warm water  
-* ¼ C warm milk  
-* 2 T sugar  
-* 1T yeast  
-* 1 ½ t salt  
-* 1 large egg  
-* 3 1/2C all purpose flour  
-* 2T butter, at room temp  
-FOR THE EGG WASH:  
-* 1 egg  
-* 1T milk  
-  ', instructions: '  
-* Combine the water, milk, yeast and sugar stand mixer( bowl works as well). Stir gently to combine. Let stand until the yeast starts to foam.  
-* Add the salt, egg and both flours to the bowl. Mix in the butter pieces on low speed.   
-* Once mixed knead the dough on low speed for 8-12 minutes, until the dough is smooth. If the dough is very sticky, you can add more flour, 1 tablespoons at a time.. The dough should stick to your finger a little bit when you touch it.   
-* Transfer the dough to a floured work surface and knead. Cut the dough into 8 pieces. Shape each piece into a ball and place on the prepared baking sheet.   
-* Loosely cover the dough balls with a clean kitchen towel and let rest for 15-30 minutes.   
-* Preheat oven to 400 degrees F.  
-* Combine the egg and 1 tablespoon milk in a small bowl. Brush the tops of the buns with the egg wash.  
-* Bake hamburger buns in the oven for 13-15 minutes, until tops are golden.  
-* Recommend brushing the tops of the buns with a little melted butter when they’re warm from the oven  
-* Enjoy  
-  
-Yes I flattens some out and put the burger inside the bun while it baked' },
-  'Bruschetta': { ingredients: '', instructions: '' },
-  'Buffalo Chicken Alfredo Pasta': { ingredients: '', instructions: '' },
-  'Buffalo Chicken Alfredo Penne': { ingredients: '', instructions: '' },
-  'Burrataca Cheese Pasta': { ingredients: '* ¼ C olive oil  
-* 6 garlic cloves, minced  
-* 1/2 t dried basil  
-* ¼ t crushed red pepper flakes  
-* 3 C cherry tomatoes  
-* salt and pepper to taste  
-* ½ lbs pasta ( I used Linguine)  
-* ¼ C chopped fresh basil,  
-* 8oz burrata cheese  
-* parmesan cheese, for topping  
-  
-Instructions  
-* Heat the olive oil in a large skillet over medium-low heat. Add in the garlic, dried basil and red pepper flakes, cook for 1 minute.  
-* Next add the tomatoes with a big pinch of salt and pepper and toss them in the oil. Let the tomatoes cook for 10-15 minutes, until they begin to burst. * if the tomatoes aren’t bursting, you can increase the heat .*   
-* Bring a pot of salted water to a boil and cook the pasta.  
-* Once the pasta is done, drain it and add it directly to the skillet. Toss the mixture a few times so all the noodles are coated.  
-* Turn off the heat and toss in the fresh basil. Add in the burrata cheese  ', instructions: '' },
-  'Buttery Garlic Thyme Gnocchi': { ingredients: '', instructions: '' },
-  'Cajun Chicken Pasta': { ingredients: '', instructions: '' },
-  'Caprese Appetizer': { ingredients: '', instructions: '' },
-  'Caprese Pasta v2': { ingredients: '', instructions: '' },
-  'Caprese Pasta': { ingredients: '', instructions: '' },
-  'Cheesy Gnocchi': { ingredients: '', instructions: '' },
-  'Cheesy Pork & Broccoli Risotto': { ingredients: '', instructions: '' },
-  'Chicken Bruschetta Pasta': { ingredients: '', instructions: '' },
-  'Chicken Cordon Bleu': { ingredients: '', instructions: '' },
-  'Chicken Enchiladas': { ingredients: '', instructions: '' },
-  'Chicken Katsu': { ingredients: '', instructions: '' },
-  'Chicken Pan Fired Noodles': { ingredients: 'FOR THE MARINADE:  
-* 2 t soy sauce  
-* 2 t oil  
-* 2 t cornstarch  
-* ¼ t salt  
-FOR THE REST OF THE DISH:  
-* 2 chicken breasts (cut into thin strips)  
-* 1 bunch choy sum (or baby bok choy; about 2-3 cups) *I used baby spinach  
-* 4 bundles dried Hong Kong style egg noodles  
-* 1 T oyster sauce  
-* 1 T soy sauce  
-* 1 t sesame oil  
-* 1/8 t sugar  
-* ½ t salt  
-* Fresh ground white pepper  
-* 1 C low-sodium chicken stock (heated)  
-* 2 T cornstarch  
-* 2 T water  
-* 3 T oil  
-* 2 T Shaoxing wine  
-* 2 cloves garlic (chopped)  ', instructions: '1-In a bowl, combine the marinade ingredients with your sliced chicken and set aside.  
-2-Tear the green vegetables lengthwise into manageable pieces and set aside.  
-3-Bring a large pot of water to a boil. Add the noodles! cook until they’re just softened. Be careful not to overcook them, or they’ll be soggy! Rinse with cold water, drain, and set aside.  
-4-In a bowl, combine the oyster sauce, soy sauce, sesame oil, sugar, salt, white pepper, and hot chicken stock. Set aside.  
-5-In another bowl, mix the 2 tablespoons of cornstarch and 2 tablespoons water into a slurry and set aside.  
-6-Heat your wok over high heat and add 2 tablespoons oil. Spread out your noodles in an even layer and fry until golden and crisp. Flip the noodles over and fry the other side (you can add a bit more oil if necessary). 7-Next, heat the wok until just smoking and add another tablespoon of vegetable oil. Sear the chicken breast. Once browned, add the garlic and then the Shaoxing wine to deglaze the pan.  
-8-Pour in your sauce. Let the liquid come to a boil and add your green vegetables. Stir and cook for about a minute. 9-Stir up your slurry mixture again. Once the liquid is boiling, add about 2/3 of the cornstarch and stir the mixture to thicken. Add more slurry until the sauce thickens enough to coat a spoon. Pour the entire mixture over  
-10- best part serve and enjoy
-
-[[URLs/Food Recipes URLs|Food Recipes URLs]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]]' },
-  'Chicken Sandwich': { ingredients: '', instructions: '' },
-  'Chicken fajitas': { ingredients: '', instructions: '' },
-  'Chicken strips': { ingredients: '', instructions: '' },
-  'Chili Garlic Butter Chicken': { ingredients: '', instructions: '' },
-  'Chipotle Chicken Alfredo': { ingredients: '', instructions: '' },
-  'Coconut Lime Chicken': { ingredients: '', instructions: '' },
-  'Coconut-Lime Chicken': { ingredients: '', instructions: '' },
-  'Cowboy Spaghetti': { ingredients: '', instructions: '' },
-  'Creamy Chicken Gnocchi': { ingredients: '', instructions: '' },
-  'Creamy Gnocchi': { ingredients: '', instructions: '' },
-  'Creamy Spicy pasta': { ingredients: '', instructions: '' },
-  'Dinner Roll': { ingredients: '* 1 1/2 cups warm water  
-* 1 tablespoon active dry yeast  
-* 2 tablespoons sugar  
-* 2 tablespoons butter softened  
-* 1 teaspoon salt  
-* 4 cups flour more or less as needed  
-* 3 tablespoons melted butter for brushing on top  
-* coarse sea salt for sprinkling on top  ', instructions: '* In a large bowl or the bowl of a stand mixer, dissolve the yeast and sugar in the warm water and let stand for five minutes, or until foamy. Add the butter, salt, and 3 cups of flour, and mix until combined. Add additional flour, 1/4 cup at a time, until the dough pulls away from the sides of the bowl and is only slightly sticky to the touch (be careful not to add too much flour!). Knead 3-5 minutes, until smooth. Cover and let rise 20 minutes.  
-* Preheat the oven to 400 and line a 9 x 13 pan with parchment paper or spray with cooking spray. Gently punch the dough down and divide into 12 equal sized pieces. Roll each piece into a ball and space evenly in the prepared pan. Brush with melted butter, sprinkle with sea salt, and let rise for an additional 15-20 minutes. Bake 13-15 minutes, or until golden brown. Remove and brush with butter. Let cool slightly before serving and enjoy!' },
-  'Dragon Glazed Chicken': { ingredients: '', instructions: '' },
-  'Eggs Benedict': { ingredients: '', instructions: '' },
-  'Enchiladas': { ingredients: '', instructions: '' },
-  'FILIPINO PORK TOCINO': { ingredients: '', instructions: '' },
-  'Four Cheese Gnocchi': { ingredients: '', instructions: '' },
-  'Garlic Pasta': { ingredients: '', instructions: '' },
-  'General Tso chicken': { ingredients: '', instructions: '' },
-  'Greek Yogurt Pizza': { ingredients: '', instructions: '* Prep: Preheat oven to 400°F. Line a baking tray with parchment paper and spray with olive oil  
-* Combine the dough ingredients: Combine all-purpose flour, Greek yogurt, sea salt, baking powder, any dried seasonings or herbs (if using), and extra virgin olive oil in a large mixing bowl. Mix with a spoon to combine until it looks like dough crumbles.  
-* Knead and roll: Lightly dust your work surface with flour, then tip the dough ball onto the surface and knead for a minute. If the dough is too sticky, at a teaspoon of flour at a time until it doesn’t stick to your hands when you pull back. If the dough is too dry, add a teaspoon of water and continue kneading. Roll the dough into a ball and divide into two equal parts or one big pizza.  
-* Add Toppings: Transfer to the prepared baking tray and top with pizza sauce, your desired pizza toppings, and cheese.  
-* Bake, slice, and enjoy!: Bake for 12-15 minutes, or until the cheese has melted and starts to brown a little.  
-* Pull out of the oven and slice  
-* Best part enjoy' },
-  'Ground Korean Beef': { ingredients: '', instructions: '' },
-  'Homemade pizza  Dough': { ingredients: '', instructions: '' },
-  'Honey Butter Chicken': { ingredients: '', instructions: '' },
-  'Honey Garlic Chicken Bites': { ingredients: '', instructions: '' },
-  'Honey Pepper Chicken Pasta': { ingredients: '', instructions: '' },
-  'Honey garlic chicken': { ingredients: '', instructions: '' },
-  'Key Lime Pie': { ingredients: '', instructions: '' },
-  'Korean Beef Bulgogi': { ingredients: '', instructions: '' },
-  'Korean Chicken': { ingredients: '', instructions: '' },
-  'Korean fried chicken': { ingredients: '', instructions: '' },
-  'Korean-style Bacon & Egg Noodles': { ingredients: '', instructions: '' },
-  'Lasagna': { ingredients: '', instructions: '' },
-  'Lemon pepper chicken pasta': { ingredients: '', instructions: '' },
-  'Load Cheese Fries': { ingredients: '', instructions: '' },
-  'Loco Moco': { ingredients: '', instructions: '' },
-  'Mongolian Beef with Noodles': { ingredients: '', instructions: '' },
-  'Mongolian Beef with Rice': { ingredients: '', instructions: '' },
-  'Mongolian Meat Balls': { ingredients: '', instructions: '' },
-  'On Pot Creamy Cajun Chicken Pasta': { ingredients: 'CAJUN SEASONING  
-* 2 t smoked paprika  
-* 1 t oregano  
-* 1 t thyme  
-* 1/2 t garlic powder  
-* 1/2 t onion powder  
-* 1/4 t cayenne pepper  
-* 1/4 t black pepper  
-* 1/4 t salt  
-CHICKEN PASTA  
-* 1 T olive oil  
-* 1 T butter  
-* 1 lb chicken breast  
-* 1 yellow onion, diced  
-* 1/2 lb. penne pasta  
-* 15 oz. fire roasted or sun dried tomatoes diced  
-* 2 C chicken broth  
-* 2 oz. cream cheese  
-* 3 green onions, chopped  
-  ', instructions: '2- Cut the chicken into bite size pieces . Place the chicken in a bowl, pour the Cajun seasoning over the chicken coat. 3- Add the olive oil and butter to a large deep skillet. Heat over medium-high until hot and the butter is melted and foamy.  
-4-Add the seasoned chicken to the skillet and cook for a couple minutes on until the outside gets some color. The chicken does not need to be cooked through. 5- Add the diced yellow onion to the skillet and sauté for about 2 minutes. 6-Next, add the pasta, diced tomatoes (whichever you prefer ), and chicken broth to the skillet. Stir until everything is evenly combined, then place a lid on top and allow the broth to come up to a boil. 7- Once boiling, turn the heat down to medium-low and let the pasta simmer stirring every couple of minutes, until the pasta is tender and the liquid is thick and saucy. 8- Add the cream cheese to the skillet in chunks, then stir until it has melted into the sauce. Top the pasta with sliced green onions.  
-9- best part serve and enjoy
-
-[[URLs/Food Recipes URLs|Food Recipes URLs]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]]' },
-  'One Pan Spicy Garlic Lime Chicken Pasta': { ingredients: '', instructions: '' },
-  'One Pot Spicy Honey Garlic Chicken Pasta': { ingredients: '', instructions: '' },
-  'One-Pot Smoky BBQ Meatball Pasta': { ingredients: '', instructions: '' },
-  'Orange Chicken v2': { ingredients: '', instructions: '' },
-  'Orange Chicken': { ingredients: 'FOR THE MARINADE  
-1 large egg  
-1T soy sauce  
-1/2t brown sugar  
-1½ lbs chicken; cut into 1-inch pieces  
-FOR THE SAUCE  
-1/4C soy sauce  
-1/2C (packed) brown sugar  
-1/4C rice vinegar  
-1/3C orange juice  
-1 cup chicken broth  
-2T cornstarch  
-1½t Asian sesame oil  
-3/4t crushed red pepper flakes  
-FOR COATING THE CHICKEN  
-1C cornstarch  
-1/3C all-purpose flour  
-1/4t baking soda  
-FOR COOKING AND SERVING  
-Vegetable oil  
-1T fresh minced ginger  
-3 cloves garlic, minced  
-2 green onions cut for garnish  
-  ', instructions: '1-Marinate the chicken for 30 mins: In a large bowl, beat the egg, soy sauce and sugar. Add the chicken and toss until coated.  
-2-While chicken is marinating, make the sauce: In a small bowl, mix the soy sauce, sugar, vinegar, orange juice, broth, cornstarch, sesame oil, and pepper flakes together. Set aside.  
-3- In a medium bowl, mix the cornstarch, flour, and baking soda. After 30 mins place the dry ingredients in with the chicken and toss until each piece of meat has a dry, clumpy coating.  
-4- Fry the chicken: I place paper towels under a wire rack. In a large nonstick skillet over medium-high heat, heat oil. Fry the chicken in three batches so as not to crowd the pan. Cool until the batches are golden brown and crispy. Transfer the chicken to the wire rack. Repeat with the remaining chicken.  
-5-Finish the dish: Carefully drain the oil from the pan and wipe clean with a paper towel. Add roughly 1T of oil. Over medium heat, add the ginger & garlic, stirring constantly, for about 30 seconds until fragrant; Add the sauce, bring it to a boil, and let it cook until thickened and glossy, 2 to 3 minutes. Add the crispy chicken, tossing until the sauce fully coats it. Sprinkle with the dark green onions and serve over rice.  
-6- enjoy' },
-  'Pad Kra Pro': { ingredients: '', instructions: '* In a mixing bowl, combine the oyster sauce, both soy sauces, fish sauce and sugar. Mix until sugar has dissolved.   
-* In large skillet, heat on medium high heat until hot. Add the onion , garlic and Thai chilis and saute until fragrant.   
-* Next, increase the heat to high heat, add the pork, break it up into smaller pieces. Spread the pork out into a single layer and let it sear and lightly charred. Cook until all the liquid has evaporated. ( if need to you can drain the liquid out as well)    
-* Add the sauce and toss until combined. Then deglaze the pan with chicken stock. Cook until the chicken stock renders down and dissolves about 1 minute.   
-* Take off the heat and add the basil and toss until just wilted.   
-* Serve. Serve with a fried egg and steamed white rice.  
-* Best part - Enjoy!' },
-  'Pad Krapow Gai': { ingredients: '', instructions: '1- In a mixing bowl, add the oyster sauce, soy sauce, fish sauce, dark soy sauce, and sugar. Mix until combined.
-
-2- Heat 1 1/2 T of oil in a wok or deep pan over medium-high heat, add garlic, shallots, and chili peppers, and saute for 30 seconds.
-
-3- Next, increase the heat to high, add the chicken and toss to combine with the herbs. Spread the chicken out into a single layer and let it sear. Then, toss and continue cooking until the chicken is cooked through and lightly charred and all the liquid has evaporated.
-
-4- Add the sauce and toss until combined. Then deglaze the pan with chicken stock. Cook until the chicken stock is rendered down.
-
-5- Then, add the green onions and basil leaves. Toss until just wilted. Taste and adjust seasoning as needed.
-
-6- Serve. Serve with steamed rice and a fried egg
-
-7- Best part enjoy!
-
-[[RH Brain/04 Dinners idea/Chicken strips|Chicken strips]] [[RH Brain/05 Goals/Short Term Goals|Short Term Goals]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]] [[pad-krapow-gai.html]]' },
-  'Pasta with Lemon Sauce': { ingredients: '* 12 oz spaghetti  
-* 3 T olive oil  
-* 2 garlic cloves minced  
-* 2 T fresh parsley or basil plus more for serving  
-* 1 lemon zested and juiced  
-* ¼ C grated parmesan cheese  
-* black pepper for serving  
-  ', instructions: '* Cook the spaghetti in a pot of salted water until al dente, reserving ½ cup of the cooking pasta liquid.  
-  
-* In a skillet over medium heat, heat the olive oil. Add the garlic, parsley, lemon zest and lemon juice. Add a 1/4 cup of cooking pasta liquid and parmesan cheese and stir to combine. Bring the sauce to a simmer. *note* If to thick add the remaining 1/4 cup of water or when transferring the pasta pull straight from the water, let drain for a second before adding to the skillet.   
-* Transfer the cooked spaghetti to the skillet with the pasta sauce and toss until well coated. Serve with extra parsley/ basil and parmesan cheese, if desired.' },
-  'Philly Cheesesteak Pasta': { ingredients: '', instructions: '' },
-  'Sausage & Bacon Pasta': { ingredients: '', instructions: '' },
-  'Sesame Chicken': { ingredients: '', instructions: '' },
-  'Sesame Seed Chicken': { ingredients: '', instructions: '* Mix the eggs, salt and pepper in a bowl.   
-* Mix the flour and 1/2 cup of cornstarch in a shallow bowl.  
-  
-* Place the chicken into the egg mixture and coat each piece. In small patches (4-6 pieces is what I did)place chicken into the flour. Repeat the process with all of the chicken.   
-* While coating the chicken heat 3 inches of oil in a deep pan to 350 degrees F   
-* Cook chicken in patch to not over crowd the pan. Cook until crispy and golden brown. Repeat the process with the remaining chicken   
-* Drain the chicken on a wire rack with paper towels under for easy clean up.   
-* While the chicken is cooking, combine the honey, soy sauce, ketchup, brown sugar, rice vinegar, sesame oil and cornstarch in a big measuring cup.   
-* Once the chicken is finished cooking , empty the oil and wipe the bottom of the pan. Heat the teaspoon of oil in the pan over medium heat. Add the garlic and cook for 30 seconds. Add the honey sauce mixture and bring to a simmer. Cook for 3-4 minutes or until just thickened.   
-* Add the crispy chicken to the pan and toss to coat with the sauce. Sprinkle with sesame seeds and green onions, then serve.  
-* Enjoy' },
-  'Spaghetti Al Limone': { ingredients: '', instructions: '' },
-  'Spaghetti Carbonara': { ingredients: '', instructions: '' },
-  'Spicy Coconut Grilled Chicken': { ingredients: '', instructions: '' },
-  'Spicy Honey Garlic Pork with Rice': { ingredients: '', instructions: '' },
-  'Spicy Sweet Popcorn Chicken': { ingredients: '', instructions: '' },
-  'Spring Pasta': { ingredients: '', instructions: '' },
-  'Steak & Pasta in Cowboy Butter': { ingredients: '', instructions: '' },
-  'Steak in a Red Wine Reduction Sauce': { ingredients: '', instructions: '' },
-  'Sweet & Sour Chicken': { ingredients: '', instructions: '' },
-  'Taco Hamburger': { ingredients: '', instructions: '' },
-  'Taco Pizza': { ingredients: '', instructions: '' },
-  'Taco cheesy pasta': { ingredients: '', instructions: '' },
-  'Triscuit Appetizer': { ingredients: '', instructions: '' },
-  'Tuscan Butter Gnocchi': { ingredients: '', instructions: '' },
-  'White Pizza': { ingredients: '', instructions: '' },
+  'Bacon gnocchi': { ingredients: '', instructions: '    * Bring a large pot of salted water to a boil.   * In a mixing bowl, mix together egg yolks, heavy cream, and parmesan cheese-Set aside.   * In a large skillet over medium high heat, cook chopped bacon to your desired crispness. Leep the rendered bacon fat, turn heat to low and add garlic. Makie sure garlic doesn't burn.   * Add gnocchi to the water and cook until they float.   * Drain gnocchi,safe a 1/2C of water in case. Place gnocchi into the pan with the garlic. Add the egg mixture to the skillet (heat still on low, or turned off) and mix well.   * In a bowl, whisk the chicken stock into the cornstarch, then add to the sauce to thicken( if the sauce is too thick use the saved to thin it out). Season with salt and pepper as needed.   * Serve immediately with parsley and parmesan as garnish.   * Enjoy' },
+  'Brown Sugar Chicken Recipe': { ingredients: 'CHICKEN   * 2 large chicken breasts   * 2 T flour   * 1 t EACH paprika, garlic powder, onion powder   * 1/2 t EACH ground cumin, salt, pepper, chipotle chili pepper   * 2 T butter   * 2 T olive oil   BROWN SUGAR SAUCE   * 1/2 C brown sugar   * 1/4 C soy sauce   * 1/4 C chicken broth   * 1 T lemon juice   * 1 t Dijon mustard   * 1/2 t cornstarch   * 1/2 t EACH dried parsley, dried thyme, dried oregano   * Pinch of red pepper flakes      ', instructions: '1- Slice the chicken breasts in the half to create 4 fillets. Cover with plastic wrap and pound to an even thickness. 2- Whisk the flour and all chicken seasoning together in a shallow dish. Dredge each breast in flour mixture, shake off any excess. 3- Melt the 2 tablespoons butter & oil in a large skillet over medium-high heat. Once hot, add chicken and cook until golden and cooked through. Transfer chicken to a plate, don't wipe out skillet. 4- Mix chicken broth with cornstarch and add to the skillet, followed by all of the sauce ingredients. Bring sauce to a simmer while scraping up any brown bits on the bottom of the pan; simmer until sauce thickens to desired consistency. Taste the sauce and add additional lemon juice for tangier/less sweet if desired.  5- Add chicken back to the skillet and spoon some of the sauce over top. *If the chicken is too sweet for your liking, garnish with freshly squeezed lemon juice*.   6- best part Enjoy  ' },
+  'Bruschetta Buns': { ingredients: '* 1 C warm water   * ¼ C warm milk   * 2 T sugar   * 1T yeast   * 1 ½ t salt   * 1 large egg   * 3 1/2C all purpose flour   * 2T butter, at room temp   FOR THE EGG WASH:   * 1 egg   * 1T milk      ', instructions: '   * Combine the water, milk, yeast and sugar stand mixer( bowl works as well). Stir gently to combine. Let stand until the yeast starts to foam.   * Add the salt, egg and both flours to the bowl. Mix in the butter pieces on low speed.    * Once mixed knead the dough on low speed for 8-12 minutes, until the dough is smooth. If the dough is very sticky, you can add more flour, 1 tablespoons at a time.. The dough should stick to your finger a little bit when you touch it.    * Transfer the dough to a floured work surface and knead. Cut the dough into 8 pieces. Shape each piece into a ball and place on the prepared baking sheet.    * Loosely cover the dough balls with a clean kitchen towel and let rest for 15-30 minutes.    * Preheat oven to 400 degrees F.   * Combine the egg and 1 tablespoon milk in a small bowl. Brush the tops of the buns with the egg wash.   * Bake hamburger buns in the oven for 13-15 minutes, until tops are golden.   * Recommend brushing the tops of the buns with a little melted butter when they\'re warm from the oven   * Enjoy      Yes I flattens some out and put the burger inside the bun while it baked' },
+  'Chicken Pan Fired Noodles': { ingredients: 'FOR THE MARINADE:   * 2 t soy sauce   * 2 t oil   * 2 t cornstarch   * ¼ t salt   FOR THE REST OF THE DISH:   * 2 chicken breasts (cut into thin strips)   * 1 bunch choy sum (or baby bok choy; about 2-3 cups) *I used baby spinach   * 4 bundles dried Hong Kong style egg noodles   * 1 T oyster sauce   * 1 T soy sauce   * 1 t sesame oil   * 1/8 t sugar   * ½ t salt   * Fresh ground white pepper   * 1 C low-sodium chicken stock (heated)   * 2 T cornstarch   * 2 T water   * 3 T oil   * 2 T Shaoxing wine   * 2 cloves garlic (chopped)   ', instructions: '1-In a bowl, combine the marinade ingredients with your sliced chicken and set aside.   2-Tear the green vegetables lengthwise into manageable pieces and set aside.   3-Bring a large pot of water to a boil. Add the noodles! cook until they\'re just softened. Be careful not to overcook them, or they\'ll be soggy! Rinse with cold water, drain, and set aside.   4-In a bowl, combine the oyster sauce, soy sauce, sesame oil, sugar, salt, white pepper, and hot chicken stock. Set aside.   5-In another bowl, mix the 2 tablespoons of cornstarch and 2 tablespoons water into a slurry and set aside.   6-Heat your wok over high heat and add 2 tablespoons oil. Spread out your noodles in an even layer and fry until golden and crisp. Flip the noodles over and fry the other side (you can add a bit more oil if necessary). 7-Next, heat the wok until just smoking and add another tablespoon of vegetable oil. Sear the chicken breast. Once browned, add the garlic and then the Shaoxing wine to deglaze the pan.   8-Pour in your sauce. Let the liquid come to a boil and add your green vegetables. Stir and cook for about a minute. 9-Stir up your slurry mixture again. Once the liquid is boiling, add about 2/3 of the cornstarch and stir the mixture to thicken. Add more slurry until the sauce thickens enough to coat a spoon. Pour the entire mixture over.  10- best part serve and enjoy' },
+  'Dinner Roll': { ingredients: '* 1 1/2 cups warm water   * 1 tablespoon active dry yeast   * 2 tablespoons sugar   * 2 tablespoons butter softened   * 1 teaspoon salt   * 4 cups flour more or less as needed   * 3 tablespoons melted butter for brushing on top   * coarse sea salt for sprinkling on top   ', instructions: '* In a large bowl or the bowl of a stand mixer, dissolve the yeast and sugar in the warm water and let stand for five minutes, or until foamy. Add the butter, salt, and 3 cups of flour, and mix until combined. Add additional flour, 1/4 cup at a time, until the dough pulls away from the sides of the bowl and is only slightly sticky to the touch (be careful not to add too much flour!). Knead 3-5 minutes, until smooth. Cover and let rise 20 minutes.   * Preheat the oven to 400 and line a 9 x 13 pan with parchment paper or spray with cooking spray. Gently punch the dough down and divide into 12 equal sized pieces. Roll each piece into a ball and space evenly in the prepared pan. Brush with melted butter, sprinkle with sea salt, and let rise for an additional 15-20 minutes. Bake 13-15 minutes, or until golden brown. Remove and brush with butter. Let cool slightly before serving and enjoy!' },
+  'Greek Yogurt Pizza': { ingredients: '', instructions: '* Prep: Preheat oven to 400°F. Line a baking tray with parchment paper and spray with olive oil   * Combine the dough ingredients: Combine all-purpose flour, Greek yogurt, sea salt, baking powder, any dried seasonings or herbs (if using), and extra virgin olive oil in a large mixing bowl. Mix with a spoon to combine until it looks like dough crumbles.   * Knead and roll: Lightly dust your work surface with flour, then tip the dough ball onto the surface and knead for a minute. If the dough is too sticky, at a teaspoon of flour at a time until it doesn\'t stick to your hands when you pull back. If the dough is too dry, add a teaspoon of water and continue kneading. Roll the dough into a ball and divide into two equal parts or one big pizza.   * Add Toppings: Transfer to the prepared baking tray and top with pizza sauce, your desired pizza toppings, and cheese.   * Bake, slice, and enjoy!: Bake for 12-15 minutes, or until the cheese has melted and starts to brown a little.   * Pull out of the oven and slice   * Best part enjoy' },
+  'Sesame Seed Chicken': { ingredients: '', instructions: '* Mix the eggs, salt and pepper in a bowl.    * Mix the flour and 1/2 cup of cornstarch in a shallow bowl.      * Place the chicken into the egg mixture and coat each piece. In small patches (4-6 pieces is what I did)place chicken into the flour. Repeat the process with all of the chicken.    * While coating the chicken heat 3 inches of oil in a deep pan to 350 degrees F    * Cook chicken in patch to not over crowd the pan. Cook until crispy and golden brown. Repeat the process with the remaining chicken    * Drain the chicken on a wire rack with paper towels under for easy clean up.    * While the chicken is cooking, combine the honey, soy sauce, ketchup, brown sugar, rice vinegar, sesame oil and cornstarch in a big measuring cup.    * Once the chicken is finished cooking , empty the oil and wipe the bottom of the pan. Heat the teaspoon of oil in the pan over medium heat. Add the garlic and cook for 30 seconds. Add the honey sauce mixture and bring to a simmer. Cook for 3-4 minutes or until just thickened.    * Add the crispy chicken to the pan and toss to coat with the sauce. Sprinkle with sesame seeds and green onions, then serve.   * Enjoy' },
+};
 
     // Pagination settings
     const RECIPES_PER_PAGE = 15;
@@ -1725,488 +1442,6 @@ Vegetable oil
         updatePagination();
         window.scrollTo(0, 0); // Scroll to top
       }
-    }
-  </script>
-
-</body>
-
-
-    <p class="no-results" id="no-results" style="display:none;">No recipes found for that cuisine.</p>
-
-    <div class="pagination">
-      <button id="prev-btn" onclick="prevPage()" style="display:none;">← Previous</button>
-      <span id="page-info" style="display:none; margin: 0 20px; font-weight: bold;"></span>
-      <button id="next-btn" onclick="nextPage()" style="display:none;">Next →</button>
-    </div>
-
-  </main>
-
-  <div id="recipe-modal" class="recipe-modal" style="display:none;" onclick="if(event.target === this) closeRecipeDetail()">
-    <div class="recipe-modal-content">
-      <button class="recipe-modal-close" onclick="closeRecipeDetail()">✕</button>
-      <img id="modal-img" src="" alt="Recipe" class="recipe-detail-img" />
-      <div class="recipe-detail-info">
-        <span id="modal-cuisine" class="cuisine-tag"></span>
-        <h1 id="modal-name"></h1>
-        <p id="modal-desc"></p>
-        <div id="modal-ingredients" style="margin-top: 25px;">
-          <h3 style="color: #d4a574; margin-bottom: 10px;">Ingredients</h3>
-          <div id="modal-ingredients-content" style="color: #ccc; line-height: 1.8;"></div>
-        </div>
-        <div id="modal-instructions" style="margin-top: 25px;">
-          <h3 style="color: #d4a574; margin-bottom: 10px;">Instructions</h3>
-          <div id="modal-instructions-content" style="color: #ccc; line-height: 1.8;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>Made with Love, Laughter, Hunger and a glass of Whiskey.</p>
-  </footer>
-
-  <script>
-    // Recipe data
-    const recipeData = {
-  'Agilo Olil': { ingredients: '', instructions: '' },
-  'Bacon gnocchi': { ingredients: '', instructions: '   
-* Bring a large pot of salted water to a boil.  
-* In a mixing bowl, mix together egg yolks, heavy cream, and parmesan cheese-Set aside.  
-* In a large skillet over medium high heat, cook chopped bacon to your desired crispness. Leep the rendered bacon fat, turn heat to low and add garlic. Makie sure garlic doesn’t burn.  
-* Add gnocchi to the water and cook until they float.  
-* Drain gnocchi,safe a 1/2C of water in case. Place gnocchi into the pan with the garlic. Add the egg mixture to the skillet (heat still on low, or turned off) and mix well.  
-* In a bowl, whisk the chicken stock into the cornstarch, then add to the sauce to thicken( if the sauce is too thick use the saved to thin it out). Season with salt and pepper as needed.  
-* Serve immediately with parsley and parmesan as garnish.  
-* Enjoy' },
-  'Baked Gnocchi': { ingredients: '', instructions: '' },
-  'Baked Pasta': { ingredients: '', instructions: '' },
-  'Balsamic Chicken Pasta': { ingredients: '', instructions: '' },
-  'Black Pepper Chicken': { ingredients: '', instructions: '' },
-  'Brown Sugar Chicken Recipe': { ingredients: 'CHICKEN  
-* 2 large chicken breasts  
-* 2 T flour  
-* 1 t EACH paprika, garlic powder, onion powder  
-* 1/2 t EACH ground cumin, salt, pepper, chipotle chili pepper  
-* 2 T butter  
-* 2 T olive oil  
-BROWN SUGAR SAUCE  
-* 1/2 C brown sugar  
-* 1/4 C soy sauce  
-* 1/4 C chicken broth  
-* 1 T lemon juice  
-* 1 t Dijon mustard  
-* 1/2 t cornstarch  
-* 1/2 t EACH dried parsley, dried thyme, dried oregano  
-* Pinch of red pepper flakes  
-  ', instructions: '1- Slice the chicken breasts in the half to create 4 fillets. Cover with plastic wrap and pound to an even thickness. 2- Whisk the flour and all chicken seasoning together in a shallow dish. Dredge each breast in flour mixture, shake off any excess. 3- Melt the 2 tablespoons butter & oil in a large skillet over medium-high heat. Once hot, add chicken and cook until golden and cooked through. Transfer chicken to a plate, don't wipe out skillet. 4- Mix chicken broth with cornstarch and add to the skillet, followed by all of the sauce ingredients. Bring sauce to a simmer while scraping up any brown bits on the bottom of the pan; simmer until sauce thickens to desired consistency. Taste the sauce and add additional lemon juice for tangier/less sweet if desired.  5- Add chicken back to the skillet and spoon some of the sauce over top. *If the chicken is too sweet for your liking, garnish with freshly squeezed lemon juice*.  
-6- best part Enjoy
-
-[[URLs/Food Recipes URLs|Food Recipes URLs]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]]' },
-  'Brown Sugar Pork Chops': { ingredients: '', instructions: '' },
-  'Bruschetta Buns': { ingredients: '* 1 C warm water  
-* ¼ C warm milk  
-* 2 T sugar  
-* 1T yeast  
-* 1 ½ t salt  
-* 1 large egg  
-* 3 1/2C all purpose flour  
-* 2T butter, at room temp  
-FOR THE EGG WASH:  
-* 1 egg  
-* 1T milk  
-  ', instructions: '  
-* Combine the water, milk, yeast and sugar stand mixer( bowl works as well). Stir gently to combine. Let stand until the yeast starts to foam.  
-* Add the salt, egg and both flours to the bowl. Mix in the butter pieces on low speed.   
-* Once mixed knead the dough on low speed for 8-12 minutes, until the dough is smooth. If the dough is very sticky, you can add more flour, 1 tablespoons at a time.. The dough should stick to your finger a little bit when you touch it.   
-* Transfer the dough to a floured work surface and knead. Cut the dough into 8 pieces. Shape each piece into a ball and place on the prepared baking sheet.   
-* Loosely cover the dough balls with a clean kitchen towel and let rest for 15-30 minutes.   
-* Preheat oven to 400 degrees F.  
-* Combine the egg and 1 tablespoon milk in a small bowl. Brush the tops of the buns with the egg wash.  
-* Bake hamburger buns in the oven for 13-15 minutes, until tops are golden.  
-* Recommend brushing the tops of the buns with a little melted butter when they’re warm from the oven  
-* Enjoy  
-  
-Yes I flattens some out and put the burger inside the bun while it baked' },
-  'Bruschetta': { ingredients: '', instructions: '' },
-  'Buffalo Chicken Alfredo Pasta': { ingredients: '', instructions: '' },
-  'Buffalo Chicken Alfredo Penne': { ingredients: '', instructions: '' },
-  'Burrataca Cheese Pasta': { ingredients: '* ¼ C olive oil  
-* 6 garlic cloves, minced  
-* 1/2 t dried basil  
-* ¼ t crushed red pepper flakes  
-* 3 C cherry tomatoes  
-* salt and pepper to taste  
-* ½ lbs pasta ( I used Linguine)  
-* ¼ C chopped fresh basil,  
-* 8oz burrata cheese  
-* parmesan cheese, for topping  
-  
-Instructions  
-* Heat the olive oil in a large skillet over medium-low heat. Add in the garlic, dried basil and red pepper flakes, cook for 1 minute.  
-* Next add the tomatoes with a big pinch of salt and pepper and toss them in the oil. Let the tomatoes cook for 10-15 minutes, until they begin to burst. * if the tomatoes aren’t bursting, you can increase the heat .*   
-* Bring a pot of salted water to a boil and cook the pasta.  
-* Once the pasta is done, drain it and add it directly to the skillet. Toss the mixture a few times so all the noodles are coated.  
-* Turn off the heat and toss in the fresh basil. Add in the burrata cheese  ', instructions: '' },
-  'Buttery Garlic Thyme Gnocchi': { ingredients: '', instructions: '' },
-  'Cajun Chicken Pasta': { ingredients: '', instructions: '' },
-  'Caprese Appetizer': { ingredients: '', instructions: '' },
-  'Caprese Pasta v2': { ingredients: '', instructions: '' },
-  'Caprese Pasta': { ingredients: '', instructions: '' },
-  'Cheesy Gnocchi': { ingredients: '', instructions: '' },
-  'Cheesy Pork & Broccoli Risotto': { ingredients: '', instructions: '' },
-  'Chicken Bruschetta Pasta': { ingredients: '', instructions: '' },
-  'Chicken Cordon Bleu': { ingredients: '', instructions: '' },
-  'Chicken Enchiladas': { ingredients: '', instructions: '' },
-  'Chicken Katsu': { ingredients: '', instructions: '' },
-  'Chicken Pan Fired Noodles': { ingredients: 'FOR THE MARINADE:  
-* 2 t soy sauce  
-* 2 t oil  
-* 2 t cornstarch  
-* ¼ t salt  
-FOR THE REST OF THE DISH:  
-* 2 chicken breasts (cut into thin strips)  
-* 1 bunch choy sum (or baby bok choy; about 2-3 cups) *I used baby spinach  
-* 4 bundles dried Hong Kong style egg noodles  
-* 1 T oyster sauce  
-* 1 T soy sauce  
-* 1 t sesame oil  
-* 1/8 t sugar  
-* ½ t salt  
-* Fresh ground white pepper  
-* 1 C low-sodium chicken stock (heated)  
-* 2 T cornstarch  
-* 2 T water  
-* 3 T oil  
-* 2 T Shaoxing wine  
-* 2 cloves garlic (chopped)  ', instructions: '1-In a bowl, combine the marinade ingredients with your sliced chicken and set aside.  
-2-Tear the green vegetables lengthwise into manageable pieces and set aside.  
-3-Bring a large pot of water to a boil. Add the noodles! cook until they’re just softened. Be careful not to overcook them, or they’ll be soggy! Rinse with cold water, drain, and set aside.  
-4-In a bowl, combine the oyster sauce, soy sauce, sesame oil, sugar, salt, white pepper, and hot chicken stock. Set aside.  
-5-In another bowl, mix the 2 tablespoons of cornstarch and 2 tablespoons water into a slurry and set aside.  
-6-Heat your wok over high heat and add 2 tablespoons oil. Spread out your noodles in an even layer and fry until golden and crisp. Flip the noodles over and fry the other side (you can add a bit more oil if necessary). 7-Next, heat the wok until just smoking and add another tablespoon of vegetable oil. Sear the chicken breast. Once browned, add the garlic and then the Shaoxing wine to deglaze the pan.  
-8-Pour in your sauce. Let the liquid come to a boil and add your green vegetables. Stir and cook for about a minute. 9-Stir up your slurry mixture again. Once the liquid is boiling, add about 2/3 of the cornstarch and stir the mixture to thicken. Add more slurry until the sauce thickens enough to coat a spoon. Pour the entire mixture over  
-10- best part serve and enjoy
-
-[[URLs/Food Recipes URLs|Food Recipes URLs]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]]' },
-  'Chicken Sandwich': { ingredients: '', instructions: '' },
-  'Chicken fajitas': { ingredients: '', instructions: '' },
-  'Chicken strips': { ingredients: '', instructions: '' },
-  'Chili Garlic Butter Chicken': { ingredients: '', instructions: '' },
-  'Chipotle Chicken Alfredo': { ingredients: '', instructions: '' },
-  'Coconut Lime Chicken': { ingredients: '', instructions: '' },
-  'Coconut-Lime Chicken': { ingredients: '', instructions: '' },
-  'Cowboy Spaghetti': { ingredients: '', instructions: '' },
-  'Creamy Chicken Gnocchi': { ingredients: '', instructions: '' },
-  'Creamy Gnocchi': { ingredients: '', instructions: '' },
-  'Creamy Spicy pasta': { ingredients: '', instructions: '' },
-  'Dinner Roll': { ingredients: '* 1 1/2 cups warm water  
-* 1 tablespoon active dry yeast  
-* 2 tablespoons sugar  
-* 2 tablespoons butter softened  
-* 1 teaspoon salt  
-* 4 cups flour more or less as needed  
-* 3 tablespoons melted butter for brushing on top  
-* coarse sea salt for sprinkling on top  ', instructions: '* In a large bowl or the bowl of a stand mixer, dissolve the yeast and sugar in the warm water and let stand for five minutes, or until foamy. Add the butter, salt, and 3 cups of flour, and mix until combined. Add additional flour, 1/4 cup at a time, until the dough pulls away from the sides of the bowl and is only slightly sticky to the touch (be careful not to add too much flour!). Knead 3-5 minutes, until smooth. Cover and let rise 20 minutes.  
-* Preheat the oven to 400 and line a 9 x 13 pan with parchment paper or spray with cooking spray. Gently punch the dough down and divide into 12 equal sized pieces. Roll each piece into a ball and space evenly in the prepared pan. Brush with melted butter, sprinkle with sea salt, and let rise for an additional 15-20 minutes. Bake 13-15 minutes, or until golden brown. Remove and brush with butter. Let cool slightly before serving and enjoy!' },
-  'Dragon Glazed Chicken': { ingredients: '', instructions: '' },
-  'Eggs Benedict': { ingredients: '', instructions: '' },
-  'Enchiladas': { ingredients: '', instructions: '' },
-  'FILIPINO PORK TOCINO': { ingredients: '', instructions: '' },
-  'Four Cheese Gnocchi': { ingredients: '', instructions: '' },
-  'Garlic Pasta': { ingredients: '', instructions: '' },
-  'General Tso chicken': { ingredients: '', instructions: '' },
-  'Greek Yogurt Pizza': { ingredients: '', instructions: '* Prep: Preheat oven to 400°F. Line a baking tray with parchment paper and spray with olive oil  
-* Combine the dough ingredients: Combine all-purpose flour, Greek yogurt, sea salt, baking powder, any dried seasonings or herbs (if using), and extra virgin olive oil in a large mixing bowl. Mix with a spoon to combine until it looks like dough crumbles.  
-* Knead and roll: Lightly dust your work surface with flour, then tip the dough ball onto the surface and knead for a minute. If the dough is too sticky, at a teaspoon of flour at a time until it doesn’t stick to your hands when you pull back. If the dough is too dry, add a teaspoon of water and continue kneading. Roll the dough into a ball and divide into two equal parts or one big pizza.  
-* Add Toppings: Transfer to the prepared baking tray and top with pizza sauce, your desired pizza toppings, and cheese.  
-* Bake, slice, and enjoy!: Bake for 12-15 minutes, or until the cheese has melted and starts to brown a little.  
-* Pull out of the oven and slice  
-* Best part enjoy' },
-  'Ground Korean Beef': { ingredients: '', instructions: '' },
-  'Homemade pizza  Dough': { ingredients: '', instructions: '' },
-  'Honey Butter Chicken': { ingredients: '', instructions: '' },
-  'Honey Garlic Chicken Bites': { ingredients: '', instructions: '' },
-  'Honey Pepper Chicken Pasta': { ingredients: '', instructions: '' },
-  'Honey garlic chicken': { ingredients: '', instructions: '' },
-  'Key Lime Pie': { ingredients: '', instructions: '' },
-  'Korean Beef Bulgogi': { ingredients: '', instructions: '' },
-  'Korean Chicken': { ingredients: '', instructions: '' },
-  'Korean fried chicken': { ingredients: '', instructions: '' },
-  'Korean-style Bacon & Egg Noodles': { ingredients: '', instructions: '' },
-  'Lasagna': { ingredients: '', instructions: '' },
-  'Lemon pepper chicken pasta': { ingredients: '', instructions: '' },
-  'Load Cheese Fries': { ingredients: '', instructions: '' },
-  'Loco Moco': { ingredients: '', instructions: '' },
-  'Mongolian Beef with Noodles': { ingredients: '', instructions: '' },
-  'Mongolian Beef with Rice': { ingredients: '', instructions: '' },
-  'Mongolian Meat Balls': { ingredients: '', instructions: '' },
-  'On Pot Creamy Cajun Chicken Pasta': { ingredients: 'CAJUN SEASONING  
-* 2 t smoked paprika  
-* 1 t oregano  
-* 1 t thyme  
-* 1/2 t garlic powder  
-* 1/2 t onion powder  
-* 1/4 t cayenne pepper  
-* 1/4 t black pepper  
-* 1/4 t salt  
-CHICKEN PASTA  
-* 1 T olive oil  
-* 1 T butter  
-* 1 lb chicken breast  
-* 1 yellow onion, diced  
-* 1/2 lb. penne pasta  
-* 15 oz. fire roasted or sun dried tomatoes diced  
-* 2 C chicken broth  
-* 2 oz. cream cheese  
-* 3 green onions, chopped  
-  ', instructions: '2- Cut the chicken into bite size pieces . Place the chicken in a bowl, pour the Cajun seasoning over the chicken coat. 3- Add the olive oil and butter to a large deep skillet. Heat over medium-high until hot and the butter is melted and foamy.  
-4-Add the seasoned chicken to the skillet and cook for a couple minutes on until the outside gets some color. The chicken does not need to be cooked through. 5- Add the diced yellow onion to the skillet and sauté for about 2 minutes. 6-Next, add the pasta, diced tomatoes (whichever you prefer ), and chicken broth to the skillet. Stir until everything is evenly combined, then place a lid on top and allow the broth to come up to a boil. 7- Once boiling, turn the heat down to medium-low and let the pasta simmer stirring every couple of minutes, until the pasta is tender and the liquid is thick and saucy. 8- Add the cream cheese to the skillet in chunks, then stir until it has melted into the sauce. Top the pasta with sliced green onions.  
-9- best part serve and enjoy
-
-[[URLs/Food Recipes URLs|Food Recipes URLs]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]]' },
-  'One Pan Spicy Garlic Lime Chicken Pasta': { ingredients: '', instructions: '' },
-  'One Pot Spicy Honey Garlic Chicken Pasta': { ingredients: '', instructions: '' },
-  'One-Pot Smoky BBQ Meatball Pasta': { ingredients: '', instructions: '' },
-  'Orange Chicken v2': { ingredients: '', instructions: '' },
-  'Orange Chicken': { ingredients: 'FOR THE MARINADE  
-1 large egg  
-1T soy sauce  
-1/2t brown sugar  
-1½ lbs chicken; cut into 1-inch pieces  
-FOR THE SAUCE  
-1/4C soy sauce  
-1/2C (packed) brown sugar  
-1/4C rice vinegar  
-1/3C orange juice  
-1 cup chicken broth  
-2T cornstarch  
-1½t Asian sesame oil  
-3/4t crushed red pepper flakes  
-FOR COATING THE CHICKEN  
-1C cornstarch  
-1/3C all-purpose flour  
-1/4t baking soda  
-FOR COOKING AND SERVING  
-Vegetable oil  
-1T fresh minced ginger  
-3 cloves garlic, minced  
-2 green onions cut for garnish  
-  ', instructions: '1-Marinate the chicken for 30 mins: In a large bowl, beat the egg, soy sauce and sugar. Add the chicken and toss until coated.  
-2-While chicken is marinating, make the sauce: In a small bowl, mix the soy sauce, sugar, vinegar, orange juice, broth, cornstarch, sesame oil, and pepper flakes together. Set aside.  
-3- In a medium bowl, mix the cornstarch, flour, and baking soda. After 30 mins place the dry ingredients in with the chicken and toss until each piece of meat has a dry, clumpy coating.  
-4- Fry the chicken: I place paper towels under a wire rack. In a large nonstick skillet over medium-high heat, heat oil. Fry the chicken in three batches so as not to crowd the pan. Cool until the batches are golden brown and crispy. Transfer the chicken to the wire rack. Repeat with the remaining chicken.  
-5-Finish the dish: Carefully drain the oil from the pan and wipe clean with a paper towel. Add roughly 1T of oil. Over medium heat, add the ginger & garlic, stirring constantly, for about 30 seconds until fragrant; Add the sauce, bring it to a boil, and let it cook until thickened and glossy, 2 to 3 minutes. Add the crispy chicken, tossing until the sauce fully coats it. Sprinkle with the dark green onions and serve over rice.  
-6- enjoy' },
-  'Pad Kra Pro': { ingredients: '', instructions: '* In a mixing bowl, combine the oyster sauce, both soy sauces, fish sauce and sugar. Mix until sugar has dissolved.   
-* In large skillet, heat on medium high heat until hot. Add the onion , garlic and Thai chilis and saute until fragrant.   
-* Next, increase the heat to high heat, add the pork, break it up into smaller pieces. Spread the pork out into a single layer and let it sear and lightly charred. Cook until all the liquid has evaporated. ( if need to you can drain the liquid out as well)    
-* Add the sauce and toss until combined. Then deglaze the pan with chicken stock. Cook until the chicken stock renders down and dissolves about 1 minute.   
-* Take off the heat and add the basil and toss until just wilted.   
-* Serve. Serve with a fried egg and steamed white rice.  
-* Best part - Enjoy!' },
-  'Pad Krapow Gai': { ingredients: '', instructions: '1- In a mixing bowl, add the oyster sauce, soy sauce, fish sauce, dark soy sauce, and sugar. Mix until combined.
-
-2- Heat 1 1/2 T of oil in a wok or deep pan over medium-high heat, add garlic, shallots, and chili peppers, and saute for 30 seconds.
-
-3- Next, increase the heat to high, add the chicken and toss to combine with the herbs. Spread the chicken out into a single layer and let it sear. Then, toss and continue cooking until the chicken is cooked through and lightly charred and all the liquid has evaporated.
-
-4- Add the sauce and toss until combined. Then deglaze the pan with chicken stock. Cook until the chicken stock is rendered down.
-
-5- Then, add the green onions and basil leaves. Toss until just wilted. Taste and adjust seasoning as needed.
-
-6- Serve. Serve with steamed rice and a fried egg
-
-7- Best part enjoy!
-
-[[RH Brain/04 Dinners idea/Chicken strips|Chicken strips]] [[RH Brain/05 Goals/Short Term Goals|Short Term Goals]] [[RH Brain/02 Projects/Dinner Website/images/The Brain links|The Brain links]] [[pad-krapow-gai.html]]' },
-  'Pasta with Lemon Sauce': { ingredients: '* 12 oz spaghetti  
-* 3 T olive oil  
-* 2 garlic cloves minced  
-* 2 T fresh parsley or basil plus more for serving  
-* 1 lemon zested and juiced  
-* ¼ C grated parmesan cheese  
-* black pepper for serving  
-  ', instructions: '* Cook the spaghetti in a pot of salted water until al dente, reserving ½ cup of the cooking pasta liquid.  
-  
-* In a skillet over medium heat, heat the olive oil. Add the garlic, parsley, lemon zest and lemon juice. Add a 1/4 cup of cooking pasta liquid and parmesan cheese and stir to combine. Bring the sauce to a simmer. *note* If to thick add the remaining 1/4 cup of water or when transferring the pasta pull straight from the water, let drain for a second before adding to the skillet.   
-* Transfer the cooked spaghetti to the skillet with the pasta sauce and toss until well coated. Serve with extra parsley/ basil and parmesan cheese, if desired.' },
-  'Philly Cheesesteak Pasta': { ingredients: '', instructions: '' },
-  'Sausage & Bacon Pasta': { ingredients: '', instructions: '' },
-  'Sesame Chicken': { ingredients: '', instructions: '' },
-  'Sesame Seed Chicken': { ingredients: '', instructions: '* Mix the eggs, salt and pepper in a bowl.   
-* Mix the flour and 1/2 cup of cornstarch in a shallow bowl.  
-  
-* Place the chicken into the egg mixture and coat each piece. In small patches (4-6 pieces is what I did)place chicken into the flour. Repeat the process with all of the chicken.   
-* While coating the chicken heat 3 inches of oil in a deep pan to 350 degrees F   
-* Cook chicken in patch to not over crowd the pan. Cook until crispy and golden brown. Repeat the process with the remaining chicken   
-* Drain the chicken on a wire rack with paper towels under for easy clean up.   
-* While the chicken is cooking, combine the honey, soy sauce, ketchup, brown sugar, rice vinegar, sesame oil and cornstarch in a big measuring cup.   
-* Once the chicken is finished cooking , empty the oil and wipe the bottom of the pan. Heat the teaspoon of oil in the pan over medium heat. Add the garlic and cook for 30 seconds. Add the honey sauce mixture and bring to a simmer. Cook for 3-4 minutes or until just thickened.   
-* Add the crispy chicken to the pan and toss to coat with the sauce. Sprinkle with sesame seeds and green onions, then serve.  
-* Enjoy' },
-  'Spaghetti Al Limone': { ingredients: '', instructions: '' },
-  'Spaghetti Carbonara': { ingredients: '', instructions: '' },
-  'Spicy Coconut Grilled Chicken': { ingredients: '', instructions: '' },
-  'Spicy Honey Garlic Pork with Rice': { ingredients: '', instructions: '' },
-  'Spicy Sweet Popcorn Chicken': { ingredients: '', instructions: '' },
-  'Spring Pasta': { ingredients: '', instructions: '' },
-  'Steak & Pasta in Cowboy Butter': { ingredients: '', instructions: '' },
-  'Steak in a Red Wine Reduction Sauce': { ingredients: '', instructions: '' },
-  'Sweet & Sour Chicken': { ingredients: '', instructions: '' },
-  'Taco Hamburger': { ingredients: '', instructions: '' },
-  'Taco Pizza': { ingredients: '', instructions: '' },
-  'Taco cheesy pasta': { ingredients: '', instructions: '' },
-  'Triscuit Appetizer': { ingredients: '', instructions: '' },
-  'Tuscan Butter Gnocchi': { ingredients: '', instructions: '' },
-  'White Pizza': { ingredients: '', instructions: '' },
-      'Brown Sugar Chicken Recipe': { ingredients: 'CHICKEN • 2 large chicken breasts • 2 T flour • 1 t EACH paprika, garlic powder, onion powder • 1/2 t EACH ground cumin, salt, pepper, chipotle chili pepper • 2 T butter • 2 T olive oil BROWN SUGAR SAUCE • 1/2 C brown sugar • 1/4 C soy sauce • 1/4 C chicken broth • 1 T lemon juice • 1 t Dijon mustard • 1/2 t cornstarch • 1/2 t EACH dried parsley, dried thyme, dried oregano • Pinch of red pepper flakes', instructions: '1- Slice the chicken breasts in half to create 4 fillets. Cover with plastic wrap and pound to an even thickness.<br>2- Whisk the flour and all chicken seasoning together in a shallow dish. Dredge each breast in flour mixture, shake off any excess.<br>3- Melt the 2 tablespoons butter & oil in a large skillet over medium-high heat. Once hot, add chicken and cook until golden and cooked through. Transfer chicken to a plate.<br>4- Mix chicken broth with cornstarch and add to the skillet, followed by all of the sauce ingredients. Bring sauce to a simmer while scraping up any brown bits on the bottom of the pan; simmer until sauce thickens to desired consistency.<br>5- Add chicken back to the skillet and spoon some of the sauce over top. If the chicken is too sweet for your liking, garnish with freshly squeezed lemon juice.<br>6- Enjoy!' },
-      'Dinner Roll': { ingredients: '• 1 1/2 cups warm water • 1 tablespoon active dry yeast • 2 tablespoons sugar • 2 tablespoons butter softened • 1 teaspoon salt • 4 cups flour • 3 tablespoons melted butter for brushing on top • coarse sea salt for sprinkling on top', instructions: '1- In a large bowl or stand mixer, dissolve the yeast and sugar in the warm water and let stand for five minutes, or until foamy.<br>2- Add the butter, salt, and 3 cups of flour, and mix until combined. Add additional flour, 1/4 cup at a time, until the dough pulls away from the sides of the bowl and is only slightly sticky to the touch.<br>3- Knead 3-5 minutes, until smooth. Cover and let rise 20 minutes.<br>4- Preheat the oven to 400 and line a 9 x 13 pan with parchment paper or spray with cooking spray.<br>5- Gently punch the dough down and divide into 12 equal sized pieces. Roll each piece into a ball and space evenly in the prepared pan.<br>6- Brush with melted butter, sprinkle with sea salt, and let rise for an additional 15-20 minutes.<br>7- Bake 13-15 minutes, or until golden brown. Remove and brush with butter. Let cool slightly before serving and enjoy!' },
-    };
-
-    // Pagination
-    const RECIPES_PER_PAGE = 15;
-    let currentPage = 1;
-    let allCards = [];
-    let filteredCards = [];
-    let recipes = [];
-
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
-      loadRecipes();
-      displayPage();
-    });
-
-    function loadRecipes() {
-      // Get all cards from grid
-      const grid = document.getElementById('recipe-grid');
-      const cards = document.querySelectorAll('.card');
-
-      recipes = Array.from(cards).map(card => ({
-        name: card.querySelector('h2').textContent,
-        cuisine: card.dataset.cuisine,
-        desc: card.querySelector('p').textContent,
-        img: card.querySelector('img').src,
-        element: card
-      }));
-
-      allCards = recipes;
-      filteredCards = [...allCards];
-      updatePagination();
-    }
-
-    function displayPage() {
-      const startIdx = (currentPage - 1) * RECIPES_PER_PAGE;
-      const endIdx = startIdx + RECIPES_PER_PAGE;
-      const visibleRecipes = filteredCards.slice(startIdx, endIdx);
-
-      // Hide all, show only current page
-      allCards.forEach(r => r.element.style.display = 'none');
-      visibleRecipes.forEach(r => r.element.style.display = 'block');
-
-      updatePagination();
-    }
-
-    function updatePagination() {
-      const totalPages = Math.ceil(filteredCards.length / RECIPES_PER_PAGE);
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      const pageInfo = document.getElementById('page-info');
-      const noResults = document.getElementById('no-results');
-
-      if (filteredCards.length === 0) {
-        noResults.style.display = 'block';
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-        pageInfo.style.display = 'none';
-      } else {
-        noResults.style.display = 'none';
-        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-
-        if (totalPages > 1) {
-          prevBtn.style.display = 'inline-block';
-          nextBtn.style.display = 'inline-block';
-          pageInfo.style.display = 'inline-block';
-          prevBtn.disabled = currentPage === 1;
-          nextBtn.disabled = currentPage === totalPages;
-        } else {
-          prevBtn.style.display = 'none';
-          nextBtn.style.display = 'none';
-          pageInfo.style.display = 'none';
-        }
-      }
-    }
-
-    function filterRecipes() {
-      const selected = document.getElementById('cuisine-filter').value;
-      filteredCards = selected === 'all' ? [...allCards] : allCards.filter(r => r.cuisine === selected);
-      currentPage = 1;
-      displayPage();
-    }
-
-    function nextPage() {
-      const totalPages = Math.ceil(filteredCards.length / RECIPES_PER_PAGE);
-      if (currentPage < totalPages) {
-        currentPage++;
-        displayPage();
-        window.scrollTo(0, 0);
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 1) {
-        currentPage--;
-        displayPage();
-        window.scrollTo(0, 0);
-      }
-    }
-
-    function showRecipeDetail(element) {
-      const recipe = element.querySelector('h2').textContent;
-      const cuisine = element.dataset.cuisine;
-      const desc = element.querySelector('p').textContent;
-      const img = element.querySelector('img').src;
-      const data = recipeData[recipe] || { ingredients: 'No data', instructions: 'No data' };
-
-      document.getElementById('modal-name').textContent = recipe;
-      document.getElementById('modal-cuisine').textContent = cuisine;
-      document.getElementById('modal-desc').textContent = desc;
-      document.getElementById('modal-img').src = img;
-      document.getElementById('modal-ingredients-content').innerHTML = data.ingredients.replace(/•/g, '•').replace(/\n/g, '<br>');
-      document.getElementById('modal-instructions-content').innerHTML = data.instructions.replace(/\n/g, '<br>');
-
-      document.getElementById('recipe-modal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeRecipeDetail() {
-      document.getElementById('recipe-modal').style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-
-    function spinRoulette() {
-      const cuisines = [
-        document.getElementById('roulette-1').value,
-        document.getElementById('roulette-2').value,
-        document.getElementById('roulette-3').value
-      ].filter(c => c);
-
-      if (cuisines.length === 0) {
-        alert('Please select at least one cuisine!');
-        return;
-      }
-
-      const matching = allCards.filter(r => cuisines.includes(r.cuisine));
-      if (matching.length === 0) {
-        alert('No recipes found for those cuisines!');
-        return;
-      }
-
-      const random = matching[Math.floor(Math.random() * matching.length)];
-      document.getElementById('roulette-img').src = random.img;
-      document.getElementById('roulette-name').textContent = random.name;
-      document.getElementById('roulette-desc').textContent = random.desc;
-      document.getElementById('roulette-result').style.display = 'block';
-      document.getElementById('roulette-result').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
