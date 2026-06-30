@@ -78,19 +78,19 @@
       </div>
       <div id="roulette-result" style="display:none;">
         <p>You should try:</p>
-        <a id="roulette-recipe" href="#" class="roulette-card">
+        <div class="roulette-card" onclick="event.stopPropagation()">
           <img id="roulette-img" src="" alt="Recipe" />
           <div class="roulette-card-body">
             <h3 id="roulette-name"></h3>
             <p id="roulette-desc"></p>
           </div>
-        </a>
+        </div>
       </div>
     </div>
 
     <div class="card-grid" id="recipe-grid">
 
-      <a href="chicken-strips.html" class="card" data-cuisine="american">
+      <div class="card" data-cuisine="american" onclick="showRecipeDetail(this)">
         <img src="images/Chicken%20Strips.png" alt="Chicken Strips" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -98,9 +98,9 @@
           <p>Crispy fried chicken tenders tossed in a sweet &amp; spicy garlic sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="pad-krapow-gai.html" class="card" data-cuisine="thai">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="thai">
         <img src="images/pad-krapow-gai.png" alt="Pad Krapow Gai" />
         <div class="card-body">
           <span class="cuisine-tag">Thai</span>
@@ -108,9 +108,9 @@
           <p>Thai basil chicken stir fry served over steamed rice with a fried egg.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="steak-cowboy-butter.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Steak%20%26%20Pasta%20in%20Cowboy%20Butter.png" alt="Steak &amp; Pasta in Cowboy Butter" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -118,9 +118,9 @@
           <p>Juicy ribeye bites and pasta smothered in a rich, herby cowboy butter cream sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="caprese-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Caprese%20Pasta.png" alt="Caprese Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -128,9 +128,9 @@
           <p>Linguine tossed with cherry tomatoes, fresh mozzarella, and basil in a garlic olive oil sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spaghetti-al-limone.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Spaghetti%20Al%20Limone.png" alt="Spaghetti Al Limone" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -138,9 +138,9 @@
           <p>Bright, lemony linguine with fresh mint and Pecorino Romano — simple Italian comfort food.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="steak-red-wine.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Red%20Wine%20Reduction%20Sauce.png" alt="Steak in a Red Wine Reduction Sauce" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -148,9 +148,9 @@
           <p>Pan sauce made with red wine, beef broth, and balsamic glaze — the perfect steak topper.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="brown-sugar-chicken.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Brown%20Sugar%20Chicken%20Recipe.png" alt="Brown Sugar Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -158,9 +158,9 @@
           <p>Juicy chicken fillets in a sticky, sweet-savory brown sugar sauce with a kick of heat.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cajun-chicken-pasta.html" class="card" data-cuisine="cajun">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
         <img src="images/One%20Pot%20Creamy%20Cajun%20Chicken%20Pasta.png" alt="One Pot Creamy Cajun Chicken Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
@@ -168,9 +168,9 @@
           <p>Spicy Cajun chicken and penne simmered in one pot with fire-roasted tomatoes and cream cheese.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chicken-pan-fried-noodles.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Chicken%20Pan%20Fried%20Noodles.png" alt="Chicken Pan Fried Noodles" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -178,9 +178,9 @@
           <p>Crispy Hong Kong-style egg noodles topped with seared chicken in a savory sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="buffalo-chicken-alfredo.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Buffalo%20Chicken%20Alfredo%20Penne.png" alt="Buffalo Chicken Alfredo Penne" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -188,9 +188,9 @@
           <p>Creamy Alfredo meets tangy buffalo sauce — tossed with shredded chicken and penne for a bold, crowd-pleasing pasta.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="burrata-cheese-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Burrataca%20Cheese%20Pasta.png" alt="Burrata Cheese Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -198,9 +198,9 @@
           <p>Linguine tossed with burst cherry tomatoes, fresh basil, and creamy burrata.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spicy-garlic-lime-chicken-pasta.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/One%20Pan%20Spicy%20Garlic%20Lime%20Chicken%20Pasta.png" alt="One Pan Spicy Garlic Lime Chicken Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -208,9 +208,9 @@
           <p>Spicy chicken and pasta cooked in one pan with garlic, lime, and Parmesan.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spicy-honey-garlic-chicken-pasta.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/One%20Pot%20Spicy%20Honey%20Garlic%20Chicken%20Pasta.png" alt="One Pot Spicy Honey Garlic Chicken Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -218,9 +218,9 @@
           <p>Sweet honey, bold garlic, and a kick of heat — all cooked together in one pot with Parmesan.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="sweet-sour-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Sweet%20and%20Sour%20Chicken.png" alt="Sweet &amp; Sour Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -228,9 +228,9 @@
           <p>Crispy fried chicken with peppers, pineapple, and a tangy sweet-sour sauce that coats everything perfectly.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="white-pizza.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/White%20Pizza.png" alt="White Pizza" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -238,9 +238,9 @@
           <p>Homemade dough topped with a creamy Alfredo sauce and three white cheeses — no red sauce, no regrets.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="sesame-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Sesame%20Chicken.png" alt="Sesame Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -248,9 +248,9 @@
           <p>Pan-seared chicken tossed in a sticky sesame sauce with soy, honey, brown sugar, ginger, and garlic.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="four-cheese-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Four%20Cheese%20Gnocchi.png" alt="Four Cheese Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -258,9 +258,9 @@
           <p>Pillowy gnocchi tossed in a rich four-cheese cream sauce with Gorgonzola, Gouda, Parmesan, and your choice of bold cheese.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chicken-sandwich.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Chicken%20Sandwich.png" alt="Chicken Sandwich" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -268,9 +268,9 @@
           <p>Thin-pounded, perfectly seasoned chicken breast pan-fried and topped with melted white cheddar on a toasted bun.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="loaded-cheese-fries.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Load%20Cheese%20Fries.png" alt="Loaded Cheese Fries" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -278,9 +278,9 @@
           <p>Crispy fries layered with warm queso, cherry tomatoes, creamy avocado, and crispy bacon.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cajun-pasta.html" class="card" data-cuisine="cajun">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
         <img src="images/Cajun%20Chicken%20Pasta.png" alt="Cajun Chicken Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
@@ -288,9 +288,9 @@
           <p>Seared Cajun chicken over penne in a rich cream and Parmesan sauce with diced tomatoes.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="honey-pepper-chicken-pasta.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Honey%20Pepper%20Chicken%20Pasta.png" alt="Honey Pepper Chicken Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -298,9 +298,9 @@
           <p>Sweet honey and bold black pepper chicken with sun-dried tomatoes, garlic, and a light cream Parmesan sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chicken-bruschetta-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Chicken%20Bruschetta%20Pasta.png" alt="Chicken Bruschetta Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -308,9 +308,9 @@
           <p>Pasta and chicken tossed with a fresh bruschetta of cherry tomatoes, basil, balsamic vinegar, and Parmesan.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="balsamic-chicken-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Balsamic%20Chicken%20Pasta.jpeg" alt="Balsamic Chicken Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -318,9 +318,9 @@
           <p>Tender chicken marinated in balsamic glaze with fresh mozzarella, cherry tomatoes, and basil over linguine.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="loco-moco.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Loco%20Moco.png" alt="Loco Moco" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -328,9 +328,9 @@
           <p>Hawaiian comfort food — sticky rice topped with beef patties, a fried egg, and rich homemade beef gravy.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="caprese-appetizer.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Caprese%20Appetizer.png" alt="Caprese Appetizer" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -338,9 +338,9 @@
           <p>Fresh mozzarella, cherry tomatoes, and basil drizzled with olive oil and balsamic glaze — simple and stunning.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="coconut-lime-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Coconut%20Lime%20Chicken.png" alt="Coconut Lime Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -348,9 +348,9 @@
           <p>Chicken marinated in coconut milk, lime, ginger, and garlic, then simmered in its own silky sauce over rice.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="triscuit-appetizer.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Triscuit%20Appetizer.png" alt="Triscuit Appetizer" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -358,9 +358,9 @@
           <p>Rosemary or balsamic Triscuits loaded with feta, cherry tomatoes, and a drizzle of balsamic glaze — quick crowd-pleaser.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="honey-garlic-chicken-bites.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Honey%20Garlic%20Chicken%20Bites.png" alt="Honey Garlic Chicken Bites" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -368,9 +368,9 @@
           <p>Chicken bites marinated in honey, soy, and garlic, then pan-seared and glazed until sticky and golden.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="dragon-glazed-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Dragon%20Glazed%20Chicken.png" alt="Dragon Glazed Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -378,9 +378,9 @@
           <p>Crispy panko-breaded chicken bites tossed in a bold soy-honey gochujang dragon glaze.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="buffalo-chicken-alfredo-pasta.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Buffalo%20Chicken%20Alfredo%20Pasta.png" alt="Buffalo Chicken Alfredo Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -388,9 +388,9 @@
           <p>Shredded chicken and penne in a rich buffalo Alfredo cream sauce with Parmesan and mozzarella.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="smoky-bbq-meatball-pasta.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/One-Pot%20Smoky%20BBQ%20Meatball%20Pasta.png" alt="One-Pot Smoky BBQ Meatball Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -398,9 +398,9 @@
           <p>Meatballs and pasta simmered together in a smoky BBQ cream sauce, finished with melted cheddar and mozzarella.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spaghetti-carbonara.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Spaghetti%20Carbonara.png" alt="Spaghetti Carbonara" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -408,9 +408,9 @@
           <p>Classic Roman carbonara with guanciale, egg yolks, Pecorino Romano, and cracked black pepper — no cream needed.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="lasagna.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Lasagna.png" alt="Lasagna" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -418,9 +418,9 @@
           <p>Classic layered pasta with a rich meat sauce, creamy béchamel, and a blanket of melted cheese.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="pasta-lemon-sauce.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Pasta%20with%20Lemon%20Sauce.png" alt="Pasta with Lemon Sauce" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -428,9 +428,9 @@
           <p>Light and bright pasta in a silky lemon cream sauce with Parmesan and fresh herbs.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="caprese-pasta-v2.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Caprese%20Pasta%20v2.png" alt="Caprese Pasta v2" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -438,9 +438,9 @@
           <p>An elevated take on the classic — fresh mozzarella, burst cherry tomatoes, basil, and a hit of roasted garlic.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="aglio-olio.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Agilo%20Olil.png" alt="Aglio e Olio" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -448,9 +448,9 @@
           <p>The Roman classic — spaghetti tossed with toasted garlic, olive oil, red pepper flakes, and Pecorino Romano.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="buttery-garlic-thyme-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Buttery%20Garlic%20Thyme%20Gnocchi.png" alt="Buttery Garlic Thyme Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -458,9 +458,9 @@
           <p>Pan-fried gnocchi basted in brown butter with garlic and fresh thyme until golden and crispy on the outside.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="baked-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Baked%20Gnocchi.png" alt="Baked Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -468,9 +468,9 @@
           <p>Gnocchi baked in a tomato cream sauce until golden and bubbly with a melted mozzarella crust on top.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="creamy-chicken-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Creamy%20Chicken%20Gnocchi.png" alt="Creamy Chicken Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -478,9 +478,9 @@
           <p>Pillowy gnocchi in a rich cream sauce with seared chicken, sun-dried tomatoes, and wilted spinach.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cheesy-pork-broccoli-risotto.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Cheesy%20Pork%20%26%20Broccoli%20Risotto.png" alt="Cheesy Pork &amp; Broccoli Risotto" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -488,9 +488,9 @@
           <p>Creamy Arborio rice with seasoned ground pork, broccoli, and a heavy hand of melted cheese.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="bruschetta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Bruschetta.png" alt="Bruschetta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -498,9 +498,9 @@
           <p>Toasted rustic bread topped with diced tomatoes, fresh basil, garlic, and a drizzle of good olive oil.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="greek-yogurt-pizza.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Greek%20Yogurt%20Pizza.png" alt="Greek Yogurt Pizza" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -508,9 +508,9 @@
           <p>Two-ingredient dough made with Greek yogurt — crispy, light base ready in minutes with your favorite toppings.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="philly-cheesesteak-pasta.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Philly%20Cheesesteak%20Pasta.png" alt="Philly Cheesesteak Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -518,9 +518,9 @@
           <p>All the flavors of a Philly cheesesteak — beef, peppers, onions, and provolone — tossed with pasta.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="eggs-benedict.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Eggs%20Benedict.png" alt="Eggs Benedict" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -528,9 +528,9 @@
           <p>Poached eggs and Canadian bacon on toasted English muffins, smothered in a rich, silky hollandaise sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="brown-sugar-pork-chops.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Brown%20Sugar%20Pork%20Chops.png" alt="Brown Sugar Pork Chops" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -538,9 +538,9 @@
           <p>Thick-cut pork chops seared and glazed in a sweet, savory brown sugar pan sauce with garlic and butter.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spicy-sweet-popcorn-chicken.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Spicy%20Sweet%20Popcorn%20Chicken.png" alt="Spicy Sweet Popcorn Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -548,9 +548,9 @@
           <p>Bite-sized crispy chicken tossed in a spicy-sweet honey glaze with a hit of sesame and heat.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="black-pepper-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Black%20Pepper%20Chicken.png" alt="Black Pepper Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -558,9 +558,9 @@
           <p>Tender chicken stir-fried with onions and peppers in a bold black pepper and soy glaze over steamed rice.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="korean-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Korean%20Chicken.png" alt="Korean Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -568,9 +568,9 @@
           <p>Crispy chicken thighs glazed in a sweet-spicy gochujang sauce with sesame seeds and green onion.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="sesame-seed-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Sesame%20Seed%20Chicken.png" alt="Sesame Seed Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -578,9 +578,9 @@
           <p>Crispy fried chicken in a sweet-savory sauce finished with a thick, golden sesame seed crust.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="general-tso-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/General%20Tso%20chicken.png" alt="General Tso's Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -588,9 +588,9 @@
           <p>Crispy battered chicken tossed in a tangy-sweet General Tso's sauce with dried chilies and scallions.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="ground-korean-beef.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Ground%20Korean%20Beef.png" alt="Ground Korean Beef" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -598,9 +598,9 @@
           <p>Seasoned ground beef in a garlicky soy-sesame sauce with brown sugar and ginger, served over steamed rice.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="mongolian-meatballs.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Mongolian%20Meat%20Balls.png" alt="Mongolian Meatballs" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -608,9 +608,9 @@
           <p>Tender meatballs simmered in a rich Mongolian sauce with soy, brown sugar, garlic, and ginger over rice.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="filipino-pork-tocino.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/FILIPINO%20PORK%20TOCINO.png" alt="Filipino Pork Tocino" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -618,9 +618,9 @@
           <p>Sweet-cured pork marinated in sugar and garlic, pan-fried until caramelized — served with garlic rice and egg.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spicy-honey-garlic-pork.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Spicy%20Honey%20Garlic%20Pork%20with%20Rice.png" alt="Spicy Honey Garlic Pork with Rice" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -628,9 +628,9 @@
           <p>Tender pork in a sticky spicy-honey garlic glaze, served over fluffy steamed rice.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="pad-kra-pro.html" class="card" data-cuisine="thai">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="thai">
         <img src="images/Pad%20Kra%20Pro.png" alt="Pad Kra Pro" />
         <div class="card-body">
           <span class="cuisine-tag">Thai</span>
@@ -638,9 +638,9 @@
           <p>Thai basil pork stir fry — ground pork with fish sauce, oyster sauce, chilies, and holy basil over rice with a fried egg.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cheesy-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Cheesy%20Gnocchi.png" alt="Cheesy Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -648,9 +648,9 @@
           <p>Pillowy gnocchi smothered in a rich, melted cheese sauce — simple, indulgent comfort food.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="creamy-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Creamy%20Gnocchi.png" alt="Creamy Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -658,9 +658,9 @@
           <p>Soft gnocchi in a velvety cream sauce with garlic, Parmesan, and fresh herbs.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="bacon-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Bacon%20gnocchi.png" alt="Bacon Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -668,9 +668,9 @@
           <p>Pan-fried gnocchi with crispy bacon in a cream sauce finished with Parmesan and cracked black pepper.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="4-cheese-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/4%20Cheese%20Gnocchi.png" alt="4 Cheese Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -678,9 +678,9 @@
           <p>Gnocchi tossed in a decadent four-cheese cream sauce — rich, melty, and impossible to stop eating.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="baked-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Baked%20Pasta.png" alt="Baked Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -688,9 +688,9 @@
           <p>Pasta baked in a hearty meat sauce under a golden, bubbling blanket of melted mozzarella.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="creamy-spicy-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Creamy%20Spicy%20pasta.png" alt="Creamy Spicy Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -698,9 +698,9 @@
           <p>Penne in a bold, spicy tomato cream sauce with garlic and Parmesan — heat meets comfort.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spring-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Spring%20Pasta.png" alt="Spring Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -708,9 +708,9 @@
           <p>Light pasta with fresh seasonal vegetables, lemon, and herbs — bright, clean, and simple.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="garlic-pasta.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Garlic%20Pasta.png" alt="Garlic Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -718,9 +718,9 @@
           <p>Simple and bold — spaghetti tossed with deeply toasted garlic, olive oil, and a snowfall of Parmesan.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="bruschetta-buns.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Bruschetta%20Buns.png" alt="Bruschetta Buns" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -728,9 +728,9 @@
           <p>Toasted buns piled with fresh bruschetta — diced tomatoes, basil, garlic, and good olive oil.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="homemade-pizza-dough.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Homemade%20pizza%20%20Dough.png" alt="Homemade Pizza Dough" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -738,9 +738,9 @@
           <p>The base for everything — chewy, crispy homemade dough that's ready for any topping you throw at it.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chicken-fajitas.html" class="card" data-cuisine="mexican">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
         <img src="images/Chicken%20fajitas.png" alt="Chicken Fajitas" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
@@ -748,9 +748,9 @@
           <p>Juicy seasoned chicken strips with sautéed peppers and onions, served sizzling with warm tortillas.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="enchiladas.html" class="card" data-cuisine="mexican">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
         <img src="images/Enchiladas.png" alt="Enchiladas" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
@@ -758,9 +758,9 @@
           <p>Corn tortillas stuffed with seasoned beef, smothered in enchilada sauce and a heavy layer of melted cheese.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chicken-enchiladas.html" class="card" data-cuisine="mexican">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
         <img src="images/Chicken%20Enchiladas.png" alt="Chicken Enchiladas" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
@@ -768,9 +768,9 @@
           <p>Shredded chicken enchiladas smothered in sauce with melted cheese, sour cream, and fresh cilantro.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="orange-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Orange%20Chicken.png" alt="Orange Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -778,9 +778,9 @@
           <p>Crispy fried chicken tossed in a bright, tangy-sweet orange glaze with sesame seeds and green onion.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chicken-katsu.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Chicken%20Katsu.png" alt="Chicken Katsu" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -788,9 +788,9 @@
           <p>Crispy panko-breaded chicken cutlet served over rice with a rich, savory tonkatsu dipping sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="mongolian-beef-noodles.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Mongolian%20Beef%20with%20Noodles.png" alt="Mongolian Beef with Noodles" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -798,9 +798,9 @@
           <p>Tender beef strips in a sweet-savory Mongolian sauce tossed with lo mein noodles and green onion.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="mongolian-beef-rice.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Mongolian%20Beef%20with%20Rice.png" alt="Mongolian Beef with Rice" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -808,9 +808,9 @@
           <p>Tender beef in a garlicky soy and brown sugar Mongolian sauce served over fluffy steamed rice.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chili-garlic-butter-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Chili%20Garlic%20Butter%20Chicken.png" alt="Chili Garlic Butter Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -818,9 +818,9 @@
           <p>Crispy chicken basted in a spicy chili garlic butter sauce — bold heat with a rich, glossy finish.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="honey-butter-chicken.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Honey%20Butter%20Chicken.png" alt="Honey Butter Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -828,9 +828,9 @@
           <p>Juicy chicken glazed in a sweet honey butter sauce with garlic and a touch of heat.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="tuscan-butter-gnocchi.html" class="card" data-cuisine="italian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
         <img src="images/Tuscan%20Butter%20Gnocchi.png" alt="Tuscan Butter Gnocchi" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
@@ -838,9 +838,9 @@
           <p>Gnocchi in a rich Tuscan butter sauce with sun-dried tomatoes, spinach, and garlic.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="dinner-roll.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Dinner%20Roll.png" alt="Dinner Roll" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -848,9 +848,9 @@
           <p>Soft, pillowy homemade dinner rolls with a buttery golden top — the perfect side for any meal.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chicken-cordon-bleu.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Chicken%20Cordon%20Bleu.png" alt="Chicken Cordon Bleu" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -858,9 +858,9 @@
           <p>Stuffed chicken breast with ham and melted Swiss, breaded and pan-fried to golden perfection.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="lemon-pepper-chicken-pasta.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Lemon%20pepper%20chicken%20pasta.png" alt="Lemon Pepper Chicken Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -868,9 +868,9 @@
           <p>Bright lemon pepper chicken over pasta in a light cream sauce finished with Parmesan.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="taco-hamburger.html" class="card" data-cuisine="mexican">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
         <img src="images/Taco%20Hamburger.png" alt="Taco Hamburger" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
@@ -878,9 +878,9 @@
           <p>A smash burger loaded with taco flavors — seasoned beef, salsa, jalapeños, and melted cheese.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="taco-cheesy-pasta.html" class="card" data-cuisine="mexican">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
         <img src="images/Taco%20cheesy%20pasta.png" alt="Taco Cheesy Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
@@ -888,9 +888,9 @@
           <p>Taco-seasoned beef and pasta in a creamy, cheesy sauce — all your taco favorites in one pot.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="taco-pizza.html" class="card" data-cuisine="mexican">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
         <img src="images/Taco%20Pizza.png" alt="Taco Pizza" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
@@ -898,9 +898,9 @@
           <p>Pizza dough topped with taco-seasoned beef, salsa, cheddar, and all your favorite taco toppings.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="honey-garlic-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Honey%20garlic%20chicken.png" alt="Honey Garlic Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -908,9 +908,9 @@
           <p>Juicy chicken thighs pan-seared in a sticky honey garlic sauce with soy and butter.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="korean-fried-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Korean%20fried%20chicken.png" alt="Korean Fried Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -918,9 +918,9 @@
           <p>Double-fried ultra-crispy chicken tossed in a sweet and spicy gochujang glaze with sesame seeds.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="spicy-coconut-grilled-chicken.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Spicy%20Coconut%20Grilled%20Chicken.png" alt="Spicy Coconut Grilled Chicken" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -928,9 +928,9 @@
           <p>Chicken marinated in coconut milk, chili, and lime then grilled — smoky, creamy, and bold.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="korean-beef-bulgogi.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Korean%20Beef%20Bulgogi.jpeg" alt="Korean Beef Bulgogi" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -938,9 +938,9 @@
           <p>Tender marinated beef grilled or pan-seared until caramelized, served with rice and banchan — classic Korean comfort.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="orange-chicken-v2.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Orange%20Chicken%20v2.png" alt="Orange Chicken v2" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -948,9 +948,9 @@
           <p>A bolder take on orange chicken — thicker citrus glaze, extra heat, and a deeper savory finish.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chocolate-lava-cake.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Chocolate%20lava%20cake.png" alt="Chocolate Lava Cake" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -958,9 +958,9 @@
           <p>Warm chocolate cake with a gooey molten center that flows when you cut in — pure indulgence.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="homemade-brownies.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Homemade%20Brownies.png" alt="Homemade Brownies" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -968,9 +968,9 @@
           <p>Rich, fudgy brownies with a crackly top and deep chocolate flavor all the way through.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="brownie-marshmallow.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Brownie%20with%20Marshmallow.png" alt="Brownie with Marshmallow" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -978,9 +978,9 @@
           <p>Fudgy brownies topped with toasted marshmallow and finished with a drizzle of chocolate.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="crinkle-cookies.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Crinkle%20Cookies.png" alt="Crinkle Cookies" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -988,9 +988,9 @@
           <p>Soft, chewy chocolate cookies rolled in powdered sugar that crack as they bake — a timeless classic.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="peanut-butter-fudge.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Peanut%20Butter%20Fudge%20with%20Chocolate%20topping.png" alt="Peanut Butter Fudge with Chocolate Topping" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -998,9 +998,9 @@
           <p>Creamy peanut butter fudge base topped with a thick layer of smooth chocolate — two classics in one.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cinnamon-rolls.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Cinnamon%20Rolls.png" alt="Cinnamon Rolls" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1008,9 +1008,9 @@
           <p>Soft, fluffy rolls with a buttery brown sugar cinnamon filling and thick cream cheese frosting.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="italian-cheesecake.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Italian%20Cheesecake.png" alt="Italian Cheesecake" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1018,9 +1018,9 @@
           <p>Dense, creamy ricotta-based cheesecake — lighter than New York style with a delicate, subtle sweetness.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cinnamon-cheesecake.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Cinnamon%20Cheesecake.png" alt="Cinnamon Cheesecake" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1028,9 +1028,9 @@
           <p>Classic cheesecake swirled with cinnamon sugar and finished with a spiced sour cream topping.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cinnamon-roll-cheesecake.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Cinnamon%20Roll%20Cheesecake.png" alt="Cinnamon Roll Cheesecake" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1038,9 +1038,9 @@
           <p>Swirled cinnamon roll filling baked into a creamy cheesecake with cream cheese drizzle on top.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="marshmallow-cheesecake.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Marshmallow%20Cheesecake.png" alt="Marshmallow Cheesecake" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1048,9 +1048,9 @@
           <p>Creamy cheesecake swirled with marshmallow fluff and crowned with toasted marshmallow on top.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="boston-cream-pie.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Boston%20Cream%20Pie.png" alt="Boston Cream Pie" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1058,9 +1058,9 @@
           <p>Vanilla sponge layers filled with pastry cream and topped with a glossy chocolate ganache.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="boston-cream-cheesecake-pie.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Boston%20Cream%20Cheesecake%20Pie.png" alt="Boston Cream Cheesecake Pie" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1068,9 +1068,9 @@
           <p>Vanilla custard cheesecake with a buttery crust and a thick chocolate ganache poured over the top.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="hot-chocolate-cake.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Hot%20Chocolate%20Cake.png" alt="Hot Chocolate Cake" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1078,9 +1078,9 @@
           <p>A warm, rich chocolate cake that delivers all the cozy comfort of a hot cocoa mug in every slice.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="white-chocolate-french-silk-pie.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/White%20chocolate%20French%20silk%20pie.png" alt="White Chocolate French Silk Pie" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1088,9 +1088,9 @@
           <p>Silky, mousse-like white chocolate filling in a buttery crust — cool, creamy, and deeply indulgent.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chocolate-french-silk-pie.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Chocolate%20French%20silk%20cream%20pie.png" alt="Chocolate French Silk Cream Pie" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1098,9 +1098,9 @@
           <p>Classic French silk pie with a deep chocolate mousse filling and a cloud of whipped cream on top.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="french-vanilla-macaroons.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/French%20vanilla%20macaroons.png" alt="French Vanilla Macaroons" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1108,9 +1108,9 @@
           <p>Delicate French macarons with crispy shells and a smooth, sweet vanilla buttercream filling.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="japanese-fluffy-cake.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Japanese%20fluffy%20cake.png" alt="Japanese Fluffy Cake" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1118,9 +1118,9 @@
           <p>Cloud-light Japanese cotton cheesecake — impossibly soft, jiggly, and perfectly mild in sweetness.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="korean-style-bacon-egg-noodles.html" class="card" data-cuisine="asian">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
         <img src="images/Korean-style%20Bacon%20%26%20Egg%20Noodles.jpeg" alt="Korean-Style Bacon &amp; Egg Noodles" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
@@ -1128,9 +1128,9 @@
           <p>Crispy bacon, scrambled eggs, and chewy noodles tossed in a bold gochujang stir-fry sauce.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="sausage-bacon-pasta.html" class="card" data-cuisine="cajun">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
         <img src="images/Sausage%20%26%20Bacon%20Pasta.jpeg" alt="Sausage &amp; Bacon Pasta" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
@@ -1138,9 +1138,9 @@
           <p>Smoked sausage and crispy bacon in a rich Cajun cream sauce with melted Parmesan and mozzarella.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="key-lime-pie.html" class="card" data-cuisine="dessert">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
         <img src="images/Key%20Lime%20Pie.jpeg" alt="Key Lime Pie" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
@@ -1148,9 +1148,9 @@
           <p>Tangy, creamy key lime filling in a buttery graham cracker crust — topped with fresh whipped cream and lime zest.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="chipotle-chicken-alfredo.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Chipotle%20Chicken%20Alfredo.jpeg" alt="Chipotle Chicken Alfredo" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -1158,9 +1158,9 @@
           <p>Smoky chipotle peppers blended into a creamy Greek yogurt Parmesan sauce, tossed with pasta and seasoned chicken.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="coconut-lime-chicken-v2.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Coconut-Lime%20Chicken.jpeg" alt="Coconut Lime Chicken v2" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -1168,9 +1168,9 @@
           <p>Chicken simmered in a rich coconut milk sauce with jalapeño, ginger, tomatoes, and a bright finish of lime and cilantro.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
-      <a href="cowboy-spaghetti.html" class="card" data-cuisine="american">
+      <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
         <img src="images/Cowboy%20Spaghetti.jpeg" alt="Cowboy Spaghetti" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
@@ -1178,7 +1178,7 @@
           <p>Bacon, kielbasa, and ground beef simmered with spaghetti in a bold tomato sauce — one skillet, finished with melted cheddar.</p>
           <div class="card-stars"></div>
         </div>
-      </a>
+      </div>
 
     </div>
 
@@ -1191,6 +1191,21 @@
     </div>
 
   </main>
+
+  <!-- Recipe Detail Modal -->
+  <div id="recipe-modal" class="recipe-modal" style="display:none;">
+    <div class="recipe-modal-content">
+      <button class="recipe-modal-close" onclick="closeRecipeDetail()">✕</button>
+      <div class="recipe-modal-body">
+        <img id="recipe-detail-img" src="" alt="Recipe" class="recipe-detail-img" />
+        <div class="recipe-detail-info">
+          <span id="recipe-detail-cuisine" class="cuisine-tag"></span>
+          <h1 id="recipe-detail-name"></h1>
+          <p id="recipe-detail-desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <p>Made with Love, Laughter, Hunger and a glass of Whiskey.</p>
@@ -1274,18 +1289,50 @@
       const recipeName = randomRecipe.querySelector('h2').textContent;
       const recipeDesc = randomRecipe.querySelector('p').textContent;
       const recipeImg = randomRecipe.querySelector('img').src;
-      const recipeLink = randomRecipe.getAttribute('href');
+      const recipeCuisine = randomRecipe.querySelector('.cuisine-tag').textContent;
 
       // Display result
       document.getElementById('roulette-img').src = recipeImg;
       document.getElementById('roulette-name').textContent = recipeName;
       document.getElementById('roulette-desc').textContent = recipeDesc;
-      document.getElementById('roulette-recipe').href = recipeLink;
       document.getElementById('roulette-result').style.display = 'block';
 
       // Scroll to result
       document.getElementById('roulette-result').scrollIntoView({ behavior: 'smooth' });
     }
+
+    function showRecipeDetail(cardElement) {
+      // Get recipe details from the card
+      const recipeName = cardElement.querySelector('h2').textContent;
+      const recipeDesc = cardElement.querySelector('p').textContent;
+      const recipeImg = cardElement.querySelector('img').src;
+      const recipeCuisine = cardElement.querySelector('.cuisine-tag').textContent;
+
+      // Populate modal
+      document.getElementById('recipe-detail-name').textContent = recipeName;
+      document.getElementById('recipe-detail-desc').textContent = recipeDesc;
+      document.getElementById('recipe-detail-img').src = recipeImg;
+      document.getElementById('recipe-detail-cuisine').textContent = recipeCuisine;
+
+      // Show modal
+      document.getElementById('recipe-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeRecipeDetail() {
+      // Hide modal
+      document.getElementById('recipe-modal').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    // Close modal when clicking outside of it
+    document.addEventListener('click', function(event) {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = document.querySelector('.recipe-modal-content');
+      if (event.target === modal) {
+        closeRecipeDetail();
+      }
+    });
 
     function updatePagination() {
       const totalPages = Math.ceil(filteredCards.length / RECIPES_PER_PAGE);
