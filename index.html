@@ -1,35 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R&amp;K Recipes</title>
+  <title>R&K Recipes</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <section class="hero" style="background-image: url('images/Caprese%20Appetizer.png'); background-size: cover; background-position: center; background-attachment: fixed;">
-    <div class="hero-content">
-      <h1>R&amp;K Recipes</h1>
+  <section class="hero" style="background-image: url('images/Caprese%20Appetizer.png'); background-size: cover; background-position: center; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+    <div class="hero-content" style="position: relative; z-index: 2;">
+      <h1>R&K Recipes</h1>
       <p>Simple meals. Big flavor.</p>
     </div>
   </section>
 
   <main>
-
-    <div class="filter-bar">
-      <label for="cuisine-filter">Filter by cuisine:</label>
-      <select id="cuisine-filter" onchange="filterRecipes()">
-        <option value="all">All</option>
-        <option value="american">American</option>
-        <option value="asian">Asian</option>
-        <option value="cajun">Cajun</option>
-        <option value="italian">Italian</option>
-        <option value="dessert">Dessert</option>
-        <option value="mexican">Mexican</option>
-        <option value="thai">Thai</option>
-      </select>
-    </div>
 
     <div class="roulette-section">
       <h2>🎰 Dinner Roulette</h2>
@@ -78,7 +65,7 @@
       </div>
       <div id="roulette-result" style="display:none;">
         <p>You should try:</p>
-        <div class="roulette-card" onclick="event.stopPropagation()">
+        <div class="roulette-card">
           <img id="roulette-img" src="" alt="Recipe" />
           <div class="roulette-card-body">
             <h3 id="roulette-name"></h3>
@@ -88,10 +75,24 @@
       </div>
     </div>
 
+    <div class="filter-bar">
+      <label for="cuisine-filter">Filter by cuisine:</label>
+      <select id="cuisine-filter" onchange="filterRecipes()">
+        <option value="all">All</option>
+        <option value="american">American</option>
+        <option value="asian">Asian</option>
+        <option value="cajun">Cajun</option>
+        <option value="italian">Italian</option>
+        <option value="dessert">Dessert</option>
+        <option value="mexican">Mexican</option>
+        <option value="thai">Thai</option>
+      </select>
+    </div>
+
     <div class="card-grid" id="recipe-grid">
 
       <div class="card" data-cuisine="american" onclick="showRecipeDetail(this)">
-        <img src="images/Chicken%20Strips.png" alt="Chicken Strips" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Strips.png" alt="Chicken Strips" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chicken Strips</h2>
@@ -101,7 +102,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="thai">
-        <img src="images/pad-krapow-gai.png" alt="Pad Krapow Gai" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/pad-krapow-gai.png" alt="Pad Krapow Gai" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Thai</span>
           <h2>Pad Krapow Gai</h2>
@@ -111,7 +112,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Steak%20%26%20Pasta%20in%20Cowboy%20Butter.png" alt="Steak &amp; Pasta in Cowboy Butter" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Steak%20%26%20Pasta%20in%20Cowboy%20Butter.png" alt="Steak &amp; Pasta in Cowboy Butter" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Steak &amp; Pasta in Cowboy Butter</h2>
@@ -121,7 +122,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Caprese%20Pasta.png" alt="Caprese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Caprese%20Pasta.png" alt="Caprese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Caprese Pasta</h2>
@@ -131,7 +132,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Spaghetti%20Al%20Limone.png" alt="Spaghetti Al Limone" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spaghetti%20Al%20Limone.png" alt="Spaghetti Al Limone" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Spaghetti Al Limone</h2>
@@ -141,7 +142,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Red%20Wine%20Reduction%20Sauce.png" alt="Steak in a Red Wine Reduction Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Red%20Wine%20Reduction%20Sauce.png" alt="Steak in a Red Wine Reduction Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Steak in a Red Wine Reduction Sauce</h2>
@@ -151,7 +152,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Brown%20Sugar%20Chicken%20Recipe.png" alt="Brown Sugar Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Brown%20Sugar%20Chicken%20Recipe.png" alt="Brown Sugar Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Brown Sugar Chicken</h2>
@@ -161,7 +162,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
-        <img src="images/One%20Pot%20Creamy%20Cajun%20Chicken%20Pasta.png" alt="One Pot Creamy Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One%20Pot%20Creamy%20Cajun%20Chicken%20Pasta.png" alt="One Pot Creamy Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
           <h2>One Pot Creamy Cajun Chicken Pasta</h2>
@@ -171,7 +172,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Chicken%20Pan%20Fried%20Noodles.png" alt="Chicken Pan Fried Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Pan%20Fried%20Noodles.png" alt="Chicken Pan Fried Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Chicken Pan Fried Noodles</h2>
@@ -181,7 +182,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Buffalo%20Chicken%20Alfredo%20Penne.png" alt="Buffalo Chicken Alfredo Penne" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Buffalo%20Chicken%20Alfredo%20Penne.png" alt="Buffalo Chicken Alfredo Penne" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Buffalo Chicken Alfredo Penne</h2>
@@ -191,7 +192,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Burrataca%20Cheese%20Pasta.png" alt="Burrata Cheese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Burrataca%20Cheese%20Pasta.png" alt="Burrata Cheese Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Burrata Cheese Pasta</h2>
@@ -201,7 +202,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/One%20Pan%20Spicy%20Garlic%20Lime%20Chicken%20Pasta.png" alt="One Pan Spicy Garlic Lime Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One%20Pan%20Spicy%20Garlic%20Lime%20Chicken%20Pasta.png" alt="One Pan Spicy Garlic Lime Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>One Pan Spicy Garlic Lime Chicken Pasta</h2>
@@ -211,7 +212,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/One%20Pot%20Spicy%20Honey%20Garlic%20Chicken%20Pasta.png" alt="One Pot Spicy Honey Garlic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One%20Pot%20Spicy%20Honey%20Garlic%20Chicken%20Pasta.png" alt="One Pot Spicy Honey Garlic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>One Pot Spicy Honey Garlic Chicken Pasta</h2>
@@ -221,7 +222,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Sweet%20and%20Sour%20Chicken.png" alt="Sweet &amp; Sour Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sweet%20and%20Sour%20Chicken.png" alt="Sweet &amp; Sour Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Sweet &amp; Sour Chicken</h2>
@@ -231,7 +232,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/White%20Pizza.png" alt="White Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/White%20Pizza.png" alt="White Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>White Pizza</h2>
@@ -241,7 +242,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Sesame%20Chicken.png" alt="Sesame Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sesame%20Chicken.png" alt="Sesame Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Sesame Chicken</h2>
@@ -251,7 +252,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Four%20Cheese%20Gnocchi.png" alt="Four Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Four%20Cheese%20Gnocchi.png" alt="Four Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Four Cheese Gnocchi</h2>
@@ -261,7 +262,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Chicken%20Sandwich.png" alt="Chicken Sandwich" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Sandwich.png" alt="Chicken Sandwich" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chicken Sandwich</h2>
@@ -271,7 +272,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Load%20Cheese%20Fries.png" alt="Loaded Cheese Fries" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Load%20Cheese%20Fries.png" alt="Loaded Cheese Fries" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Loaded Cheese Fries</h2>
@@ -281,7 +282,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
-        <img src="images/Cajun%20Chicken%20Pasta.png" alt="Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cajun%20Chicken%20Pasta.png" alt="Cajun Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
           <h2>Cajun Chicken Pasta</h2>
@@ -291,7 +292,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Honey%20Pepper%20Chicken%20Pasta.png" alt="Honey Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20Pepper%20Chicken%20Pasta.png" alt="Honey Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Honey Pepper Chicken Pasta</h2>
@@ -301,7 +302,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Chicken%20Bruschetta%20Pasta.png" alt="Chicken Bruschetta Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Bruschetta%20Pasta.png" alt="Chicken Bruschetta Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Chicken Bruschetta Pasta</h2>
@@ -311,7 +312,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Balsamic%20Chicken%20Pasta.jpeg" alt="Balsamic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Balsamic%20Chicken%20Pasta.jpeg" alt="Balsamic Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Balsamic Chicken Pasta</h2>
@@ -321,7 +322,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Loco%20Moco.png" alt="Loco Moco" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Loco%20Moco.png" alt="Loco Moco" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Loco Moco</h2>
@@ -331,7 +332,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Caprese%20Appetizer.png" alt="Caprese Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Caprese%20Appetizer.png" alt="Caprese Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Caprese Appetizer</h2>
@@ -341,7 +342,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Coconut%20Lime%20Chicken.png" alt="Coconut Lime Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Coconut%20Lime%20Chicken.png" alt="Coconut Lime Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Coconut Lime Chicken</h2>
@@ -351,7 +352,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Triscuit%20Appetizer.png" alt="Triscuit Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Triscuit%20Appetizer.png" alt="Triscuit Appetizer" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Triscuit Appetizer</h2>
@@ -361,7 +362,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Honey%20Garlic%20Chicken%20Bites.png" alt="Honey Garlic Chicken Bites" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20Garlic%20Chicken%20Bites.png" alt="Honey Garlic Chicken Bites" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Honey Garlic Chicken Bites</h2>
@@ -371,7 +372,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Dragon%20Glazed%20Chicken.png" alt="Dragon Glazed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Dragon%20Glazed%20Chicken.png" alt="Dragon Glazed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Dragon Glazed Chicken</h2>
@@ -381,7 +382,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Buffalo%20Chicken%20Alfredo%20Pasta.png" alt="Buffalo Chicken Alfredo Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Buffalo%20Chicken%20Alfredo%20Pasta.png" alt="Buffalo Chicken Alfredo Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Buffalo Chicken Alfredo Pasta</h2>
@@ -391,7 +392,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/One-Pot%20Smoky%20BBQ%20Meatball%20Pasta.png" alt="One-Pot Smoky BBQ Meatball Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/One-Pot%20Smoky%20BBQ%20Meatball%20Pasta.png" alt="One-Pot Smoky BBQ Meatball Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>One-Pot Smoky BBQ Meatball Pasta</h2>
@@ -401,7 +402,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Spaghetti%20Carbonara.png" alt="Spaghetti Carbonara" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spaghetti%20Carbonara.png" alt="Spaghetti Carbonara" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Spaghetti Carbonara</h2>
@@ -411,7 +412,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Lasagna.png" alt="Lasagna" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Lasagna.png" alt="Lasagna" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Lasagna</h2>
@@ -421,7 +422,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Pasta%20with%20Lemon%20Sauce.png" alt="Pasta with Lemon Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Pasta%20with%20Lemon%20Sauce.png" alt="Pasta with Lemon Sauce" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Pasta with Lemon Sauce</h2>
@@ -431,7 +432,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Caprese%20Pasta%20v2.png" alt="Caprese Pasta v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Caprese%20Pasta%20v2.png" alt="Caprese Pasta v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Caprese Pasta v2</h2>
@@ -441,7 +442,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Agilo%20Olil.png" alt="Aglio e Olio" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Agilo%20Olil.png" alt="Aglio e Olio" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Aglio e Olio</h2>
@@ -451,7 +452,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Buttery%20Garlic%20Thyme%20Gnocchi.png" alt="Buttery Garlic Thyme Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Buttery%20Garlic%20Thyme%20Gnocchi.png" alt="Buttery Garlic Thyme Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Buttery Garlic Thyme Gnocchi</h2>
@@ -461,7 +462,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Baked%20Gnocchi.png" alt="Baked Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Baked%20Gnocchi.png" alt="Baked Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Baked Gnocchi</h2>
@@ -471,7 +472,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Creamy%20Chicken%20Gnocchi.png" alt="Creamy Chicken Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Creamy%20Chicken%20Gnocchi.png" alt="Creamy Chicken Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Creamy Chicken Gnocchi</h2>
@@ -481,7 +482,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Cheesy%20Pork%20%26%20Broccoli%20Risotto.png" alt="Cheesy Pork &amp; Broccoli Risotto" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cheesy%20Pork%20%26%20Broccoli%20Risotto.png" alt="Cheesy Pork &amp; Broccoli Risotto" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Cheesy Pork &amp; Broccoli Risotto</h2>
@@ -491,7 +492,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Bruschetta.png" alt="Bruschetta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Bruschetta.png" alt="Bruschetta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Bruschetta</h2>
@@ -501,7 +502,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Greek%20Yogurt%20Pizza.png" alt="Greek Yogurt Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Greek%20Yogurt%20Pizza.png" alt="Greek Yogurt Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Greek Yogurt Pizza</h2>
@@ -511,7 +512,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Philly%20Cheesesteak%20Pasta.png" alt="Philly Cheesesteak Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Philly%20Cheesesteak%20Pasta.png" alt="Philly Cheesesteak Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Philly Cheesesteak Pasta</h2>
@@ -521,7 +522,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Eggs%20Benedict.png" alt="Eggs Benedict" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Eggs%20Benedict.png" alt="Eggs Benedict" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Eggs Benedict</h2>
@@ -531,7 +532,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Brown%20Sugar%20Pork%20Chops.png" alt="Brown Sugar Pork Chops" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Brown%20Sugar%20Pork%20Chops.png" alt="Brown Sugar Pork Chops" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Brown Sugar Pork Chops</h2>
@@ -541,7 +542,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Spicy%20Sweet%20Popcorn%20Chicken.png" alt="Spicy Sweet Popcorn Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spicy%20Sweet%20Popcorn%20Chicken.png" alt="Spicy Sweet Popcorn Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Spicy Sweet Popcorn Chicken</h2>
@@ -551,7 +552,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Black%20Pepper%20Chicken.png" alt="Black Pepper Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Black%20Pepper%20Chicken.png" alt="Black Pepper Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Black Pepper Chicken</h2>
@@ -561,7 +562,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Korean%20Chicken.png" alt="Korean Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean%20Chicken.png" alt="Korean Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean Chicken</h2>
@@ -571,7 +572,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Sesame%20Seed%20Chicken.png" alt="Sesame Seed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sesame%20Seed%20Chicken.png" alt="Sesame Seed Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Sesame Seed Chicken</h2>
@@ -581,7 +582,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/General%20Tso%20chicken.png" alt="General Tso's Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/General%20Tso%20chicken.png" alt="General Tso's Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>General Tso's Chicken</h2>
@@ -591,7 +592,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Ground%20Korean%20Beef.png" alt="Ground Korean Beef" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Ground%20Korean%20Beef.png" alt="Ground Korean Beef" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Ground Korean Beef</h2>
@@ -601,7 +602,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Mongolian%20Meat%20Balls.png" alt="Mongolian Meatballs" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Mongolian%20Meat%20Balls.png" alt="Mongolian Meatballs" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Mongolian Meatballs</h2>
@@ -611,7 +612,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/FILIPINO%20PORK%20TOCINO.png" alt="Filipino Pork Tocino" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/FILIPINO%20PORK%20TOCINO.png" alt="Filipino Pork Tocino" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Filipino Pork Tocino</h2>
@@ -621,7 +622,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Spicy%20Honey%20Garlic%20Pork%20with%20Rice.png" alt="Spicy Honey Garlic Pork with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spicy%20Honey%20Garlic%20Pork%20with%20Rice.png" alt="Spicy Honey Garlic Pork with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Spicy Honey Garlic Pork with Rice</h2>
@@ -631,7 +632,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="thai">
-        <img src="images/Pad%20Kra%20Pro.png" alt="Pad Kra Pro" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Pad%20Kra%20Pro.png" alt="Pad Kra Pro" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Thai</span>
           <h2>Pad Kra Pro</h2>
@@ -641,7 +642,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Cheesy%20Gnocchi.png" alt="Cheesy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cheesy%20Gnocchi.png" alt="Cheesy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Cheesy Gnocchi</h2>
@@ -651,7 +652,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Creamy%20Gnocchi.png" alt="Creamy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Creamy%20Gnocchi.png" alt="Creamy Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Creamy Gnocchi</h2>
@@ -661,7 +662,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Bacon%20gnocchi.png" alt="Bacon Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Bacon%20gnocchi.png" alt="Bacon Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Bacon Gnocchi</h2>
@@ -671,7 +672,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/4%20Cheese%20Gnocchi.png" alt="4 Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/4%20Cheese%20Gnocchi.png" alt="4 Cheese Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>4 Cheese Gnocchi</h2>
@@ -681,7 +682,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Baked%20Pasta.png" alt="Baked Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Baked%20Pasta.png" alt="Baked Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Baked Pasta</h2>
@@ -691,7 +692,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Creamy%20Spicy%20pasta.png" alt="Creamy Spicy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Creamy%20Spicy%20pasta.png" alt="Creamy Spicy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Creamy Spicy Pasta</h2>
@@ -701,7 +702,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Spring%20Pasta.png" alt="Spring Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spring%20Pasta.png" alt="Spring Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Spring Pasta</h2>
@@ -711,7 +712,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Garlic%20Pasta.png" alt="Garlic Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Garlic%20Pasta.png" alt="Garlic Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Garlic Pasta</h2>
@@ -721,7 +722,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Bruschetta%20Buns.png" alt="Bruschetta Buns" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Bruschetta%20Buns.png" alt="Bruschetta Buns" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Bruschetta Buns</h2>
@@ -731,7 +732,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Homemade%20pizza%20%20Dough.png" alt="Homemade Pizza Dough" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Homemade%20pizza%20%20Dough.png" alt="Homemade Pizza Dough" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Homemade Pizza Dough</h2>
@@ -741,7 +742,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img src="images/Chicken%20fajitas.png" alt="Chicken Fajitas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20fajitas.png" alt="Chicken Fajitas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Chicken Fajitas</h2>
@@ -751,7 +752,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img src="images/Enchiladas.png" alt="Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Enchiladas.png" alt="Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Enchiladas</h2>
@@ -761,7 +762,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img src="images/Chicken%20Enchiladas.png" alt="Chicken Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Enchiladas.png" alt="Chicken Enchiladas" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Chicken Enchiladas</h2>
@@ -771,7 +772,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Orange%20Chicken.png" alt="Orange Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Orange%20Chicken.png" alt="Orange Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Orange Chicken</h2>
@@ -781,7 +782,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Chicken%20Katsu.png" alt="Chicken Katsu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Katsu.png" alt="Chicken Katsu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Chicken Katsu</h2>
@@ -791,7 +792,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Mongolian%20Beef%20with%20Noodles.png" alt="Mongolian Beef with Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Mongolian%20Beef%20with%20Noodles.png" alt="Mongolian Beef with Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Mongolian Beef with Noodles</h2>
@@ -801,7 +802,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Mongolian%20Beef%20with%20Rice.png" alt="Mongolian Beef with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Mongolian%20Beef%20with%20Rice.png" alt="Mongolian Beef with Rice" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Mongolian Beef with Rice</h2>
@@ -811,7 +812,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Chili%20Garlic%20Butter%20Chicken.png" alt="Chili Garlic Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chili%20Garlic%20Butter%20Chicken.png" alt="Chili Garlic Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Chili Garlic Butter Chicken</h2>
@@ -821,7 +822,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Honey%20Butter%20Chicken.png" alt="Honey Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20Butter%20Chicken.png" alt="Honey Butter Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Honey Butter Chicken</h2>
@@ -831,7 +832,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="italian">
-        <img src="images/Tuscan%20Butter%20Gnocchi.png" alt="Tuscan Butter Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Tuscan%20Butter%20Gnocchi.png" alt="Tuscan Butter Gnocchi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Italian</span>
           <h2>Tuscan Butter Gnocchi</h2>
@@ -841,7 +842,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Dinner%20Roll.png" alt="Dinner Roll" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Dinner%20Roll.png" alt="Dinner Roll" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Dinner Roll</h2>
@@ -851,7 +852,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Chicken%20Cordon%20Bleu.png" alt="Chicken Cordon Bleu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chicken%20Cordon%20Bleu.png" alt="Chicken Cordon Bleu" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chicken Cordon Bleu</h2>
@@ -861,7 +862,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Lemon%20pepper%20chicken%20pasta.png" alt="Lemon Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Lemon%20pepper%20chicken%20pasta.png" alt="Lemon Pepper Chicken Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Lemon Pepper Chicken Pasta</h2>
@@ -871,7 +872,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img src="images/Taco%20Hamburger.png" alt="Taco Hamburger" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Taco%20Hamburger.png" alt="Taco Hamburger" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Taco Hamburger</h2>
@@ -881,7 +882,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img src="images/Taco%20cheesy%20pasta.png" alt="Taco Cheesy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Taco%20cheesy%20pasta.png" alt="Taco Cheesy Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Taco Cheesy Pasta</h2>
@@ -891,7 +892,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="mexican">
-        <img src="images/Taco%20Pizza.png" alt="Taco Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Taco%20Pizza.png" alt="Taco Pizza" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Mexican</span>
           <h2>Taco Pizza</h2>
@@ -901,7 +902,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Honey%20garlic%20chicken.png" alt="Honey Garlic Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Honey%20garlic%20chicken.png" alt="Honey Garlic Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Honey Garlic Chicken</h2>
@@ -911,7 +912,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Korean%20fried%20chicken.png" alt="Korean Fried Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean%20fried%20chicken.png" alt="Korean Fried Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean Fried Chicken</h2>
@@ -921,7 +922,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Spicy%20Coconut%20Grilled%20Chicken.png" alt="Spicy Coconut Grilled Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Spicy%20Coconut%20Grilled%20Chicken.png" alt="Spicy Coconut Grilled Chicken" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Spicy Coconut Grilled Chicken</h2>
@@ -931,7 +932,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Korean%20Beef%20Bulgogi.jpeg" alt="Korean Beef Bulgogi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean%20Beef%20Bulgogi.jpeg" alt="Korean Beef Bulgogi" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean Beef Bulgogi</h2>
@@ -941,7 +942,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Orange%20Chicken%20v2.png" alt="Orange Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Orange%20Chicken%20v2.png" alt="Orange Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Orange Chicken v2</h2>
@@ -951,7 +952,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Chocolate%20lava%20cake.png" alt="Chocolate Lava Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chocolate%20lava%20cake.png" alt="Chocolate Lava Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Chocolate Lava Cake</h2>
@@ -961,7 +962,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Homemade%20Brownies.png" alt="Homemade Brownies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Homemade%20Brownies.png" alt="Homemade Brownies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Homemade Brownies</h2>
@@ -971,7 +972,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Brownie%20with%20Marshmallow.png" alt="Brownie with Marshmallow" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Brownie%20with%20Marshmallow.png" alt="Brownie with Marshmallow" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Brownie with Marshmallow</h2>
@@ -981,7 +982,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Crinkle%20Cookies.png" alt="Crinkle Cookies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Crinkle%20Cookies.png" alt="Crinkle Cookies" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Crinkle Cookies</h2>
@@ -991,7 +992,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Peanut%20Butter%20Fudge%20with%20Chocolate%20topping.png" alt="Peanut Butter Fudge with Chocolate Topping" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Peanut%20Butter%20Fudge%20with%20Chocolate%20topping.png" alt="Peanut Butter Fudge with Chocolate Topping" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Peanut Butter Fudge with Chocolate Topping</h2>
@@ -1001,7 +1002,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Cinnamon%20Rolls.png" alt="Cinnamon Rolls" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cinnamon%20Rolls.png" alt="Cinnamon Rolls" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Cinnamon Rolls</h2>
@@ -1011,7 +1012,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Italian%20Cheesecake.png" alt="Italian Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Italian%20Cheesecake.png" alt="Italian Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Italian Cheesecake</h2>
@@ -1021,7 +1022,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Cinnamon%20Cheesecake.png" alt="Cinnamon Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cinnamon%20Cheesecake.png" alt="Cinnamon Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Cinnamon Cheesecake</h2>
@@ -1031,7 +1032,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Cinnamon%20Roll%20Cheesecake.png" alt="Cinnamon Roll Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cinnamon%20Roll%20Cheesecake.png" alt="Cinnamon Roll Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Cinnamon Roll Cheesecake</h2>
@@ -1041,7 +1042,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Marshmallow%20Cheesecake.png" alt="Marshmallow Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Marshmallow%20Cheesecake.png" alt="Marshmallow Cheesecake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Marshmallow Cheesecake</h2>
@@ -1051,7 +1052,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Boston%20Cream%20Pie.png" alt="Boston Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Boston%20Cream%20Pie.png" alt="Boston Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Boston Cream Pie</h2>
@@ -1061,7 +1062,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Boston%20Cream%20Cheesecake%20Pie.png" alt="Boston Cream Cheesecake Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Boston%20Cream%20Cheesecake%20Pie.png" alt="Boston Cream Cheesecake Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Boston Cream Cheesecake Pie</h2>
@@ -1071,7 +1072,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Hot%20Chocolate%20Cake.png" alt="Hot Chocolate Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Hot%20Chocolate%20Cake.png" alt="Hot Chocolate Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Hot Chocolate Cake</h2>
@@ -1081,7 +1082,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/White%20chocolate%20French%20silk%20pie.png" alt="White Chocolate French Silk Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/White%20chocolate%20French%20silk%20pie.png" alt="White Chocolate French Silk Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>White Chocolate French Silk Pie</h2>
@@ -1091,7 +1092,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Chocolate%20French%20silk%20cream%20pie.png" alt="Chocolate French Silk Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chocolate%20French%20silk%20cream%20pie.png" alt="Chocolate French Silk Cream Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Chocolate French Silk Cream Pie</h2>
@@ -1101,7 +1102,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/French%20vanilla%20macaroons.png" alt="French Vanilla Macaroons" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/French%20vanilla%20macaroons.png" alt="French Vanilla Macaroons" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>French Vanilla Macaroons</h2>
@@ -1111,7 +1112,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Japanese%20fluffy%20cake.png" alt="Japanese Fluffy Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Japanese%20fluffy%20cake.png" alt="Japanese Fluffy Cake" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Japanese Fluffy Cake</h2>
@@ -1121,7 +1122,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="asian">
-        <img src="images/Korean-style%20Bacon%20%26%20Egg%20Noodles.jpeg" alt="Korean-Style Bacon &amp; Egg Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Korean-style%20Bacon%20%26%20Egg%20Noodles.jpeg" alt="Korean-Style Bacon &amp; Egg Noodles" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Asian</span>
           <h2>Korean-Style Bacon &amp; Egg Noodles</h2>
@@ -1131,7 +1132,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="cajun">
-        <img src="images/Sausage%20%26%20Bacon%20Pasta.jpeg" alt="Sausage &amp; Bacon Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Sausage%20%26%20Bacon%20Pasta.jpeg" alt="Sausage &amp; Bacon Pasta" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Cajun</span>
           <h2>Sausage &amp; Bacon Pasta</h2>
@@ -1141,7 +1142,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="dessert">
-        <img src="images/Key%20Lime%20Pie.jpeg" alt="Key Lime Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Key%20Lime%20Pie.jpeg" alt="Key Lime Pie" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">Dessert</span>
           <h2>Key Lime Pie</h2>
@@ -1151,7 +1152,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Chipotle%20Chicken%20Alfredo.jpeg" alt="Chipotle Chicken Alfredo" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Chipotle%20Chicken%20Alfredo.jpeg" alt="Chipotle Chicken Alfredo" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Chipotle Chicken Alfredo</h2>
@@ -1161,7 +1162,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Coconut-Lime%20Chicken.jpeg" alt="Coconut Lime Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Coconut-Lime%20Chicken.jpeg" alt="Coconut Lime Chicken v2" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Coconut Lime Chicken v2</h2>
@@ -1171,7 +1172,7 @@
       </div>
 
       <div class="card" onclick="showRecipeDetail(this)" data-cuisine="american">
-        <img src="images/Cowboy%20Spaghetti.jpeg" alt="Cowboy Spaghetti" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+        <img style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" src="images/Cowboy%20Spaghetti.jpeg" alt="Cowboy Spaghetti" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
         <div class="card-body">
           <span class="cuisine-tag">American</span>
           <h2>Cowboy Spaghetti</h2>
@@ -1442,6 +1443,197 @@
         updatePagination();
         window.scrollTo(0, 0); // Scroll to top
       }
+    }
+  </script>
+
+</body>
+
+
+    <p class="no-results" id="no-results" style="display:none;">No recipes found for that cuisine.</p>
+
+    <div class="pagination">
+      <button id="prev-btn" onclick="prevPage()" style="display:none;">← Previous</button>
+      <span id="page-info" style="display:none; margin: 0 20px; font-weight: bold;"></span>
+      <button id="next-btn" onclick="nextPage()" style="display:none;">Next →</button>
+    </div>
+
+  </main>
+
+  <div id="recipe-modal" class="recipe-modal" style="display:none;" onclick="if(event.target === this) closeRecipeDetail()">
+    <div class="recipe-modal-content">
+      <button class="recipe-modal-close" onclick="closeRecipeDetail()">✕</button>
+      <img id="modal-img" src="" alt="Recipe" class="recipe-detail-img" />
+      <div class="recipe-detail-info">
+        <span id="modal-cuisine" class="cuisine-tag"></span>
+        <h1 id="modal-name"></h1>
+        <p id="modal-desc"></p>
+        <div id="modal-ingredients" style="margin-top: 25px;">
+          <h3 style="color: #d4a574; margin-bottom: 10px;">Ingredients</h3>
+          <div id="modal-ingredients-content" style="color: #ccc; line-height: 1.8;"></div>
+        </div>
+        <div id="modal-instructions" style="margin-top: 25px;">
+          <h3 style="color: #d4a574; margin-bottom: 10px;">Instructions</h3>
+          <div id="modal-instructions-content" style="color: #ccc; line-height: 1.8;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Made with Love, Laughter, Hunger and a glass of Whiskey.</p>
+  </footer>
+
+  <script>
+    // Recipe data
+    const recipeData = {
+      'Brown Sugar Chicken Recipe': { ingredients: 'CHICKEN • 2 large chicken breasts • 2 T flour • 1 t EACH paprika, garlic powder, onion powder • 1/2 t EACH ground cumin, salt, pepper, chipotle chili pepper • 2 T butter • 2 T olive oil BROWN SUGAR SAUCE • 1/2 C brown sugar • 1/4 C soy sauce • 1/4 C chicken broth • 1 T lemon juice • 1 t Dijon mustard • 1/2 t cornstarch • 1/2 t EACH dried parsley, dried thyme, dried oregano • Pinch of red pepper flakes', instructions: '1- Slice the chicken breasts in half to create 4 fillets. Cover with plastic wrap and pound to an even thickness.<br>2- Whisk the flour and all chicken seasoning together in a shallow dish. Dredge each breast in flour mixture, shake off any excess.<br>3- Melt the 2 tablespoons butter & oil in a large skillet over medium-high heat. Once hot, add chicken and cook until golden and cooked through. Transfer chicken to a plate.<br>4- Mix chicken broth with cornstarch and add to the skillet, followed by all of the sauce ingredients. Bring sauce to a simmer while scraping up any brown bits on the bottom of the pan; simmer until sauce thickens to desired consistency.<br>5- Add chicken back to the skillet and spoon some of the sauce over top. If the chicken is too sweet for your liking, garnish with freshly squeezed lemon juice.<br>6- Enjoy!' },
+      'Dinner Roll': { ingredients: '• 1 1/2 cups warm water • 1 tablespoon active dry yeast • 2 tablespoons sugar • 2 tablespoons butter softened • 1 teaspoon salt • 4 cups flour • 3 tablespoons melted butter for brushing on top • coarse sea salt for sprinkling on top', instructions: '1- In a large bowl or stand mixer, dissolve the yeast and sugar in the warm water and let stand for five minutes, or until foamy.<br>2- Add the butter, salt, and 3 cups of flour, and mix until combined. Add additional flour, 1/4 cup at a time, until the dough pulls away from the sides of the bowl and is only slightly sticky to the touch.<br>3- Knead 3-5 minutes, until smooth. Cover and let rise 20 minutes.<br>4- Preheat the oven to 400 and line a 9 x 13 pan with parchment paper or spray with cooking spray.<br>5- Gently punch the dough down and divide into 12 equal sized pieces. Roll each piece into a ball and space evenly in the prepared pan.<br>6- Brush with melted butter, sprinkle with sea salt, and let rise for an additional 15-20 minutes.<br>7- Bake 13-15 minutes, or until golden brown. Remove and brush with butter. Let cool slightly before serving and enjoy!' },
+    };
+
+    // Pagination
+    const RECIPES_PER_PAGE = 15;
+    let currentPage = 1;
+    let allCards = [];
+    let filteredCards = [];
+    let recipes = [];
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      loadRecipes();
+      displayPage();
+    });
+
+    function loadRecipes() {
+      // Get all cards from grid
+      const grid = document.getElementById('recipe-grid');
+      const cards = document.querySelectorAll('.card');
+
+      recipes = Array.from(cards).map(card => ({
+        name: card.querySelector('h2').textContent,
+        cuisine: card.dataset.cuisine,
+        desc: card.querySelector('p').textContent,
+        img: card.querySelector('img').src,
+        element: card
+      }));
+
+      allCards = recipes;
+      filteredCards = [...allCards];
+      updatePagination();
+    }
+
+    function displayPage() {
+      const startIdx = (currentPage - 1) * RECIPES_PER_PAGE;
+      const endIdx = startIdx + RECIPES_PER_PAGE;
+      const visibleRecipes = filteredCards.slice(startIdx, endIdx);
+
+      // Hide all, show only current page
+      allCards.forEach(r => r.element.style.display = 'none');
+      visibleRecipes.forEach(r => r.element.style.display = 'block');
+
+      updatePagination();
+    }
+
+    function updatePagination() {
+      const totalPages = Math.ceil(filteredCards.length / RECIPES_PER_PAGE);
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const pageInfo = document.getElementById('page-info');
+      const noResults = document.getElementById('no-results');
+
+      if (filteredCards.length === 0) {
+        noResults.style.display = 'block';
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        pageInfo.style.display = 'none';
+      } else {
+        noResults.style.display = 'none';
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+        if (totalPages > 1) {
+          prevBtn.style.display = 'inline-block';
+          nextBtn.style.display = 'inline-block';
+          pageInfo.style.display = 'inline-block';
+          prevBtn.disabled = currentPage === 1;
+          nextBtn.disabled = currentPage === totalPages;
+        } else {
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+          pageInfo.style.display = 'none';
+        }
+      }
+    }
+
+    function filterRecipes() {
+      const selected = document.getElementById('cuisine-filter').value;
+      filteredCards = selected === 'all' ? [...allCards] : allCards.filter(r => r.cuisine === selected);
+      currentPage = 1;
+      displayPage();
+    }
+
+    function nextPage() {
+      const totalPages = Math.ceil(filteredCards.length / RECIPES_PER_PAGE);
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayPage();
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        displayPage();
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function showRecipeDetail(element) {
+      const recipe = element.querySelector('h2').textContent;
+      const cuisine = element.dataset.cuisine;
+      const desc = element.querySelector('p').textContent;
+      const img = element.querySelector('img').src;
+      const data = recipeData[recipe] || { ingredients: 'No data', instructions: 'No data' };
+
+      document.getElementById('modal-name').textContent = recipe;
+      document.getElementById('modal-cuisine').textContent = cuisine;
+      document.getElementById('modal-desc').textContent = desc;
+      document.getElementById('modal-img').src = img;
+      document.getElementById('modal-ingredients-content').innerHTML = data.ingredients.replace(/•/g, '•').replace(/\n/g, '<br>');
+      document.getElementById('modal-instructions-content').innerHTML = data.instructions.replace(/\n/g, '<br>');
+
+      document.getElementById('recipe-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeRecipeDetail() {
+      document.getElementById('recipe-modal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function spinRoulette() {
+      const cuisines = [
+        document.getElementById('roulette-1').value,
+        document.getElementById('roulette-2').value,
+        document.getElementById('roulette-3').value
+      ].filter(c => c);
+
+      if (cuisines.length === 0) {
+        alert('Please select at least one cuisine!');
+        return;
+      }
+
+      const matching = allCards.filter(r => cuisines.includes(r.cuisine));
+      if (matching.length === 0) {
+        alert('No recipes found for those cuisines!');
+        return;
+      }
+
+      const random = matching[Math.floor(Math.random() * matching.length)];
+      document.getElementById('roulette-img').src = random.img;
+      document.getElementById('roulette-name').textContent = random.name;
+      document.getElementById('roulette-desc').textContent = random.desc;
+      document.getElementById('roulette-result').style.display = 'block';
+      document.getElementById('roulette-result').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
