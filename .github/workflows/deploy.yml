@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Validate HTML structure
+        run: |
+          echo "🔍 Validating index.html..."
+          if [ ! -f index.html ]; then
+            echo "❌ ERROR: index.html not found!"
+            exit 1
+          fi
+          echo "✅ index.html exists"
+
+          if grep -q "const recipeData = {" index.html; then
+            echo "✅ Recipe data object found"
+          else
+            echo "❌ ERROR: Recipe data not found"
+            exit 1
+          fi
+
+          if grep -q "class=\"card\"" index.html; then
+            echo "✅ Recipe cards found"
+          else
+            echo "❌ ERROR: Recipe cards not found"
+            exit 1
+          fi
+
+      - name: Check pagination settings
+        run: |
+          if grep -q "const RECIPES_PER_PAGE = 15" index.html; then
+            echo "✅ Pagination is set to 15 recipes per page"
+          else
+            echo "⚠️  WARNING: Pagination setting not found, check if this is intentional"
+          fi
+
+      - name: Verify CNAME
+        run: |
+          if [ -f CNAME ]; then
+            echo "✅ CNAME file found: $(cat CNAME)"
+          else
+            echo "⚠️  WARNING: CNAME file not found"
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          cname: rkdinners.com
+
+      - name: Deployment successful
+        run: echo "✅ Deployment complete! Site should update within 1-2 minutes at https://rkdinners.com"
