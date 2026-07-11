@@ -1427,8 +1427,11 @@
       document.getElementById('recipe-detail-desc').textContent    = desc;
       document.getElementById('recipe-detail-img').src             = img;
       document.getElementById('recipe-detail-cuisine').textContent = cuisine;
-      document.getElementById('ingredients-content').innerHTML  = data.ingredients ? data.ingredients.replace(/\n/g, '<br>') : '<em>Coming soon.</em>';
-      document.getElementById('instructions-content').innerHTML = data.instructions ? data.instructions.replace(/\n/g, '<br>') : '<em>Coming soon.</em>';
+      function cleanRecipeText(s) {
+        return s.replace(/�/g, '').replace(/^\*+\s*/gm, '').replace(/\n{3,}/g, '\n\n').trim();
+      }
+      document.getElementById('ingredients-content').innerHTML  = data.ingredients ? cleanRecipeText(data.ingredients).replace(/\n/g, '<br>') : '<em>Coming soon.</em>';
+      document.getElementById('instructions-content').innerHTML = data.instructions ? cleanRecipeText(data.instructions).replace(/\n/g, '<br>') : '<em>Coming soon.</em>';
       document.getElementById('recipe-modal').style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
