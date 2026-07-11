@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Validate Recipe Website
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -52,12 +52,5 @@ jobs:
             echo "⚠️  WARNING: CNAME file not found"
           fi
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          cname: rkdinners.com
-
-      - name: Deployment successful
-        run: echo "✅ Deployment complete! Site should update within 1-2 minutes at https://rkdinners.com"
+      - name: Validation complete
+        run: echo "✅ All validations passed! GitHub Pages will auto-deploy from master branch."
