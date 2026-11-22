@@ -1,7 +1,7 @@
 # Dinner Website Update Workflow
 
 **Status:** Active
-**Last updated:** 2026-07-11
+**Last updated:** 2026-11-22 (folders reorganized by category)
 **Live site:** rkdinners.com (GitHub Pages → repo: rk-recipes-temp)
 
 ---
@@ -10,13 +10,20 @@
 
 ```
 10 RK Dinners/
-├── rk-recipes-temp/        ← Git repo (index.html lives here)
-│   └── index.html          ← THE website file — all changes go here
-├── Dinner Instructions/    ← Recipe markdown files (dinners)
-├── Desserts Instructions/  ← Recipe markdown files (desserts)
-├── Drinks Instructions/    ← Recipe markdown files (drinks)
-└── Dinner Website/
-    └── Dinner images/      ← Food photos (.png / .jpg)
+├── Dinners/
+│   ├── Instructions/       ← Dinner recipe markdown files
+│   └── Pictures/           ← Dinner photos (.png / .jpeg)
+├── Desserts/
+│   ├── Instructions/       ← Dessert recipe markdown files
+│   └── Pictures/           ← Dessert photos
+├── Drinks/
+│   ├── Instructions/       ← Drink recipe markdown files
+│   └── Pictures/           ← Drink photos
+├── Upcoming Recipes/       ← Drafts not on the site yet
+├── Dinner Website/         ← Dinner Index + this workflow doc
+└── rk-recipes-temp/        ← Git repo (the live website)
+    ├── index.html          ← THE website file — all changes go here
+    └── images/             ← Copies of the photos the site uses
 ```
 
 ---
@@ -25,7 +32,7 @@
 
 ### Step 1 — Add the markdown file
 
-Create a `.md` file in `Dinner Instructions\` (or `Desserts Instructions\` for desserts, `Drinks Instructions` for drinks).
+Create a `.md` file in the matching category's `Instructions` folder: `Dinners\Instructions\`, `Desserts\Instructions\` or `Drinks\Instructions\`.
 
 **File name = Recipe name** (must match the card `<h2>` in index.html exactly, or close enough for auto-matching).
 
@@ -55,7 +62,7 @@ Example file (`Spicy Peach Chicken.md`):
 
 ### Step 2 — Add the image
 
-Drop the photo in `Dinner Website\Dinner images\`.
+Drop the photo in the same category's `Pictures` folder (for example `Desserts\Pictures\`). Claude copies it into `rk-recipes-temp\images\` when publishing.
 File name should match what the card `<img src="images/...">` references in index.html.
 
 ### Step 3 — Add the card to index.html
@@ -110,6 +117,7 @@ Claude will:
 | `cajun` | Cajun, creole, Louisiana spice |
 | `mexican` | Tacos, enchiladas, fajitas |
 | `dessert` | Cake, pie, cookies, cheesecake, brownies |
+| `drinks` | Eggnog, hot chocolate, cocktails |
 
 ---
 
@@ -132,7 +140,7 @@ The repo has two branches. **GitHub Pages serves from `master`** — always push
 cd "C:\Obsidian\2nd Brain\RH Brain\10 RK Dinners\rk-recipes-temp"
 git add index.html
 git commit -m "Add [Recipe Name]"
-git push origin main master
+git push origin master master:main
 ```
 
 Or just ask Claude: **"Push to GitHub"**
