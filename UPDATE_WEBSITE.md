@@ -14,6 +14,7 @@
 │   └── index.html          ← THE website file — all changes go here
 ├── Dinner Instructions/    ← Recipe markdown files (dinners)
 ├── Desserts Instructions/  ← Recipe markdown files (desserts)
+├── Drinks Instructions/    ← Recipe markdown files (drinks)
 └── Dinner Website/
     └── Dinner images/      ← Food photos (.png / .jpg)
 ```
@@ -24,7 +25,7 @@
 
 ### Step 1 — Add the markdown file
 
-Create a `.md` file in `Dinner Instructions\` (or `Desserts Instructions\` for desserts).
+Create a `.md` file in `Dinner Instructions\` (or `Desserts Instructions\` for desserts, `Drinks Instructions` for drinks).
 
 **File name = Recipe name** (must match the card `<h2>` in index.html exactly, or close enough for auto-matching).
 
@@ -73,7 +74,7 @@ Open `rk-recipes-temp\index.html` and add a card block inside `<div class="card-
 </div>
 ```
 
-Set `data-cuisine` to one of: `american`, `italian`, `asian`, `thai`, `cajun`, `mexican`, `dessert`
+Set `data-cuisine` to one of: `american`, `italian`, `asian`, `thai`, `cajun`, `mexican`, `dessert`, `drinks`
 
 ### Step 4 — Rebuild recipeData and push
 
