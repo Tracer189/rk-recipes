@@ -1,7 +1,7 @@
 # Dinner Website Update Workflow
 
 **Status:** Active
-**Last updated:** 2026-11-22 (folders reorganized by category)
+**Last updated:** 2026-11-27 (new site design went live: editorial homepage + category pages)
 **Live site:** rkdinners.com (GitHub Pages → repo: rk-recipes-temp)
 
 ---
@@ -22,8 +22,33 @@
 ├── Upcoming Recipes/       ← Drafts not on the site yet
 ├── Dinner Website/         ← Dinner Index + this workflow doc
 └── rk-recipes-temp/        ← Git repo (the live website)
-    ├── index.html          ← THE website file — all changes go here
+    ├── index.html          ← THE website file: design, recipes and code all live here
     └── images/             ← Copies of the photos the site uses
+```
+
+> Since 2026-11-27 there is no `style.css`. The styling is inside `index.html`.
+> The old design (dropdown, Roulette, pagination) is still in git history (commit `2950e5b`) if it's ever needed.
+
+---
+
+## How the Site Is Laid Out
+
+```
+Homepage (rkdinners.com)
+├── Header ............ R&K Recipes logo · Home · All Recipes · search icon
+├── Featured Dinner ... big dark hero, a RANDOM dinner every visit (never a dessert or drink)
+├── Category buttons .. oval buttons, one per category, with recipe counts
+└── Trending Tonight .. carousel of the 10 NEWEST recipes (the last 10 cards in the list)
+
+Category page (rkdinners.com/#/italian, #/dessert, #/all, ...)
+├── "What's for dinner tonight?" search (searches as you type)
+├── Category buttons (the current one is filled black)
+└── Grid of recipe cards with photo, category label, description and stars
+```
+
+Clicking any recipe opens the popup with ingredients and instructions.
+
+**Button style:** white fill, black outline, black text everywhere.
 ```
 
 ---
@@ -67,21 +92,24 @@ File name should match what the card `<img src="images/...">` references in inde
 
 ### Step 3 — Add the card to index.html
 
-Open `rk-recipes-temp\index.html` and add a card block inside `<div class="card-grid" id="recipe-grid">`:
+Open `rk-recipes-temp\index.html` and add a card block at the **end** of `<div class="card-grid" id="recipe-grid">`. That div sits inside the hidden `<div id="recipe-source" hidden>` near the bottom of the page. The page reads these hidden cards and builds the homepage, the category pages and the search from them.
 
 ```html
-<div class="card" data-cuisine="american" onclick="showRecipeDetail(this)">
-  <img src="images/Recipe%20Name.png" alt="Recipe Name" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
+<div class="card" data-cuisine="american">
+  <img src="images/Recipe%20Name.png" alt="Recipe Name" />
   <div class="card-body">
-    <span class="card-stars"></span>
-    <h2>Recipe Name</h2>
-    <p class="card-desc">Short description.</p>
     <span class="cuisine-tag">American</span>
+    <h2>Recipe Name</h2>
+    <p>Short description.</p>
+    <div class="card-stars"></div>
   </div>
 </div>
 ```
 
 Set `data-cuisine` to one of: `american`, `italian`, `asian`, `thai`, `cajun`, `mexican`, `dessert`, `drinks`
+
+> **Put new cards LAST.** "Trending Tonight" shows the last 10 cards in the list, so a new recipe lands there automatically.
+> Older cards still have leftover `onclick="..."` attributes from the old design. They're harmless and can stay.
 
 ### Step 4 — Rebuild recipeData and push
 
@@ -98,11 +126,16 @@ Claude will:
 
 | Feature | How it works |
 |---------|-------------|
-| **Pagination** | 15 recipes per page, Prev/Next buttons at bottom |
-| **Cuisine filter** | Dropdown filters cards by `data-cuisine` tag |
-| **Star ratings** | 1–5 stars per recipe, saved to browser localStorage |
-| **Recipe popup** | Click any card → modal shows ingredients + instructions |
-| **Dinner Roulette** | Spins to a random recipe |
+| **Featured Dinner** | Random dinner on every visit (desserts and drinks are skipped) |
+| **Category buttons** | Built automatically from the `data-cuisine` values on the cards, with counts |
+| **Category pages** | `#/italian`, `#/dessert`, etc. `#/all` shows everything |
+| **Search** | Searches recipe names, descriptions and categories as you type |
+| **Trending Tonight** | The 10 newest cards (end of the list), with Prev/Next |
+| **Star ratings** | 1–5 stars per recipe, saved in the visitor's browser (same saved ratings as the old design) |
+| **Recipe popup** | Click any card → ingredients + instructions. Close with ✕, Esc, or by clicking outside |
+
+### Adding a brand-new category
+Add a line to the `CATS` list near the top of the last `<script>` in `index.html`, for example `{ id: "greek", name: "Greek", color: "#..." }`, and a label color to `BADGE`. Then use `data-cuisine="greek"` on the cards. Categories with no recipes are hidden automatically.
 
 ---
 

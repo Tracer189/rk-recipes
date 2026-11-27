@@ -4,95 +4,242 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>R&amp;K Recipes</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --cream: #f4f1ea;
+      --paper: #fbfaf6;
+      --ink: #1d1d1b;
+      --ink-2: #55534e;
+      --muted: #8a877f;
+      --line: #e4dfd3;
+      --green: #3e5641;
+      --green-dark: #2f4332;
+      --night: #161616;
+      --serif: "Palatino Linotype", Palatino, "Book Antiqua", "Iowan Old Style", Georgia, serif;
+      --sans: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      --star: #f2a516;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { font-family: var(--sans); color: var(--ink); background: var(--cream); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; cursor: pointer; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+
+    /* ---------- header ---------- */
+    .site-header { background: var(--cream); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    .logo { font-family: var(--serif); font-size: 30px; font-weight: 600; text-decoration: none; letter-spacing: -0.01em; }
+    .logo span { color: var(--green); }
+    .nav { display: flex; align-items: center; gap: 28px; }
+    .nav a { text-decoration: none; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+    .nav a:hover, .nav a.active { color: var(--green); }
+    .nav .search-link { display: grid; place-items: center; }
+
+    /* ---------- home: hero ---------- */
+    .hero { position: relative; background: var(--night); color: #fff; overflow: hidden; min-height: 460px; display: flex; align-items: center; }
+    .hero-img { position: absolute; inset: 0 0 0 22%; background-size: cover; background-position: center; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--night) 0%, var(--night) 24%, rgba(22,22,22,0.88) 38%, rgba(22,22,22,0.35) 60%, rgba(22,22,22,0) 82%); }
+    .hero .wrap { position: relative; z-index: 1; width: 100%; padding-top: 56px; padding-bottom: 56px; }
+    .hero-kicker { font-family: var(--serif); font-size: 20px; opacity: 0.9; margin: 0 0 10px; }
+    .hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.6vw, 52px); line-height: 1.12; margin: 0 0 16px; max-width: 620px; }
+    .hero-desc { max-width: 520px; color: #d6d3cc; line-height: 1.6; margin: 0 0 18px; }
+    .hero-rating { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; font-size: 14px; color: #d6d3cc; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 4px; padding: 13px 26px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+    /* all buttons: white fill, black outline, black text */
+    .btn-green, .btn-ghost { background: #fff; color: #111; border: 1.5px solid #111; }
+    .btn-green:hover, .btn-ghost:hover { background: #ecebe7; }
+
+    /* ---------- home: category buttons ---------- */
+    .categories { padding: 40px 0 8px; }
+    .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; font-weight: 600; }
+    .cat-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cat-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 18px; background: #fff; color: #111; border: 1.5px solid #111; border-radius: 999px; text-decoration: none; font-size: 17px; font-weight: 500; transition: background 120ms, transform 120ms; }
+    .cat-btn:hover { background: #ecebe7; transform: translateY(-1px); }
+    .cat-btn small { color: #555; font-size: 13px; font-weight: 400; }
+
+    /* ---------- home: trending ---------- */
+    .trending { padding: 40px 0 64px; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+    .section-head h2 { font-family: var(--serif); font-weight: 500; font-size: 34px; margin: 0; }
+    .carousel-btns { display: flex; gap: 10px; }
+    .carousel-btns .btn { padding: 10px 22px; text-transform: none; letter-spacing: 0; font-size: 15px; font-weight: 500; }
+    .carousel { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(420px, 1fr); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 4px; }
+    .carousel::-webkit-scrollbar { display: none; }
+    .t-card { scroll-snap-align: start; display: grid; grid-template-columns: 52% 1fr; background: var(--paper); border-radius: 4px; overflow: hidden; min-height: 200px; cursor: pointer; }
+    .t-card img { width: 100%; height: 100%; object-fit: cover; }
+    .t-card-body { padding: 24px 22px; display: flex; flex-direction: column; justify-content: center; gap: 16px; align-items: flex-start; }
+    .t-card h3 { font-family: var(--serif); font-weight: 500; font-size: 24px; line-height: 1.2; margin: 0; }
+    .t-card .btn { padding: 10px 18px; }
+
+    /* ---------- category page ---------- */
+    .browse { background: #fff; min-height: 70vh; padding: 28px 0 64px; }
+    .searchbar { display: flex; border: 1.5px solid #111; border-radius: 6px; overflow: hidden; background: #fff; }
+    .searchbar input { flex: 1; border: 0; background: transparent; padding: 16px 22px; font-size: clamp(18px, 2.2vw, 26px); font-weight: 700; color: var(--ink); outline: none; min-width: 0; }
+    .searchbar input::placeholder { color: #2b2b2b; }
+    .searchbar button { border: 0; border-left: 1.5px solid #111; background: #fff; color: #111; width: 68px; display: grid; place-items: center; }
+    .searchbar button:hover { background: #ecebe7; }
+    .chips { display: flex; gap: 10px; overflow-x: auto; padding: 18px 0 6px; scrollbar-width: thin; }
+    .chip { flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 999px; border: 1.5px solid #111; font-size: 16px; font-weight: 500; text-decoration: none; color: #111; background: #fff; }
+    .chip:hover { background: #ecebe7; }
+    .chip.active { background: #111; color: #fff; }
+    .browse-title { display: flex; align-items: baseline; gap: 12px; margin: 22px 0 18px; }
+    .browse-title h1 { font-size: 26px; margin: 0; }
+    .browse-title span { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 22px; }
+    .g-card { cursor: pointer; }
+    .g-img { position: relative; aspect-ratio: 4 / 4.2; border-radius: 8px; overflow: hidden; background: #eee; }
+    .g-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 250ms; }
+    .g-card:hover .g-img img { transform: scale(1.04); }
+    .g-badge { position: absolute; left: 0; bottom: 0; padding: 5px 12px; font-size: 14px; font-weight: 500; color: #fff; background: var(--c); border-top-right-radius: 6px; }
+    .g-card h3 { font-size: 19px; line-height: 1.25; margin: 10px 4px 4px; }
+    .g-card p { margin: 0 4px 6px; color: var(--ink-2); font-size: 13.5px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .empty { padding: 60px 0; text-align: center; color: var(--muted); font-size: 17px; }
+
+    /* ---------- stars ---------- */
+    .stars { display: inline-flex; gap: 1px; margin-left: 2px; }
+    .stars button { border: 0; background: none; padding: 0 1px; font-size: 18px; line-height: 1; color: #d4d0c6; }
+    .stars button.on { color: var(--star); }
+    .stars button:hover { transform: scale(1.15); }
+    .hero .stars button { font-size: 22px; color: #5a5852; }
+    .hero .stars button.on { color: var(--star); }
+
+    /* ---------- modal ---------- */
+    .modal { position: fixed; inset: 0; background: rgba(15, 15, 15, 0.72); z-index: 50; display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 40px 16px; }
+    .modal-box { position: relative; background: var(--paper); width: min(980px, 100%); border-radius: 6px; overflow: hidden; }
+    .modal-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.92); font-size: 18px; }
+    .modal-top { display: grid; grid-template-columns: 1fr 1fr; }
+    .modal-top img { width: 100%; height: 100%; max-height: 420px; object-fit: cover; }
+    .modal-head { padding: 36px 34px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+    .modal-tag { align-self: flex-start; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--green); }
+    .modal-head h2 { font-family: var(--serif); font-weight: 500; font-size: 36px; line-height: 1.15; margin: 0; }
+    .modal-head p { color: var(--ink-2); line-height: 1.6; margin: 0; }
+    .modal-cols { display: grid; grid-template-columns: 1fr 1.5fr; gap: 36px; padding: 30px 34px 40px; border-top: 1px solid var(--line); }
+    .modal-cols h3 { font-family: var(--serif); font-weight: 500; font-size: 24px; margin: 0 0 12px; color: var(--green); }
+    .modal-cols div div { line-height: 1.8; color: var(--ink-2); font-size: 15px; }
+
+    footer { background: var(--night); color: #bdb9b0; text-align: center; padding: 28px 16px; font-family: var(--serif); font-size: 16px; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 1000px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      .wrap { padding: 0 18px; }
+      .nav { gap: 16px; }
+      .nav .hide-sm { display: none; }
+      .logo { font-size: 24px; }
+      .hero { min-height: 520px; align-items: flex-end; }
+      .hero-img { inset: 0; }
+      .hero::after { background: linear-gradient(0deg, var(--night) 35%, rgba(22,22,22,0.55) 65%, rgba(22,22,22,0.1) 100%); }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+      .g-card h3 { font-size: 16px; }
+      .carousel { grid-auto-columns: 86%; }
+      .t-card { grid-template-columns: 1fr; }
+      .t-card img { height: 190px; }
+      .section-head h2 { font-size: 26px; }
+      .modal-top, .modal-cols { grid-template-columns: 1fr; }
+      .modal-head h2 { font-size: 28px; }
+    }
+  </style>
 </head>
 <body>
 
-  <section class="hero" style="background-image: url('images/Caprese%20Appetizer.png'); background-size: cover; background-position: center; background-attachment: fixed;">
-    <div class="hero-content">
-      <h1>R&amp;K Recipes</h1>
-      <p>Simple meals. Big flavor.</p>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="#/">R&amp;K Recipes<span>.</span></a>
+      <nav class="nav">
+        <a href="#/" data-nav="home">Home</a>
+        <a href="#/all" data-nav="browse" class="hide-sm">All Recipes</a>
+        <a href="#/all?search" class="search-link" aria-label="Search recipes">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <main>
-
-    <div class="filter-bar">
-      <label for="cuisine-filter">Filter by cuisine:</label>
-      <select id="cuisine-filter" onchange="filterRecipes()">
-        <option value="all">All</option>
-        <option value="american">American</option>
-        <option value="asian">Asian</option>
-        <option value="cajun">Cajun</option>
-        <option value="italian">Italian</option>
-        <option value="dessert">Dessert</option>
-        <option value="drinks">Drinks</option>
-        <option value="mexican">Mexican</option>
-        <option value="thai">Thai</option>
-      </select>
-    </div>
-
-    <div class="roulette-section">
-      <h2>🎰 Dinner Roulette</h2>
-      <p>Can't decide? Pick up to 3 cuisines and let the wheel decide!</p>
-      <div class="roulette-controls">
-        <div class="roulette-group">
-          <label for="roulette-1">Cuisine 1:</label>
-          <select id="roulette-1">
-            <option value="">None</option>
-            <option value="american">American</option>
-            <option value="asian">Asian</option>
-            <option value="cajun">Cajun</option>
-            <option value="italian">Italian</option>
-            <option value="dessert">Dessert</option>
-            <option value="drinks">Drinks</option>
-            <option value="mexican">Mexican</option>
-            <option value="thai">Thai</option>
-          </select>
-        </div>
-        <div class="roulette-group">
-          <label for="roulette-2">Cuisine 2:</label>
-          <select id="roulette-2">
-            <option value="">None</option>
-            <option value="american">American</option>
-            <option value="asian">Asian</option>
-            <option value="cajun">Cajun</option>
-            <option value="italian">Italian</option>
-            <option value="dessert">Dessert</option>
-            <option value="drinks">Drinks</option>
-            <option value="mexican">Mexican</option>
-            <option value="thai">Thai</option>
-          </select>
-        </div>
-        <div class="roulette-group">
-          <label for="roulette-3">Cuisine 3:</label>
-          <select id="roulette-3">
-            <option value="">None</option>
-            <option value="american">American</option>
-            <option value="asian">Asian</option>
-            <option value="cajun">Cajun</option>
-            <option value="italian">Italian</option>
-            <option value="dessert">Dessert</option>
-            <option value="drinks">Drinks</option>
-            <option value="mexican">Mexican</option>
-            <option value="thai">Thai</option>
-          </select>
-        </div>
-        <button id="spin-btn" onclick="spinRoulette()">🎯 Spin the Wheel</button>
+  <!-- ================= HOME ================= -->
+  <div id="view-home">
+    <section class="hero">
+      <div class="hero-img" id="heroImg"></div>
+      <div class="wrap">
+        <p class="hero-kicker">Tonight&rsquo;s Featured Dinner /</p>
+        <h1 id="heroName"></h1>
+        <p class="hero-desc" id="heroDesc"></p>
+        <div class="hero-rating"><span class="stars" id="heroStars"></span><span>Your rating</span></div>
+        <button class="btn btn-green" id="heroBtn" type="button">Get Recipe</button>
       </div>
-      <div id="roulette-result" style="display:none;">
-        <p>You should try:</p>
-        <div class="roulette-card" onclick="event.stopPropagation()">
-          <img id="roulette-img" src="" alt="Recipe" />
-          <div class="roulette-card-body">
-            <h3 id="roulette-name"></h3>
-            <p id="roulette-desc"></p>
+    </section>
+
+    <section class="categories">
+      <div class="wrap">
+        <p class="eyebrow">Browse by category</p>
+        <div class="cat-buttons" id="catButtons"></div>
+      </div>
+    </section>
+
+    <section class="trending">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Trending Tonight</h2>
+          <div class="carousel-btns">
+            <button class="btn btn-ghost" id="tPrev" type="button">Prev</button>
+            <button class="btn btn-green" id="tNext" type="button">Next</button>
           </div>
         </div>
+        <div class="carousel" id="carousel"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= CATEGORY / BROWSE ================= -->
+  <div id="view-browse" class="browse" hidden>
+    <div class="wrap">
+      <form class="searchbar" id="searchForm" role="search">
+        <input id="searchInput" type="search" placeholder="What&rsquo;s for dinner tonight?" aria-label="Search recipes" autocomplete="off" />
+        <button type="submit" aria-label="Search">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+      </form>
+      <div class="chips" id="chips"></div>
+      <div class="browse-title"><h1 id="browseTitle"></h1><span id="browseCount"></span></div>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty" hidden>No recipes match that search.</div>
+    </div>
+  </div>
+
+  <!-- ================= RECIPE POPUP ================= -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mName">
+      <button class="modal-close" id="mClose" type="button" aria-label="Close">&#10005;</button>
+      <div class="modal-top">
+        <img id="mImg" src="" alt="" />
+        <div class="modal-head">
+          <span class="modal-tag" id="mTag"></span>
+          <h2 id="mName"></h2>
+          <p id="mDesc"></p>
+          <span class="stars" id="mStars"></span>
+        </div>
+      </div>
+      <div class="modal-cols">
+        <div><h3>Ingredients</h3><div id="mIng"></div></div>
+        <div><h3>Instructions</h3><div id="mIns"></div></div>
       </div>
     </div>
+  </div>
 
-    <div class="card-grid" id="recipe-grid">
+  <footer>Made with Love, Laughter, Hunger and a glass of Whiskey.</footer>
+
+  <!--
+    RECIPE LIST. This is the same card list as the live site (hidden here).
+    To add a recipe, add a card here and a recipeData entry below, exactly as before.
+    The page builds the home page and category pages from these cards.
+  -->
+  <div id="recipe-source" hidden>
+<div class="card-grid" id="recipe-grid">
 
       <div class="card" data-cuisine="american" onclick="showRecipeDetail(this)">
         <img src="images/Chicken%20Strips.png" alt="Chicken Strips" style="cursor: pointer;" onclick="showRecipeDetail(this.parentElement)" />
@@ -1314,45 +1461,7 @@
       </div>
 
     </div>
-
-    <p class="no-results" id="no-results" style="display:none;">No recipes found for that cuisine.</p>
-
-    <div class="pagination">
-      <button id="prev-btn" onclick="prevPage()" style="display:none;">← Previous</button>
-      <span id="page-info" style="display:none; margin: 0 20px; font-weight: bold;"></span>
-      <button id="next-btn" onclick="nextPage()" style="display:none;">Next →</button>
-    </div>
-
-  </main>
-
-  <!-- Recipe Detail Modal -->
-  <div id="recipe-modal" class="recipe-modal" style="display:none;">
-    <div class="recipe-modal-content">
-      <button class="recipe-modal-close" onclick="closeRecipeDetail()">✕</button>
-      <div class="recipe-modal-body">
-        <img id="recipe-detail-img" src="" alt="Recipe" class="recipe-detail-img" />
-        <div class="recipe-detail-info">
-          <span id="recipe-detail-cuisine" class="cuisine-tag"></span>
-          <h1 id="recipe-detail-name"></h1>
-          <p id="recipe-detail-desc"></p>
-
-          <div id="recipe-detail-ingredients" style="margin-top: 25px;">
-            <h3 style="color: #d4a574; margin-bottom: 10px;">Ingredients</h3>
-            <div id="ingredients-content" style="color: #ccc; line-height: 1.8;"></div>
-          </div>
-
-          <div id="recipe-detail-instructions" style="margin-top: 25px;">
-            <h3 style="color: #d4a574; margin-bottom: 10px;">Instructions</h3>
-            <div id="instructions-content" style="color: #ccc; line-height: 1.8;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-
-  <footer>
-    <p>Made with Love, Laughter, Hunger and a glass of Whiskey.</p>
-  </footer>
 
   <script>
         const recipeData = {
@@ -1482,122 +1591,162 @@
   </script>
 
   <script>
-    // ── PAGINATION ─────────────────────────────────────────────────────────
-    var PER_PAGE = 15;
-    var currentPage = 1;
-    var visibleCards = [];
+    (function () {
+      // ---------- categories: order + chip colors ----------
+      var CATS = [
+        { id: "american", name: "American", color: "#f26b3a" },
+        { id: "asian",    name: "Asian",    color: "#c4a5ec" },
+        { id: "cajun",    name: "Cajun",    color: "#f5c242" },
+        { id: "italian",  name: "Italian",  color: "#4cc48a" },
+        { id: "mexican",  name: "Mexican",  color: "#f5a36b" },
+        { id: "thai",     name: "Thai",     color: "#45c2d9" },
+        { id: "dessert",  name: "Dessert",  color: "#f28bb5" },
+        { id: "drinks",   name: "Drinks",   color: "#7fb2f0" }
+      ];
+      var BADGE = { american: "#e0582a", asian: "#8a63c9", cajun: "#c9900f", italian: "#2c9a66", mexican: "#d9762f", thai: "#1d97ad", dessert: "#d6547f", drinks: "#3f7fd1" };
+      var catById = {}; CATS.forEach(function (c) { catById[c.id] = c; });
 
-    function getAllCards() {
-      return Array.from(document.querySelectorAll('#recipe-grid .card'));
-    }
-
-    function renderPage() {
-      var all = getAllCards();
-      var filterEl = document.getElementById('cuisine-filter');
-      var filter = filterEl ? filterEl.value : 'all';
-      visibleCards = filter === 'all' ? all : all.filter(function(c) { return c.dataset.cuisine === filter; });
-      var total = Math.ceil(visibleCards.length / PER_PAGE);
-      if (currentPage > total) currentPage = 1;
-      all.forEach(function(c) { c.style.display = 'none'; });
-      visibleCards.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE).forEach(function(c) { c.style.display = ''; });
-      var noResults = document.getElementById('no-results');
-      var prevBtn   = document.getElementById('prev-btn');
-      var nextBtn   = document.getElementById('next-btn');
-      var pageInfo  = document.getElementById('page-info');
-      if (visibleCards.length === 0) {
-        noResults.style.display = '';
-        prevBtn.style.display = nextBtn.style.display = pageInfo.style.display = 'none';
-        return;
-      }
-      noResults.style.display = 'none';
-      if (total > 1) {
-        prevBtn.style.display = nextBtn.style.display = pageInfo.style.display = 'inline-block';
-        pageInfo.textContent = 'Page ' + currentPage + ' of ' + total;
-        prevBtn.disabled = (currentPage === 1);
-        nextBtn.disabled = (currentPage === total);
-      } else {
-        prevBtn.style.display = nextBtn.style.display = pageInfo.style.display = 'none';
-      }
-    }
-
-    function filterRecipes() { currentPage = 1; renderPage(); }
-    function nextPage() { var t = Math.ceil(visibleCards.length / PER_PAGE); if (currentPage < t) { currentPage++; renderPage(); window.scrollTo(0,0); } }
-    function prevPage() { if (currentPage > 1) { currentPage--; renderPage(); window.scrollTo(0,0); } }
-
-    // ── STAR RATINGS ──────────────────────────────────────────────────────────
-    function initStars() {
-      getAllCards().forEach(function(card) {
-        var name  = card.querySelector('h2').textContent.trim();
-        var id    = 'rk_star_' + name.toLowerCase().replace(/[^a-z0-9]+/g, '_');
-        var box   = card.querySelector('.card-stars');
-        if (!box) return;
-        box.innerHTML = '';
-        var saved = parseInt(localStorage.getItem(id)) || 0;
-        for (var i = 1; i <= 5; i++) {
-          (function(val) {
-            var star = document.createElement('span');
-            star.className = 'star-dot' + (val <= saved ? ' filled' : '');
-            star.textContent = '★';
-            star.addEventListener('click', function(e) {
-              e.stopPropagation();
-              localStorage.setItem(id, val);
-              box.querySelectorAll('.star-dot').forEach(function(s, idx) {
-                s.className = 'star-dot' + (idx < val ? ' filled' : '');
-              });
-            });
-            box.appendChild(star);
-          })(i);
-        }
+      // ---------- read recipes from the hidden card list ----------
+      var RECIPES = Array.prototype.map.call(document.querySelectorAll("#recipe-source .card"), function (card, i) {
+        var img = card.querySelector("img");
+        return {
+          i: i,
+          name: card.querySelector("h2").textContent.trim(),
+          desc: (card.querySelector("p") || { textContent: "" }).textContent.trim(),
+          img: img ? img.getAttribute("src") : "",
+          cat: card.getAttribute("data-cuisine") || "",
+          tag: (card.querySelector(".cuisine-tag") || { textContent: "" }).textContent.trim()
+        };
       });
-    }
+      CATS = CATS.filter(function (c) { return RECIPES.some(function (r) { return r.cat === c.id; }); });
 
-    // ── MODAL ─────────────────────────────────────────────────────────────────
-    function showRecipeDetail(card) {
-      var name    = card.querySelector('h2').textContent.trim();
-      var desc    = card.querySelector('p').textContent.trim();
-      var img     = card.querySelector('img').src;
-      var cuisine = card.querySelector('.cuisine-tag').textContent.trim();
-      var data    = (typeof recipeData !== 'undefined' && recipeData[name]) ? recipeData[name] : {};
-      document.getElementById('recipe-detail-name').textContent    = name;
-      document.getElementById('recipe-detail-desc').textContent    = desc;
-      document.getElementById('recipe-detail-img').src             = img;
-      document.getElementById('recipe-detail-cuisine').textContent = cuisine;
-      function cleanRecipeText(s) {
-        return s.replace(/�/g, '').replace(/^\*+\s*/gm, '').replace(/\n{3,}/g, '\n\n').trim();
+      function esc(s) { return String(s).replace(/[&<>"']/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]; }); }
+      function count(cat) { return RECIPES.filter(function (r) { return r.cat === cat; }).length; }
+
+      // ---------- stars (same saved ratings as the live site) ----------
+      function starKey(name) { return "rk_star_" + name.toLowerCase().replace(/[^a-z0-9]+/g, "_"); }
+      function getStars(name) { try { return parseInt(localStorage.getItem(starKey(name)), 10) || 0; } catch (e) { return 0; } }
+      function starsHTML(name) {
+        var v = getStars(name), h = "";
+        for (var s = 1; s <= 5; s++) h += '<button type="button" data-star="' + s + '" data-name="' + esc(name) + '" class="' + (s <= v ? "on" : "") + '" aria-label="Rate ' + s + ' star' + (s > 1 ? "s" : "") + '">&#9733;</button>';
+        return h;
       }
-      document.getElementById('ingredients-content').innerHTML  = data.ingredients ? cleanRecipeText(data.ingredients).replace(/\n/g, '<br>') : '<em>Coming soon.</em>';
-      document.getElementById('instructions-content').innerHTML = data.instructions ? cleanRecipeText(data.instructions).replace(/\n/g, '<br>') : '<em>Coming soon.</em>';
-      document.getElementById('recipe-modal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeRecipeDetail() {
-      document.getElementById('recipe-modal').style.display = 'none';
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('click', function(e) {
-      if (e.target === document.getElementById('recipe-modal')) closeRecipeDetail();
-    });
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-star]");
+        if (!b) return;
+        e.stopPropagation();
+        var name = b.getAttribute("data-name"), val = +b.getAttribute("data-star");
+        try { localStorage.setItem(starKey(name), val); } catch (err) {}
+        document.querySelectorAll('[data-star][data-name="' + CSS.escape(name) + '"]').forEach(function (x) {
+          x.classList.toggle("on", +x.getAttribute("data-star") <= val);
+        });
+      }, true);
 
-    // ── ROULETTE ──────────────────────────────────────────────────────────────
-    function spinRoulette() {
-      var cuisines = ['roulette-1','roulette-2','roulette-3'].map(function(id){ return document.getElementById(id).value; }).filter(Boolean);
-      if (!cuisines.length) { alert('Please select at least one cuisine!'); return; }
-      var pool = getAllCards().filter(function(c){ return cuisines.indexOf(c.dataset.cuisine) !== -1; });
-      if (!pool.length) { alert('No recipes found!'); return; }
-      var pick = pool[Math.floor(Math.random() * pool.length)];
-      document.getElementById('roulette-img').src          = pick.querySelector('img').src;
-      document.getElementById('roulette-name').textContent  = pick.querySelector('h2').textContent;
-      document.getElementById('roulette-desc').textContent  = pick.querySelector('p').textContent;
-      var r = document.getElementById('roulette-result');
-      r.style.display = 'block';
-      r.scrollIntoView({ behavior: 'smooth' });
-    }
+      // ---------- popup ----------
+      var modal = document.getElementById("modal");
+      function clean(s) { return s.replace(/�/g, "").replace(/^\*+\s*/gm, "").replace(/\n{3,}/g, "\n\n").trim(); }
+      function openRecipe(r) {
+        var d = (typeof recipeData !== "undefined" && recipeData[r.name]) ? recipeData[r.name] : {};
+        document.getElementById("mImg").src = r.img;
+        document.getElementById("mImg").alt = r.name;
+        document.getElementById("mTag").textContent = r.tag;
+        document.getElementById("mName").textContent = r.name;
+        document.getElementById("mDesc").textContent = r.desc;
+        document.getElementById("mStars").innerHTML = starsHTML(r.name);
+        document.getElementById("mIng").innerHTML = d.ingredients ? esc(clean(d.ingredients)).replace(/\n/g, "<br>") : "<em>Coming soon.</em>";
+        document.getElementById("mIns").innerHTML = d.instructions ? esc(clean(d.instructions)).replace(/\n/g, "<br>") : "<em>Coming soon.</em>";
+        modal.hidden = false;
+        modal.scrollTop = 0;
+        document.body.style.overflow = "hidden";
+      }
+      function closeRecipe() { modal.hidden = true; document.body.style.overflow = ""; }
+      document.getElementById("mClose").addEventListener("click", closeRecipe);
+      modal.addEventListener("click", function (e) { if (e.target === modal) closeRecipe(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeRecipe(); });
+      document.addEventListener("click", function (e) {
+        var el = e.target.closest("[data-open]");
+        if (el && !e.target.closest("[data-star]")) openRecipe(RECIPES[+el.getAttribute("data-open")]);
+      });
 
-    // ── INIT ──────────────────────────────────────────────────────────────────
-    document.getElementById('cuisine-filter').value = 'all';
-    initStars();
-    renderPage();
+      // ---------- home ----------
+      var dinners = RECIPES.filter(function (r) { return r.cat !== "dessert" && r.cat !== "drinks" && r.img; });
+      var featured = dinners[Math.floor(Math.random() * dinners.length)];
+      document.getElementById("heroImg").style.backgroundImage = 'url("' + featured.img.replace(/"/g, "%22") + '")';
+      document.getElementById("heroName").textContent = featured.name;
+      document.getElementById("heroDesc").textContent = featured.desc;
+      document.getElementById("heroStars").innerHTML = starsHTML(featured.name);
+      document.getElementById("heroBtn").setAttribute("data-open", featured.i);
+
+      document.getElementById("catButtons").innerHTML = CATS.map(function (c) {
+        var n = count(c.id);
+        return '<a class="cat-btn" href="#/' + c.id + '">' + c.name + ' <small>' + n + '</small></a>';
+      }).join("");
+
+      var newest = RECIPES.slice(-10).reverse();
+      var carousel = document.getElementById("carousel");
+      carousel.innerHTML = newest.map(function (r) {
+        return '<article class="t-card" data-open="' + r.i + '"><img src="' + esc(r.img) + '" alt="' + esc(r.name) + '" loading="lazy" />' +
+          '<div class="t-card-body"><h3>' + esc(r.name) + '</h3><button class="btn btn-green" type="button">Get Recipe</button></div></article>';
+      }).join("");
+      function step() { var c = carousel.querySelector(".t-card"); return c ? c.getBoundingClientRect().width + 20 : 400; }
+      document.getElementById("tNext").addEventListener("click", function () {
+        var atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+        carousel.scrollBy({ left: atEnd ? -carousel.scrollWidth : step() });
+      });
+      document.getElementById("tPrev").addEventListener("click", function () { carousel.scrollBy({ left: -step() }); });
+
+      // ---------- browse / category pages ----------
+      var input = document.getElementById("searchInput");
+      function renderBrowse(cat, q) {
+        document.getElementById("chips").innerHTML =
+          '<a class="chip' + (cat === "all" ? " active" : "") + '" href="#/all" style="--c:#e9e6df">All</a>' +
+          CATS.map(function (c) { return '<a class="chip' + (c.id === cat ? " active" : "") + '" href="#/' + c.id + '" style="--c:' + c.color + '">' + c.name + '</a>'; }).join("");
+        var words = (q || "").toLowerCase().split(/\s+/).filter(Boolean);
+        var list = RECIPES.filter(function (r) {
+          if (cat !== "all" && r.cat !== cat) return false;
+          var hay = (r.name + " " + r.desc + " " + r.tag).toLowerCase();
+          return words.every(function (w) { return hay.indexOf(w) !== -1; });
+        });
+        var title = cat === "all" ? "All Recipes" : (catById[cat] ? catById[cat].name : "Recipes");
+        if (words.length) title = '"' + q.trim() + '"' + (cat === "all" ? "" : " in " + title);
+        document.getElementById("browseTitle").textContent = title;
+        document.getElementById("browseCount").textContent = list.length + " recipe" + (list.length === 1 ? "" : "s");
+        document.getElementById("empty").hidden = list.length > 0;
+        document.getElementById("grid").innerHTML = list.map(function (r) {
+          return '<article class="g-card" data-open="' + r.i + '" style="--c:' + (BADGE[r.cat] || "#555") + '">' +
+            '<div class="g-img"><img src="' + esc(r.img) + '" alt="' + esc(r.name) + '" loading="lazy" /><span class="g-badge">' + esc(r.tag) + '</span></div>' +
+            '<h3>' + esc(r.name) + '</h3><p>' + esc(r.desc) + '</p><span class="stars">' + starsHTML(r.name) + '</span></article>';
+        }).join("");
+      }
+      var currentCat = "all";
+      document.getElementById("searchForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        renderBrowse(currentCat, input.value);
+      });
+      input.addEventListener("input", function () { renderBrowse(currentCat, input.value); });
+
+      // ---------- simple page switching (#/ = home, #/italian = category) ----------
+      function route() {
+        var h = location.hash.replace(/^#\/?/, "");
+        var focusSearch = /\?search$/.test(h);
+        h = h.replace(/\?.*$/, "");
+        var isHome = !h;
+        if (!modal.hidden) closeRecipe();
+        document.getElementById("view-home").hidden = !isHome;
+        document.getElementById("view-browse").hidden = isHome;
+        document.querySelectorAll("[data-nav]").forEach(function (a) {
+          a.classList.toggle("active", a.getAttribute("data-nav") === (isHome ? "home" : "browse"));
+        });
+        if (!isHome) {
+          currentCat = (h === "all" || catById[h]) ? h : "all";
+          renderBrowse(currentCat, input.value);
+          if (focusSearch) input.focus();
+        }
+        window.scrollTo(0, 0);
+      }
+      addEventListener("hashchange", route);
+      route();
+    })();
   </script>
-
 </body>
 </html>

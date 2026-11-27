@@ -36,14 +36,6 @@ jobs:
             exit 1
           fi
 
-      - name: Check pagination settings
-        run: |
-          if grep -q "const RECIPES_PER_PAGE = 15" index.html; then
-            echo "✅ Pagination is set to 15 recipes per page"
-          else
-            echo "⚠️  WARNING: Pagination setting not found, check if this is intentional"
-          fi
-
       - name: Verify CNAME
         run: |
           if [ -f CNAME ]; then
